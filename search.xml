@@ -12,7 +12,7 @@
   <entry>
     <title><![CDATA[hexo上传图片]]></title>
     <url>%2F2019%2F03%2F10%2Fhexo%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%2F</url>
-    <content type="text"><![CDATA[如何上传本地图片1 把主页配置文件_config.yml 里的post_asset_folder:这个选项设置为true2 在hexo目录下执行 npm install hexo-asset-image –save安装一个可以上传本地图片的插件3 等待一小段时间后，再运行hexo n “xxxx”来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还会生成一个同名的文件夹4 最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片：![你想输入的替代文字](xxxx/图片名.jpg) 如何上传在线图片1 选择图床，如https://sm.ms/2 上传图片后就能直接生成带有链接的图片代码为[![鸟2.jpg](https://i.loli.net/2019/03/18/5c8f7ed81bffd.jpg)](https://i.loli.net/2019/03/18/5c8f7ed81bffd.jpg)]]></content>
+    <content type="text"><![CDATA[如何上传本地图片1 把主页配置文件_config.yml 里的post_asset_folder:这个选项设置为true2 在hexo目录下执行 npm install hexo-asset-image –save安装一个可以上传本地图片的插件3 等待一小段时间后，再运行hexo n “xxxx”来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还会生成一个同名的文件夹4 最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片：![你想输入的替代文字](xxxx/图片名.jpg) 如何上传在线图片1 选择图床，如https://sm.ms/2 上传图片后就能直接生成带有链接的图片 代码为1[![鸟2.jpg](https://i.loli.net/2019/03/18/5c8f7ed81bffd.jpg)](https://i.loli.net/2019/03/18/5c8f7ed81bffd.jpg)]]></content>
       <tags>
         <tag>hexo</tag>
         <tag>Saito Asuka</tag>
