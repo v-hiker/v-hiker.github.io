@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[纪念第一次用python]]></title>
+    <url>%2F2019%2F03%2F18%2F%E7%BA%AA%E5%BF%B5%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%94%A8python%2F</url>
+    <content type="text"><![CDATA[用python3爬取百度贴吧图片1 寻找想要爬取图片的网页，如http://tieba.baidu.com/p/60273185722 查看网页源代码 3 放代码1234567891011121314151617181920212223242526272829303132333435363738# coding:utf-8import urllib.requestimport reimport osdef get_html(url): page = urllib.request.urlopen(url) html = page.read() return htmld = os.getcwd()p = "\\pic"isExists = os.path.exists(d+p)if not isExists: os.mkdir(d+p) print("创建文件夹成功")else: print("文件夹已存在") imgName = 0for i in range(3): html = get_html("http://tieba.baidu.com/p/6027318572?see_lz=1&amp;pn="+str(i+1)) html = html.decode('utf-8') reg = r'img class="BDE_Image" src="(.+?\.jpg)" size' reg_img = re.compile(reg) imglist = re.findall(reg_img, html) for imgPath in imglist: print(imgPath) f = open("pic/"+str(imgName)+".jpg", 'wb') f.write((urllib.request.urlopen(imgPath)).read()) f.close() imgName += 1print(str(imgName)+" img have been saved in pic")print("All Done!") 4 最终效果 附 半自动实现爬取图片，需要手输入链接及页数12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758# coding:utf-8# coding:utf-8import urllib.requestimport redef mkdir(): import os path = os.getcwd() LocalPath = input("Enter folder name to save pics(in now path): "); path = path+"\\"+LocalPath isExists=os.path.exists(path) if not isExists: # 如果不存在则创建目录 # 创建目录操作函数 os.makedirs(path) print (path+" 创建成功") else: # 如果目录存在则不创建，并提示目录已存在 print (path+" 已存在") return LocalPathLocalPath = mkdir()def get_html(url): page = urllib.request.urlopen(url) html = page.read() return htmldef get_url(): url = input("输入想要获取源码的网页链接: "); url = url+'?see_lz=' OrLz = input("只看楼主？(0否/1是): "); OrLz = str(OrLz) url = url+OrLz print(url) return urlurl = get_url()page = input("输入页数:");page = int(page)imgName = 0for i in range(page): url = url+'&amp;pn='+str(i+1) print(url) html = get_html(url) html = html.decode('utf-8') reg = r'img class="BDE_Image" src="(.+?\.jpg)"' #正则表达式可能会有所改变 reg_img = re.compile(reg) imglist = re.findall(reg_img, html) for imgPath in imglist: print(imgPath) f = open(LocalPath+"/"+str(imgName)+".jpg", 'wb') f.write((urllib.request.urlopen(imgPath)).read()) f.close() imgName += 1 print(str(imgName)+" imgs have been saved in "+LocalPath)]]></content>
+      <tags>
+        <tag>Saito Asuka</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo上传图片]]></title>
+    <url>%2F2019%2F03%2F10%2Fhexo%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%2F</url>
+    <content type="text"><![CDATA[如何上传本地图片1 把主页配置文件_config.yml 里的post_asset_folder:这个选项设置为true2 在hexo目录下执行 npm install hexo-asset-image –save安装一个可以上传本地图片的插件3 等待一小段时间后，再运行hexo n “xxxx”来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还会生成一个同名的文件夹4 最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片：![你想输入的替代文字](xxxx/图片名.jpg) 如何上传在线图片1 选择图床，如https://sm.ms/2 上传图片后就能直接生成带有链接的图片代码为[![鸟2.jpg](https://i.loli.net/2019/03/18/5c8f7ed81bffd.jpg)](https://i.loli.net/2019/03/18/5c8f7ed81bffd.jpg)]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>Saito Asuka</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo 使用]]></title>
+    <url>%2F2019%2F03%2F10%2FHexo-%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[hexo new “postName” #新建文章hexo new page “pageName” #新建页面hexo generate #生成静态页面至public目录hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）hexo deploy #部署到GitHubhexo help # 查看帮助hexo version #查看Hexo的版本 删除文章直接本地删除md文件，然后执行hexo clean 使用时只需如 hexo g 一样写出首字母就行 hexo s -g #生成并本地预览hexo d -g #生成并上传 设置文章摘要的长度:在合适的位置加上&lt;!--more--&gt;即可]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Saito Asuka]]></title>
+    <url>%2F2019%2F03%2F10%2FSaito-Asuka%2F</url>
+    <content type="text"><![CDATA[齋藤飛鳥だいすき]]></content>
+      <tags>
+        <tag>Saito Asuka</tag>
+      </tags>
+  </entry>
+</search>
