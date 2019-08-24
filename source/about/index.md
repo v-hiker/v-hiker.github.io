@@ -7,7 +7,7 @@ comments: false
 
 #### 喜欢的人是[Saito Asuka](https://baike.baidu.com/item/%E6%96%8B%E8%97%A4%E9%A3%9E%E9%B8%9F/8746687?fr=aladdin "Saito Asuka")
 
-mailto: v_hiker@qq.com
+#### mailto: v_hiker@qq.com
 
 喜欢看沙雕、恋爱喜剧和治愈动画，有很多都想推荐啊，《齐木楠雄的灾难》、《超能力女儿》、《在下坂本，有何贵干》、《辉夜大小姐想让我告白》、《千绪的上学路》、《男子高中生的日常》、《女子高中生的虚度日常》、《刺客伍六七》、《小魔女学园》、《暖暖日记》、《少女终末旅行》......
 

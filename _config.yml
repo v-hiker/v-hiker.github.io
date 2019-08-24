@@ -15,7 +15,7 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://yoursite.com
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :title/
 permalink_defaults:
 
 # Directory
@@ -82,9 +82,21 @@ search:
   limit: 10000
   
   
+google_site_verification: YNYcpRm3a-QQ2xRTNTpx7NlNTxdaDR3Jl0QgH0A9wWc
+baidu_site_verification: cCFNWaJETa
+
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
+
+  
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
   repository: git@github.com:v-hiker/v-hiker.github.io.git
   branch: master
+  
+  
+  
