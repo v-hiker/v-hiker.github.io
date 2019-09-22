@@ -71,7 +71,7 @@ $ git config --global user.email "wangyanas@outlook.com"
 
 ### 5.初始化仓库
 
-`npm install hexo-cli -g`、`npm install hexo-generator-search --save`、`npm install`、`npm install hexo-deployer-git`
+`npm install hexo-cli -g`、`npm install hexo-generator-search --save`、`npm install hexo-generator-searchdb --save`、`npm install`、`npm install hexo-deployer-git`
 
 为了打开gittalk初始化，还需要安装以下模块
 
