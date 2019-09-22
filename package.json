@@ -30,6 +30,7 @@
   },
   "scripts": {
     "start": "hexo clean && hexo s",
-    "deploy": "hexo clean && hexo generate && hexo deploy && node ./comment.js"
+    "deploy": "hexo clean && hexo generate && hexo deploy && node ./comment.js",
+	"git": "git add . && git commit -m 'nothing-to-do' && git push origin hexo"
   }
 }
