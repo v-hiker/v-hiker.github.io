@@ -650,7 +650,7 @@ changyan:
 # You can get your appid and appkey from https://leancloud.cn
 # For more information: https://valine.js.org, https://github.com/xCss/Valine
 valine:
-  enable: true
+  enable: false
   # When enable is set to be true, leancloud_visitors is recommended to be closed for the re-initialization problem within different leancloud adk version.
   appid: KahGqQeHD0VWghEeaCkyC1X7-gzGzoHsz
   # your leancloud application appid
@@ -684,13 +684,19 @@ livere_uid: # <your_uid>
 # Demo: https://gitalk.github.io
 # For more information: https://github.com/gitalk/gitalk
 gitalk:
-  enable: false
-  github_id: # GitHub repo owner
-  repo: # Repository name to store issues
-  client_id: # GitHub Application Client ID
-  client_secret: # GitHub Application Client Secret
-  admin_user: # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
-  distraction_free_mode: true # Facebook-like distraction free mode
+  enable: true
+  github_id: v-hiker
+  # GitHub repo owner
+  repo: hexo-comments
+  # Repository name to store issues
+  client_id: 0fa60e08b132e84219d2
+  # GitHub Application Client ID
+  client_secret: 4e6014ded2521ed5597f48cafe0c0eadf1a492cb
+  # GitHub Application Client Secret
+  admin_user: v-hiker
+  # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
+  distraction_free_mode: true 
+  # Facebook-like distraction free mode
   # Gitalk's display language depends on user's browser or system environment
   # If you want everyone visiting your site to see a uniform language, you can set a force language value
   # Available values: en | es-ES | fr | ru | zh-CN | zh-TW

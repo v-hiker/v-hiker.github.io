@@ -6,6 +6,7 @@
     "version": "3.9.0"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "eslint": "^6.2.2",
     "hexo": "^3.8.0",
     "hexo-deployer-git": "^1.0.0",
@@ -20,6 +21,15 @@
     "hexo-renderer-ejs": "^0.3.1",
     "hexo-renderer-marked": "^2.0.0",
     "hexo-renderer-stylus": "^0.3.3",
-    "hexo-server": "^0.3.3"
+    "hexo-server": "^0.3.3",
+    "md5-node": "^1.0.1",
+    "request": "^2.88.0",
+    "sitemapper": "^2.2.0",
+    "xml-parser": "^1.2.1",
+    "yamljs": "^0.3.0"
+  },
+  "scripts": {
+    "start": "hexo clean && hexo s",
+    "deploy": "hexo clean && hexo generate && hexo deploy && node ./comment.js"
   }
 }

@@ -71,7 +71,24 @@ $ git config --global user.email "wangyanas@outlook.com"
 
 ### 5.初始化仓库
 
-`npm install hexo-cli -g`、`npm install`、`npm install hexo-deployer-git`
+`npm install hexo-cli -g`、`npm install hexo-generator-search --save`、`npm install`、`npm install hexo-deployer-git`
+
+为了打开gittalk初始化，还需要安装以下模块
+
+```
+npm install request --save
+npm install xml-parser --save
+npm install yamljs --save
+npm install cheerio --save
+```
+
+具体参见
+
+> [nodejs版本的Gitalk/Gitment评论自动初始化](https://blog.csdn.net/daihaoxin/article/details/84958369)
+
+我试了一下发现不行，找了半天得出的结论是生成的lable值不正确，但是光靠分析网络请求我没有发现lable值的生成方法，所以暂时不了了之
+
+
 
 ### 备注
 
