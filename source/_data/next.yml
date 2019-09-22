@@ -17,7 +17,7 @@ cache:
   enable: true
 
 # Remove unnecessary files after hexo generate.
-minify: false
+minify: true
 
 # Define custom file paths.
 # Create your custom files in site directory `source/_data` and uncomment needed files below.
@@ -100,7 +100,7 @@ creative_commons:
   license: by-nc-sa
   sidebar: false
   post: false
-  language: zh-CN
+  language:
 
 
 # ---------------------------------------------------------------
@@ -127,7 +127,7 @@ exturl: false
 
 # Google Webmaster tools verification.
 # See: https://www.google.com/webmasters
-google_site_verification: YNYcpRm3a-QQ2xRTNTpx7NlNTxdaDR3Jl0QgH0A9wWc
+google_site_verification:
 
 # Bing Webmaster tools verification.
 # See: https://www.bing.com/webmaster
@@ -139,7 +139,7 @@ yandex_site_verification:
 
 # Baidu Webmaster tools verification.
 # See: https://ziyuan.baidu.com/site
-baidu_site_verification: cCFNWaJETa
+baidu_site_verification:
 
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO.
 baidu_push: true
@@ -427,20 +427,20 @@ codeblock:
   copy_button:
     enable: true
     # Show text copy result.
-    show_result: false
+    show_result: true
     # Available values: default | flat | mac
-    style:
+    style: default
 
 back2top:
   enable: true
   # Back to top in sidebar.
   sidebar: false
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  scrollpercent: true
 
 # Reading progress bar
 reading_progress:
-  enable: false
+  enable: true
   # Available values: top | bottom
   position: top
   color: "#37c6c0"
@@ -448,7 +448,7 @@ reading_progress:
 
 # Bookmark Support
 bookmark:
-  enable: false
+  enable: true
   # Customize the color of the bookmark.
   color: "#222"
   # If auto, save the reading progress when closing the page or clicking the bookmark-icon.
@@ -619,7 +619,7 @@ comments:
 # Disqus
 disqus:
   enable: false
-  shortname: v-hiker
+  shortname:
   count: true
   lazyload: false
   #post_meta_order: 0
@@ -656,15 +656,24 @@ valine:
   # your leancloud application appid
   appkey: JNGnsGHO3oqW3BtN6REyAS0H
   # your leancloud application appkey
-  notify: false # mail notifier, See: https://github.com/xCss/Valine/wiki
-  verify: false # Verification code
-  placeholder: Just go go # comment box placeholder
-  avatar: mm # gravatar style
-  guest_info: nick,mail,link # custom comment header
-  pageSize: 10 # pagination size
-  language: # language, available values: en, zh-cn
-  visitor: true # leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors' for counter compatibility. Article reading statistic https://valine.js.org/visitor.html
-  comment_count: true # if false, comment count will only be displayed in post page, not in home page
+  notify: false 
+  # mail notifier, See: https://github.com/xCss/Valine/wiki
+  verify: false 
+  # Verification code
+  placeholder: Just go go 
+  # comment box placeholder
+  avatar: mm 
+  # gravatar style
+  guest_info: nick,mail 
+  # custom comment header
+  pageSize: 10 
+  # pagination size
+  language: zh-cn
+  # language, available values: en, zh-cn
+  visitor: true 
+  # leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors' for counter compatibility. Article reading statistic https://valine.js.org/visitor.html
+  comment_count: true 
+  # if false, comment count will only be displayed in post page, not in home page
   #post_meta_order: 0
 
 # LiveRe comments system
@@ -789,7 +798,8 @@ busuanzi_count:
   post_views_icon: eye
 
 # Tencent analytics
-tencent_analytics: # <app_id>
+tencent_analytics: 66197990
+# <app_id>
 
 # Tencent MTA
 tencent_mta: # <app_id>
@@ -814,7 +824,7 @@ algolia_search:
 # Local Search
 # Dependencies: https://github.com/wzpan/hexo-generator-search
 local_search:
-  enable: false
+  enable: true
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
   trigger: auto
@@ -823,7 +833,7 @@ local_search:
   # Unescape html strings to the readable one.
   unescape: false
   # Preload the search data when the page loads.
-  preload: false
+  preload: true
 
 # Swiftype Search API Key
 swiftype_key:
