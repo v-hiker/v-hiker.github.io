@@ -1,5 +1,6 @@
 # hexo robots.txt
 User-agent: *
+Allow: /index.html
 Allow: /
 Allow: /archives/
 Allow: /tags/
@@ -8,5 +9,6 @@ Allow: /about/
 Disallow: /js/
 Disallow: /css/
 Disallow: /lib/
+
 Sitemap: https://v-hiker.tk/sitemap.xml
 Sitemap: https://v-hiker.tk/baidusitemap.xml

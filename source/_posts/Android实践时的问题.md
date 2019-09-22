@@ -1,5 +1,6 @@
 ---
 title: Android实践时的问题
+urlname: android-problems-in-practice
 date: 2019-05-18 22:03:50
 tags: [Android]
 ---

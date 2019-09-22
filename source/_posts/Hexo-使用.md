@@ -1,5 +1,6 @@
 ---
-title: Hexo 使用
+title: Hexo使用
+urlname: hexo-use
 date: 2019-03-10 15:22:29
 tags: [hexo]
 ---

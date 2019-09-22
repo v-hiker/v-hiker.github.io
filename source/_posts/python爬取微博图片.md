@@ -1,5 +1,6 @@
 ---
 title: python爬取微博图片
+urlname: python-get-weibo-pic
 date: 2019-03-20 22:52:33
 tags: [python]
 ---

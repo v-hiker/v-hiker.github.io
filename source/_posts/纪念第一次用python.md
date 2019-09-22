@@ -1,5 +1,6 @@
 ---
 title: 纪念第一次用python
+urlname: first-use-of-python
 date: 2019-03-18 23:12:13
 tags: [python,Saito Asuka]
 ---

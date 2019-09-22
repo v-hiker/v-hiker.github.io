@@ -1,5 +1,6 @@
 ---
 title: hexo上传图片
+urlname: hexo-upload-pic
 date: 2019-03-10 17:23:39
 tags: [hexo,Saito Asuka]
 ---
