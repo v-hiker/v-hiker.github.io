@@ -92,7 +92,7 @@ npm install cheerio --save
 
 ### 备注
 
-一、安装好git第一次执行hexo d可能出现的问题：
+#### 一、安装好git第一次执行hexo d可能出现的问题：
 
 ```
 The authenticity of host 'github.com (52.74.223.119)' can't be established.
@@ -102,7 +102,11 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 
 这个时候输入yes并回车，就会在.ssh文件生成known_hosts，即可正常使用
 
-二、每次执行hexo 的都会提示输入密钥的密码`Enter passphrase for key '/c/Users/wangy/.ssh/id_rsa':`，解决办法为：
+#### 二、每次执行hexo命令都会提示输入密钥的密码
+
+`Enter passphrase for key '/c/Users/wangy/.ssh/id_rsa':`
+
+解决办法为：
 
 1.`ssh-agent bash`
 
@@ -110,7 +114,46 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 
 2.输入密码回车，之后就好了
 
+更新：以上方法**根本不济事**，重启后还是要输入密码！！！
 
+重新搜索之后以下方法可以使用：
+
+> ————————————————
+> 版权声明：本文为CSDN博主「前端李大人」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+> 原文链接：https://blog.csdn.net/u014789022/article/details/94739062
+> 原文标题：解决git的Enter passphrase for key '/c/Users/Administrator/.ssh/id_rsa'问题
+
+1.打开git的bash命令，输入`vi ~/.profile`
+
+2.复制以下内容
+
+```shell
+env=~/.ssh/agent.env
+ 
+agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
+ 
+agent_start () {
+    (umask 077; ssh-agent >| "$env")
+    . "$env" >| /dev/null ; }
+ 
+agent_load_env
+ 
+# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running
+agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+ 
+if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+    agent_start
+    ssh-add
+elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+    ssh-add
+fi
+ 
+unset env
+```
+
+3.之后再次进入bash会提示输入密码，输入过后应该就好了
+
+更新：**依然不行**，ε=(´ο｀*)))唉
 
 ## hexo命令
 
