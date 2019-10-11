@@ -116,7 +116,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 
 更新：以上方法**根本不济事**，重启后还是要输入密码！！！
 
-重新搜索之后以下方法可以使用：
+重新搜索之后得到以下方法：
 
 > ————————————————
 > 版权声明：本文为CSDN博主「前端李大人」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
@@ -154,6 +154,29 @@ unset env
 3.之后再次进入bash会提示输入密码，输入过后应该就好了
 
 更新：**依然不行**，ε=(´ο｀*)))唉
+
+更新：找到原因了，因为创建ssh-key的时候我输入了创建密码，才导致每次重启机器都会需要重新输入密码，解决办法为重新创建一个没有密码的ssh-key，使用以下命令：
+
+```shell
+ssh-keygen -t rsa -b 4096 -C "wangyanas@outlook.com"
+```
+
+*命令详解参照[学会与计算机对话：ssh-keygen -t rsa -b 4096 -C "邮箱"](https://www.jianshu.com/p/d863d4e8f308)*
+
+页面如下提示：
+
+```shell
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/wangy/.ssh/id_rsa):	#回车
+/c/Users/wangy/.ssh/id_rsa already exists.
+Overwrite (y/n)? y	#这里要输入y才行
+Enter passphrase (empty for no passphrase):	#不输
+Enter same passphrase again:	#不输
+Your identification has been saved in /c/Users/wangy/.ssh/id_rsa.
+Your public key has been saved in /c/Users/wangy/.ssh/id_rsa.pub.
+```
+
+key就重新生成好了，然后去github重新添加就行了。
 
 ## hexo命令
 
