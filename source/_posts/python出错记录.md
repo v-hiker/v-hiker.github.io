@@ -7,6 +7,8 @@ tags: [python]
 
 ##### pycharm中升级pip出错，‘NoneType' object has no attribute 'bytes'
 
+<!--more-->
+
 使用`easy_install -U pip`安装而不是`python -m pip install --upgrade pip`
 
 ##### Do you need to install a parser library?

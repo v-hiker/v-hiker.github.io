@@ -77,12 +77,11 @@ pagination_dir: page
 Plugins:
 - hexo-generator-baidu-sitemap
 - hexo-generator-sitemap
-- hexo-generator-search
 
 theme: next
 
 search:
-  path: ./search.xml
+  path: search.xml
   field: post
   format: html
   limit: 10000
