@@ -81,3 +81,5 @@ For this reason, future Maven versions might no longer support building such mal
 因为我在不需要传值的方法中写了consumes
 
 `@GetMapping(path = "/postsinfo/getallposts",consumes = "application/json;charset=UTF-8")`
+
+##### MyBatis排序时使用order by 动态参数时需要注意，用$而不是#
