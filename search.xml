@@ -419,8 +419,8 @@
 <p>代码为</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">![name.jpg</span>](<span class="link">https://i.loli.net/2019/03/18/5c8f7ed81bffd.jpg</span>)](<span class="link">https://i.loli.net/2019/03/18/5c8f7ed81bffd.jpg</span>)</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>Saito Asuka</tag>
         <tag>hexo</tag>
+        <tag>Saito Asuka</tag>
       </tags>
   </entry>
   <entry>
@@ -488,8 +488,8 @@
 <p>设置文章摘要的长度:在合适的位置加上<code>&lt;!--more--&gt;</code>即可</p>
 ]]></content>
       <tags>
-        <tag>git</tag>
         <tag>hexo</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
