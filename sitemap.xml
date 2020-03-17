@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://v-hiker.tk/tag-plugins-test/</loc>
+    
+    <lastmod>2020-03-17T16:43:50.192Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://v-hiker.tk/spring-error-record/</loc>
     
     <lastmod>2020-03-16T05:57:08.504Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://v-hiker.tk/hexo-upload-pic/</loc>
     
     <lastmod>2020-03-16T05:56:41.966Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://v-hiker.tk/tag-plugins-test/</loc>
-    
-    <lastmod>2020-03-16T05:56:22.726Z</lastmod>
     
   </url>
   
