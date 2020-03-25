@@ -25,18 +25,24 @@
     var CONFIG = {"hostname":"v-hiker.tk","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","width":240,"display":"post","offset":12,"onmobile":false,"padding":18},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"nav":null,"lazyload":false},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一个小站">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一个小站">
-<meta property="og:url" content="https://v-hiker.tk/archives/2019/10/">
+  <meta name="description" content="进入服务器，下载jenkins并安装官方源用着实在是太慢了，这里我们使用清华大学的开源镜像站，选择一个版本，服务器中输入wget 版本链接， 输入rpm -ivh 文件进行安装，vim &#x2F;etc&#x2F;sysconfig&#x2F;jenkins修改端口以免冲突; 查看jdk地址，修改jenkins配置，vim &#x2F;etc&#x2F;init.d&#x2F;jenkins  先service jenkins start，在浏览器打">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿里云centos6搭建jenkins">
+<meta property="og:url" content="https://v-hiker.tk/aliyun-centos-jenkins/">
 <meta property="og:site_name" content="一个小站">
-<meta property="og:description" content="一个小站">
+<meta property="og:description" content="进入服务器，下载jenkins并安装官方源用着实在是太慢了，这里我们使用清华大学的开源镜像站，选择一个版本，服务器中输入wget 版本链接， 输入rpm -ivh 文件进行安装，vim &#x2F;etc&#x2F;sysconfig&#x2F;jenkins修改端口以免冲突; 查看jdk地址，修改jenkins配置，vim &#x2F;etc&#x2F;init.d&#x2F;jenkins  先service jenkins start，在浏览器打">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/jenkins-java.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/20200323021031.png">
+<meta property="article:published_time" content="2020-03-22T12:15:14.000Z">
+<meta property="article:modified_time" content="2020-03-22T18:11:00.216Z">
 <meta property="article:author" content="v_hiker">
-<meta property="article:tag" content="个人博客">
+<meta property="article:tag" content="jenkins">
+<meta property="article:tag" content="cent os">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/jenkins-java.png">
 
-<link rel="canonical" href="https://v-hiker.tk/archives/2019/10/">
+<link rel="canonical" href="https://v-hiker.tk/aliyun-centos-jenkins/">
 
 
 <script id="page-configurations">
@@ -44,11 +50,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>归档 | 一个小站</title>
+  <title>阿里云centos6搭建jenkins | 一个小站</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160689296-1"></script>
     <script>
@@ -197,93 +203,165 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 19 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://v-hiker.tk/aliyun-centos-jenkins/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/v.jpg">
+      <meta itemprop="name" content="v_hiker">
+      <meta itemprop="description" content="一个小站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          阿里云centos6搭建jenkins
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-22 20:15:14" itemprop="dateCreated datePublished" datetime="2020-03-22T20:15:14+08:00">2020-03-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-23 02:11:00" itemprop="dateModified" datetime="2020-03-23T02:11:00+08:00">2020-03-23</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h2 class="collection-header">2019</h2>
+        <a id="more"></a>
+
+<h4 id="进入服务器，下载jenkins并安装"><a href="#进入服务器，下载jenkins并安装" class="headerlink" title="进入服务器，下载jenkins并安装"></a>进入服务器，下载jenkins并安装</h4><p><a href="https://pkg.jenkins.io/redhat-stable/" target="_blank" rel="noopener">官方源</a>用着实在是太慢了，这里我们使用清华大学的<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat/" target="_blank" rel="noopener">开源镜像站</a>，选择一个版本，服务器中输入<code>wget 版本链接</code>，</p>
+<p>输入<code>rpm -ivh 文件</code>进行安装，<code>vim /etc/sysconfig/jenkins</code>修改端口以免冲突;</p>
+<p><a href="https://blog.csdn.net/qq_42109746/article/details/98199275" target="_blank" rel="noopener">查看jdk地址</a>，修改jenkins配置，<code>vim /etc/init.d/jenkins</code></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/jenkins-java.png" alt="jenkins-java"></p>
+<p>先<code>service jenkins start</code>，在浏览器打开ip:端口让jenkins加载必要的文件。</p>
+<div class="note warning">
+            <p>下面部分如不更改，插件将很难成功下载*</p>
+          </div>
+
+<p>输入<code>vi /var/lib/jenkins/updates/default.json</code>后参照<a href="https://www.cnblogs.com/hellxz/p/jenkins_install_plugins_faster.html" target="_blank" rel="noopener">Jenkins安装插件提速</a>进行修改，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:1,<span class="variable">$s</span>/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:1,<span class="variable">$s</span>/http:\/\/www.google.com/https:\/\/www.baidu.com/g</span><br></pre></td></tr></table></figure>
+
+<p>或者进入目录下，在终端直接输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">'s/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g'</span> default.json &amp;&amp; sed -i <span class="string">'s/http:\/\/www.google.com/https:\/\/www.baidu.com/g'</span> default.json</span><br></pre></td></tr></table></figure>
+
+<p>接下来<code>service jenkins restart</code>启动，进入ip:端口，你将看见jenkins启动中。</p>
+<p>按照提示查看密码并输入：</p>
+<p><code>cat /var/lib/jenkins/secrets/initialAdminPassword</code></p>
+<p>然后安装推荐的插件，等待安装完成。</p>
+<p>成功进入jenkins界面后，依次点击Manage Jenkins-Manage Plugins-Advanced，拉到最下面，将默认的</p>
+<p>更改为<code>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</code>,这可以加快获取列表的速度。</p>
+<h4 id="配置jenkins所需插件"><a href="#配置jenkins所需插件" class="headerlink" title="配置jenkins所需插件"></a>配置jenkins所需插件</h4><p>检查是否已安装以下两个插件：</p>
+<p>1.Maven Integration 使我们可以开始一个maven项目作为任务</p>
+<p>2.Git plugin 使我们可以读取存放在git仓库的项目</p>
+<p>如果没有，就去插件管理里面搜索安装。</p>
+<h4 id="配置jenkins全局工具"><a href="#配置jenkins全局工具" class="headerlink" title="配置jenkins全局工具"></a>配置jenkins全局工具</h4><p><img data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/20200323021031.png" alt="jenkins-global"></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-11T22:41:04+08:00"
-              content="2019-10-11">
-          10-11
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/git-use-record/" itemprop="url">
-            <span itemprop="name">Git使用记录</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-09T21:14:40+08:00"
-              content="2019-10-09">
-          10-09
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/python-error-record/" itemprop="url">
-            <span itemprop="name">python出错记录</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-07T20:16:54+08:00"
-              content="2019-10-07">
-          10-07
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/how-to-code/" itemprop="url">
-            <span itemprop="name">代码通用</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>v_hiker
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://v-hiker.tk/aliyun-centos-jenkins/" title="阿里云centos6搭建jenkins">https://v-hiker.tk/aliyun-centos-jenkins/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
 
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/jenkins/" rel="tag"># jenkins</a>
+              <a href="/tags/cent-os/" rel="tag"># cent os</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
     </div>
   </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/android-studio-error-record/" rel="prev" title="android studio出错">
+      <i class="fa fa-chevron-left"></i> android studio出错
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
   
   
 
-  
-
+  </div>
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -330,6 +408,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#进入服务器，下载jenkins并安装"><span class="nav-number">1.</span> <span class="nav-text">进入服务器，下载jenkins并安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置jenkins所需插件"><span class="nav-number">2.</span> <span class="nav-text">配置jenkins所需插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置jenkins全局工具"><span class="nav-number">3.</span> <span class="nav-text">配置jenkins全局工具</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -542,17 +621,26 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
-  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
-  <script>
-      window.addEventListener('load', () => {
-      quicklink({
-        timeout: 3000,
-        priority: true,
-        ignores: [uri => uri.includes('#'),uri => uri == 'https://v-hiker.tk/archives/2019/10/',]
-      });
-      });
-  </script>
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '0fa60e08b132e84219d2',
+      clientSecret: '4e6014ded2521ed5597f48cafe0c0eadf1a492cb',
+      repo        : 'hexo-comments',
+      owner       : 'v-hiker',
+      admin       : ['v-hiker'],
+      id          : 'a5a2e565345135c8e7af0f39473dc698',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>
