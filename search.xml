@@ -3,9 +3,9 @@
   <entry>
     <title>阿里云centos6搭建jenkins</title>
     <url>/aliyun-centos-jenkins/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<h4 id="进入服务器，下载jenkins并安装"><a href="#进入服务器，下载jenkins并安装" class="headerlink" title="进入服务器，下载jenkins并安装"></a>进入服务器，下载jenkins并安装</h4><a id="more"></a>
 
-<h4 id="进入服务器，下载jenkins并安装"><a href="#进入服务器，下载jenkins并安装" class="headerlink" title="进入服务器，下载jenkins并安装"></a>进入服务器，下载jenkins并安装</h4><p><a href="https://pkg.jenkins.io/redhat-stable/" target="_blank" rel="noopener">官方源</a>用着实在是太慢了，这里我们使用清华大学的<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat/" target="_blank" rel="noopener">开源镜像站</a>，选择一个版本，服务器中输入<code>wget 版本链接</code>，</p>
+<p><a href="https://pkg.jenkins.io/redhat-stable/" target="_blank" rel="noopener">官方源</a>用着实在是太慢了，这里我们使用清华大学的<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat/" target="_blank" rel="noopener">开源镜像站</a>，选择一个版本，服务器中输入<code>wget 版本链接</code>，</p>
 <p>输入<code>rpm -ivh 文件</code>进行安装，<code>vim /etc/sysconfig/jenkins</code>修改端口以免冲突;</p>
 <p><a href="https://blog.csdn.net/qq_42109746/article/details/98199275" target="_blank" rel="noopener">查看jdk地址</a>，修改jenkins配置，<code>vim /etc/init.d/jenkins</code></p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/jenkins-java.png" alt="jenkins-java"></p>
