@@ -39,7 +39,7 @@
 <p>点击“新建任务”，输入名称，选择构建maven项目。</p>
 <p>如图，添加源码位置，这里可以添加Credentials，一般使用https的方式添加源码就行了。使用ssh还需要到服务器里生成公钥添加到git。</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/20200424210947.png" alt=""></p>
-<p>接下来添加build goal，<code>clean package -Dmaven.test.skip=true</code>这个是用来生成拥有Spring启动程序的项目的代码，如果是用来生成api供自己的程序使用，需要用<code>mvn clean install -Dmaven.test.skip=true</code>这个命令。</p>
+<p>接下来添加build goal，<code>clean package -Dmaven.test.skip=true</code>这个是用来生成拥有Spring启动程序的项目的代码，如果是用来生成api供自己的程序使用，需要用<code>clean install -Dmaven.test.skip=true</code>这个命令。</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/image-20200424211711910.png" alt=""></p>
 <p>最后添加Post Steps</p>
 <p>选中<code>Run only if build succeeds</code>,add post-build step选择执行shell，按照如下格式：</p>
