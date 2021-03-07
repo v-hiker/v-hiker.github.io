@@ -22,7 +22,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"v-hiker.tk","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","width":240,"display":"post","offset":12,"onmobile":false,"padding":18},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"nav":null,"lazyload":false},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"v-hiker.tk","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","width":240,"display":"post","offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="第一章    引论什么叫编译程序翻译程序：把某一种语言程序（称为源语言程序）转换成另一种语言程序（称为目标语言程序）。">
@@ -105,7 +105,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -127,7 +127,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <h1 class="site-subtitle" itemprop="description">A SITE</h1>
+        <h1 class="site-subtitle" itemprop="description">一个小站</h1>
       
   </div>
 
@@ -155,7 +155,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">19</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -285,9 +290,9 @@
 <li>可变目标编译程序：不需重写编译程序中与机器无关的部分就能改变目标机</li>
 </ul>
 <p>世界上第一个编译程序–FORTRAN编译程序是20世纪50年代中期研制成功的。</p>
-<h2 id="编译程序的结构"><a href="#编译程序的结构" class="headerlink" title="编译程序的结构"></a>编译程序的结构</h2><p><img src="https://i.loli.net/2019/04/02/5ca35e7179f8d.png" alt="编译程序结构.png"><br><strong>词法分析器</strong>：又称<strong>扫描器</strong>，输入源程序，进行词法分析，输出单词符号。</p>
+<h2 id="编译程序的结构"><a href="#编译程序的结构" class="headerlink" title="编译程序的结构"></a>编译程序的结构</h2><p><img data-src="https://i.loli.net/2019/04/02/5ca35e7179f8d.png" alt="编译程序结构.png"><br><strong>词法分析器</strong>：又称<strong>扫描器</strong>，输入源程序，进行词法分析，输出单词符号。</p>
 <p><strong>语法分析器</strong>：简称<strong>分析器</strong>，对单词符号串进行语法分析（根据与法规则进行推导或归约），识别出各类语法单位，最终判断输入串是否构成语法上正确的“程序”。</p>
-<p><strong>语义分析与中间代码产生器</strong>：按照语义规则对语法分析器归约出（或推导出）的语法单位进行语义分析并把它们翻译成一定形式的中间代码。<br>中间代码可采用四元式、三元式、间接三元式、逆波兰记号和树形表示等等。<br>例如：许多编译程序采用四元序列形式：<br>Z := (X + 0.418)*Y/w 翻译成四元式为：<br><img src="https://i.loli.net/2019/04/12/5cb08214a1577.png" alt="四元式.png"></p>
+<p><strong>语义分析与中间代码产生器</strong>：按照语义规则对语法分析器归约出（或推导出）的语法单位进行语义分析并把它们翻译成一定形式的中间代码。<br>中间代码可采用四元式、三元式、间接三元式、逆波兰记号和树形表示等等。<br>例如：许多编译程序采用四元序列形式：<br>Z := (X + 0.418)*Y/w 翻译成四元式为：<br><img data-src="https://i.loli.net/2019/04/12/5cb08214a1577.png" alt="四元式.png"></p>
 <p><strong>优化器</strong>：对中间代码进行优化处理。</p>
 <p><strong>目标代码生成器</strong>：把中间代码翻译成目标程序。</p>
 <p>表格中最重要的是<strong>符号表</strong>，出错处理中<strong>出错处理程序</strong>。</p>
@@ -418,7 +423,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -465,7 +470,7 @@
 <div class="copyright">
   
   &copy; 2019 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -513,12 +518,8 @@
   
   <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>

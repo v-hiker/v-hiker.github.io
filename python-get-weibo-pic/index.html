@@ -22,7 +22,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"v-hiker.tk","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","width":240,"display":"post","offset":12,"onmobile":false,"padding":18},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"nav":null,"lazyload":false},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"v-hiker.tk","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","width":240,"display":"post","offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="代码来自 作者：cool_flag来源：CSDN原文：https:&#x2F;&#x2F;blog.csdn.net&#x2F;cool_flag&#x2F;article&#x2F;details&#x2F;78992628   本来以为微博应该会跟百度贴吧一样简单，开始动手后才发现不是我想的那样，在百度搜索后找到了上面这篇帖子，受益匪浅。该作者使用的是微博移动版https:&#x2F;&#x2F;weibo.cn ，其原话是  因为html5版的微博页面和web端一样也是">
@@ -106,7 +106,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -128,7 +128,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <h1 class="site-subtitle" itemprop="description">A SITE</h1>
+        <h1 class="site-subtitle" itemprop="description">一个小站</h1>
       
   </div>
 
@@ -156,7 +156,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">19</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -285,7 +290,7 @@
 <blockquote>
 <p>接着第二个问题是模拟登陆，开始我想着是post模拟登陆输入用户账号和密码即可，后来发现是我想多了…好像有点困难，于是就采用了cookie直接登陆，这个方法简单粗暴。</p>
 </blockquote>
-<h5 id="获取cookie方法"><a href="#获取cookie方法" class="headerlink" title="获取cookie方法"></a>获取cookie方法</h5><p>1 点击进入移动版微博<a href="https://weibo.cn" target="_blank" rel="noopener">https://weibo.cn</a><br>2 登陆<br>3 进入想要爬取图片的博主的主页，如<a href="https://weibo.cn/u/1856334535" target="_blank" rel="noopener">https://weibo.cn/u/1856334535</a><br>4 谷歌浏览器F12打开调试窗口<br>5 刷新，点击第一个文件<br><img src="https://i.loli.net/2019/03/20/5c92619ef1239.png" alt="cookie-1.png"><br><img src="https://i.loli.net/2019/03/20/5c92619e7f467.png" alt="cookie-2.png"><br>6 向下寻找Request Headers，其中的cookie项一长串即为所需，复制下来<br><img src="https://i.loli.net/2019/03/20/5c92619ec5b21.png" alt="cookie-3.png"></p>
+<h5 id="获取cookie方法"><a href="#获取cookie方法" class="headerlink" title="获取cookie方法"></a>获取cookie方法</h5><p>1 点击进入移动版微博<a href="https://weibo.cn" target="_blank" rel="noopener">https://weibo.cn</a><br>2 登陆<br>3 进入想要爬取图片的博主的主页，如<a href="https://weibo.cn/u/1856334535" target="_blank" rel="noopener">https://weibo.cn/u/1856334535</a><br>4 谷歌浏览器F12打开调试窗口<br>5 刷新，点击第一个文件<br><img data-src="https://i.loli.net/2019/03/20/5c92619ef1239.png" alt="cookie-1.png"><br><img data-src="https://i.loli.net/2019/03/20/5c92619e7f467.png" alt="cookie-2.png"><br>6 向下寻找Request Headers，其中的cookie项一长串即为所需，复制下来<br><img data-src="https://i.loli.net/2019/03/20/5c92619ec5b21.png" alt="cookie-3.png"></p>
 <h4 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h4><p>原作者有一段获取微博发送时间的代码</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取微博发送时间</span></span><br><span class="line">hms = <span class="string">' '</span>.join(weibo_tag.find(</span><br><span class="line">    <span class="string">'span'</span>, attrs=&#123;<span class="string">'class'</span>: <span class="string">'ct'</span>&#125;).text.replace(<span class="string">'\xa0'</span>, <span class="string">''</span>).replace(<span class="string">':'</span>, <span class="string">'-'</span>).split(<span class="string">' '</span>)[:<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
 <p>我一开始运行到这里就会报错，大致内容是找不到，然后经过排查是因为截取微博代码段的代码<code>weibo_tags_list = soup.find_all(&#39;div&#39;, attrs={&#39;class&#39;: &#39;c&#39;}, id=True)</code>有没考虑完全的情况，如微博<a href="https://weibo.cn/u/1856334535" target="_blank" rel="noopener">https://weibo.cn/u/1856334535</a><br>其源代码经过查找后会有下面两种：</p>
@@ -419,7 +424,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -466,7 +471,7 @@
 <div class="copyright">
   
   &copy; 2019 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -514,12 +519,8 @@
   
   <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>
