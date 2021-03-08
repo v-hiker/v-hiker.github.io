@@ -1,12 +1,16 @@
 ---
 title: Spring data jpa demo
-date: 2021-03-06 23:17:58
-tags: [spring boot,jpa]
+tags:
+  - spring boot
+  - jpa
+url: spring-data-jpa
 reward_settings:
   enable: true
+abbrlink: 945da7b
+date: 2021-03-06 23:17:58
 ---
 
-从开始接触Spring这一个框架开始使用的持久层框架就一直是mybatis，最近听说了还有另外的叫做jpa的框架，为了体验一下有什么区别，于是决定打一个小demo测试一下。
+从开始接触Spring这一个框架开始使用的持久层框架就一直是mybatis，最近听说了还有另外的叫做jpa的框架，为了体验一下有什么区别，于是决定写一个小demo测试一下。
 
 <!--more-->
 

@@ -1,9 +1,13 @@
 ---
 title: spring 项目出错记录
-date: 2019-09-23 23:17:58
-tags: [spring,maven,idea]
+tags:
+  - spring
+  - maven
+  - idea
 reward_settings:
   enable: true
+abbrlink: 7761f6cf
+date: 2019-09-23 23:17:58
 ---
 
 ##### 新拉的项目下完依赖后dependencies还是出现红色波浪线

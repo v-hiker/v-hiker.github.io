@@ -1,7 +1,9 @@
 ---
 title: python出错记录
+tags:
+  - python
+abbrlink: 5af28d7
 date: 2019-10-09 21:14:40
-tags: [python]
 ---
 
 ##### pycharm中升级pip出错，‘NoneType' object has no attribute 'bytes'

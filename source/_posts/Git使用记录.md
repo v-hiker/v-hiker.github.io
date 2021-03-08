@@ -1,7 +1,9 @@
 ---
 title: Git使用记录
+tags:
+  - git
+abbrlink: a912528b
 date: 2019-10-11 22:41:04
-tags: [git]
 ---
 
 ##### [Git warning：LF will be replaced by CRLF in readme.txt的原因与解决方案](https://blog.csdn.net/starry_night9280/article/details/53207928)

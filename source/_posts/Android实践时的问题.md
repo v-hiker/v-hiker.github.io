@@ -1,7 +1,9 @@
 ---
 title: Android实践时的问题
+tags:
+  - Android
+abbrlink: '50762e93'
 date: 2019-05-18 22:03:50
-tags: [Android]
 ---
 踩坑记；
 <!--more-->

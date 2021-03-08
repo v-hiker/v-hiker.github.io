@@ -1,7 +1,10 @@
 ---
 title: Hexo使用
+tags:
+  - hexo
+  - git
+abbrlink: 3b4634fc
 date: 2019-03-10 15:22:29
-tags: [hexo,git]
 ---
 
 ## 备份

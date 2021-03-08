@@ -1,7 +1,10 @@
 ---
 title: hexo上传图片
+tags:
+  - hexo
+  - Saito Asuka
+abbrlink: f1f3a828
 date: 2019-03-10 17:23:39
-tags: [hexo,Saito Asuka]
 ---
 #### 如何上传本地图片
 1 把主页配置文件_config.yml 里：

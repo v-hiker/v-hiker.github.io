@@ -1,7 +1,11 @@
 ---
 title: 阿里云centos6搭建jenkins
-tags: [jenkins,cent os]
-date: 2020-3-22 20:15:14
+tags:
+  - jenkins
+  - cent os
+url: aliyun-centos-jenkins
+abbrlink: 5c39734
+date: 2020-03-22 20:15:14
 ---
 
 

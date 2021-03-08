@@ -1,7 +1,10 @@
 ---
 title: 纪念第一次用python
+tags:
+  - python
+  - Saito Asuka
+abbrlink: e40734d5
 date: 2019-03-18 23:12:13
-tags: [python,Saito Asuka]
 ---
 #### 用python3爬取百度贴吧图片
 

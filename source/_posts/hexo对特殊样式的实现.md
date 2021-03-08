@@ -1,6 +1,9 @@
 ---
 title: hexo对特殊样式的实现
-tags: [hexo, next]
+tags:
+  - hexo
+  - next
+abbrlink: 1a984e80
 date: 2020-02-20 17:10:33
 ---
 
