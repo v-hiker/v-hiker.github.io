@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Android实践时的问题</title>
-    <url>/cklzjl2820001pcuv70nx83k6/</url>
+    <url>/posts/50762e93/</url>
     <content><![CDATA[<p>踩坑记；</p>
 <span id="more"></span>
 <h2 id="WebView"><a href="#WebView" class="headerlink" title="WebView"></a>WebView</h2><h3 id="WebViewClient"><a href="#WebViewClient" class="headerlink" title="WebViewClient"></a>WebViewClient</h3><blockquote>
@@ -39,7 +39,7 @@
   </entry>
   <entry>
     <title>Git使用记录</title>
-    <url>/cklzjl2870003pcuvemvm2p43/</url>
+    <url>/posts/a912528b/</url>
     <content><![CDATA[<h5 id="Git-warning：LF-will-be-replaced-by-CRLF-in-readme-txt的原因与解决方案"><a href="#Git-warning：LF-will-be-replaced-by-CRLF-in-readme-txt的原因与解决方案" class="headerlink" title="Git warning：LF will be replaced by CRLF in readme.txt的原因与解决方案"></a><a href="https://blog.csdn.net/starry_night9280/article/details/53207928">Git warning：LF will be replaced by CRLF in readme.txt的原因与解决方案</a></h5><span id="more"></span>
 
 <blockquote>
@@ -63,7 +63,7 @@
   </entry>
   <entry>
     <title>Hexo使用</title>
-    <url>/cklzjl28b0006pcuv8y9vhdf5/</url>
+    <url>/posts/3b4634fc/</url>
     <content><![CDATA[<h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><h3 id="1-创建分支"><a href="#1-创建分支" class="headerlink" title="1.创建分支"></a>1.创建分支</h3><p>直接github网页创建新分支hexo，找到“setting”-“Branches”，设置默认分支为“hexo”</p>
 <span id="more"></span>
 
@@ -132,7 +132,7 @@
   </entry>
   <entry>
     <title>Saito Asuka</title>
-    <url>/cklzjl28c0007pcuvdtbgaerv/</url>
+    <url>/posts/e4e9c3ba/</url>
     <content><![CDATA[<p>齋藤飛鳥だいすき</p>
 ]]></content>
       <tags>
@@ -140,85 +140,9 @@
       </tags>
   </entry>
   <entry>
-    <title>android studio出错</title>
-    <url>/cklzjl28e0008pcuv6f517nit/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<h4 id="AndroidStudio-3-6-中-R-layout-找不到对应的xml文件"><a href="#AndroidStudio-3-6-中-R-layout-找不到对应的xml文件" class="headerlink" title="AndroidStudio 3.6 中 R.layout 找不到对应的xml文件"></a><a href="https://blog.csdn.net/Yuan_mingyu/article/details/104853488">AndroidStudio 3.6 中 R.layout 找不到对应的xml文件</a></h4><p>需重启才能找到。。。</p>
-]]></content>
-      <tags>
-        <tag>android studio</tag>
-        <tag>android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo上传图片</title>
-    <url>/cklzjl28g000bpcuvgki7aho2/</url>
-    <content><![CDATA[<h4 id="如何上传本地图片"><a href="#如何上传本地图片" class="headerlink" title="如何上传本地图片"></a>如何上传本地图片</h4><p>1 把主页配置文件_config.yml 里：<br><code>post_asset_folder: true</code><br>2 在hexo根目录下执行<br><code>npm install hexo-asset-image --save</code><br>安装一个可以上传本地图片的插件</p>
-<span id="more"></span>
-<p>3 等待一小段时间后，再运行hexo n “xxxx”来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还会生成一个同名的文件夹<br>4 最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片：<br><code>![你想输入的替代文字](xxxx/图片名.jpg)</code></p>
-<h4 id="如何上传在线图片"><a href="#如何上传在线图片" class="headerlink" title="如何上传在线图片"></a>如何上传在线图片</h4><p>1 选择图床，如<a href="https://sm.ms/">https://sm.ms/</a><br>2 上传图片后就能直接生成带有链接的图片<br><a href="https://i.loli.net/2019/03/18/5c8f7ed81bffd.jpg"><img data-src="https://i.loli.net/2019/03/18/5c8f7ed81bffd.jpg" alt="name.jpg"></a></p>
-<p>代码为</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">![name.jpg</span>](<span class="link">https://i.loli.net/2019/03/18/5c8f7ed81bffd.jpg</span>)](<span class="link">https://i.loli.net/2019/03/18/5c8f7ed81bffd.jpg</span>)</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>hexo</tag>
-        <tag>Saito Asuka</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo对特殊样式的实现</title>
-    <url>/cklzjl28h000cpcuv4cqg1dfd/</url>
-    <content><![CDATA[<p>参考<a href="https://theme-next.org/docs/tag-plugins">https://theme-next.org/docs/tag-plugins</a></p>
-<span id="more"></span>
-
-<h3 id="Centered-Quote"><a href="#Centered-Quote" class="headerlink" title="Centered Quote"></a>Centered Quote</h3><h4 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">center-quote.js</span><br><span class="line">&#123;% centerquote %&#125;Something&#123;% endcenterquote %&#125;</span><br><span class="line">&lt;!-- Tag Alias --&gt;</span><br><span class="line">&#123;% cq %&#125;Something&#123;% endcq %&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4> <blockquote class="blockquote-center">
-            <i class="fa fa-quote-left"></i>
-            <h4 id="赠人玫瑰，手有余香"><a href="#赠人玫瑰，手有余香" class="headerlink" title="赠人玫瑰，手有余香"></a><strong>赠人玫瑰，手有余香</strong></h4>
-            <i class="fa fa-quote-right"></i>
-          </blockquote>
-
-<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><h4 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a>Usage</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">note.js</span><br><span class="line">&#123;% note [class] [no-icon] %&#125;</span><br><span class="line">Any content (support inline tags too.io).</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">[class]   : default | primary | success | info | warning | danger.</span><br><span class="line">[no-icon] : Disable icon <span class="keyword">in</span> note.</span><br><span class="line"></span><br><span class="line">All parameters are optional.</span><br></pre></td></tr></table></figure>
-
-<h4 id="Examples-1"><a href="#Examples-1" class="headerlink" title="Examples"></a>Examples</h4><div class="note warning">
-            <h5 id="虚怀若谷"><a href="#虚怀若谷" class="headerlink" title="虚怀若谷"></a><strong>虚怀若谷</strong></h5>
-          </div>
-
-<h3 id="Tabs"><a href="#Tabs" class="headerlink" title="Tabs"></a>Tabs</h3><h4 id="Usage-2"><a href="#Usage-2" class="headerlink" title="Usage"></a>Usage</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">tabs.js</span><br><span class="line">&#123;% tabs Unique name, [index] %&#125;</span><br><span class="line">&lt;!-- tab [Tab caption] [@icon] --&gt;</span><br><span class="line">Any content (support inline tags too).</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br><span class="line"></span><br><span class="line">Unique name   : Unique name <span class="keyword">of</span> tabs block tag without comma.</span><br><span class="line">                Will be used <span class="keyword">in</span> #id<span class="string">&#x27;s as prefix for each tab with their index numbers.</span></span><br><span class="line"><span class="string">                If there are whitespaces in name, for generate #id all whitespaces will replaced by dashes.</span></span><br><span class="line"><span class="string">                Only for current url of post/page must be unique!</span></span><br><span class="line"><span class="string">[index]       : Index number of active tab.</span></span><br><span class="line"><span class="string">                If not specified, first tab (1) will be selected.</span></span><br><span class="line"><span class="string">                If index is -1, no tab will be selected. It&#x27;</span>s will be something like spoiler.</span><br><span class="line">                Optional parameter.</span><br><span class="line">[Tab caption] : Caption <span class="keyword">of</span> current tab.</span><br><span class="line">                If not caption specified, unique name <span class="keyword">with</span> tab index suffix will be used <span class="keyword">as</span> caption <span class="keyword">of</span> tab.</span><br><span class="line">                If not caption specified, but specified icon, caption will empty.</span><br><span class="line">                Optional parameter.</span><br><span class="line">[@icon]       : FontAwesome icon name (without <span class="string">&#x27;fa-&#x27;</span> at the begining).</span><br><span class="line">                Can be specified <span class="keyword">with</span> or without space; e.g. <span class="string">&#x27;Tab caption @icon&#x27;</span> similar to <span class="string">&#x27;Tab caption@icon&#x27;</span>.</span><br><span class="line">                Optional parameter.</span><br></pre></td></tr></table></figure>
-
-<h4 id="Examples-2"><a href="#Examples-2" class="headerlink" title="Examples"></a>Examples</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;% tabs unique name %&#125;</span><br><span class="line">&lt;!-- tab 第一重 --&gt;</span><br><span class="line">**昨夜西风凋碧树。独上高楼，望尽天涯路。**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab 第二重 --&gt;</span><br><span class="line">**衣带渐宽终不悔，为伊消得人憔悴。**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab 第三重 --&gt;</span><br><span class="line">**众里寻他千百度。蓦然回首，那人却在灯火阑珊处。**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
-<div class="tabs" id="unique-name"><ul class="nav-tabs"><li class="tab active"><a href="#unique-name-1">第一重</a></li><li class="tab"><a href="#unique-name-2">第二重</a></li><li class="tab"><a href="#unique-name-3">第三重</a></li></ul><div class="tab-content"><div class="tab-pane active" id="unique-name-1"><p><strong>昨夜西风凋碧树。独上高楼，望尽天涯路。</strong></p></div><div class="tab-pane" id="unique-name-2"><p><strong>衣带渐宽终不悔，为伊消得人憔悴。</strong></p></div><div class="tab-pane" id="unique-name-3"><p><strong>众里寻他千百度。蓦然回首，那人却在灯火阑珊处。</strong></p></div></div></div>
-
-<h3 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h3><h4 id="Usage-3"><a href="#Usage-3" class="headerlink" title="Usage"></a>Usage</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;% pdf url [height] %&#125;</span><br><span class="line"></span><br><span class="line">[url]    : Relative path to PDF file.</span><br><span class="line">[height] : Optional. Height <span class="keyword">of</span> the PDF display element, e.g. 800px.</span><br></pre></td></tr></table></figure>
-
-<h4 id="Examples-3"><a href="#Examples-3" class="headerlink" title="Examples"></a>Examples</h4><p>暂时没有</p>
-<h3 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h3><h4 id="Usage-4"><a href="#Usage-4" class="headerlink" title="Usage"></a>Usage</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;% video https:<span class="comment">//example.com/sample.mp4 %&#125;</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;% video /path/to/your/video.mp4 %&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Examples-4"><a href="#Examples-4" class="headerlink" title="Examples"></a>Examples</h4><video src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository@master/%E9%A3%9E%E9%B8%9F.mp4" preload="metadata" controls playsinline poster="">Sorry, your browser does not support the video tag.</video>
-
-<p>自己找存储还是太麻烦了，不如随便找个视频网站上传，引用iframe什么的方便。</p>
-<iframe src="//player.bilibili.com/player.html?aid=18880837&cid=30791741&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-<h3 id="Group-Pictures"><a href="#Group-Pictures" class="headerlink" title="Group Pictures"></a>Group Pictures</h3><h4 id="Usage-5"><a href="#Usage-5" class="headerlink" title="Usage"></a>Usage</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;% grouppicture [group]-[layout] %&#125;&#123;% endgrouppicture %&#125;</span><br><span class="line">&#123;% gp [group]-[layout] %&#125;&#123;% endgp %&#125;</span><br><span class="line"></span><br><span class="line">[group]  : Total number <span class="keyword">of</span> pictures to add <span class="keyword">in</span> the group.</span><br><span class="line">[layout] : Default picture under the group to show.</span><br></pre></td></tr></table></figure>
-
-<h4 id="Examples-5"><a href="#Examples-5" class="headerlink" title="Examples"></a>Examples</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;% grouppicture <span class="number">9</span>-<span class="number">3</span> %&#125;</span><br><span class="line">  ![<span class="number">1.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">1.</span>jfif)</span><br><span class="line">  ![<span class="number">2.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">2.</span>jfif)</span><br><span class="line">  ![<span class="number">3.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">3.</span>jfif)</span><br><span class="line">  ![<span class="number">4.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">4.</span>jfif)</span><br><span class="line">  ![<span class="number">5.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">5.</span>jfif)</span><br><span class="line">  ![<span class="number">6.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">6.</span>jfif)</span><br><span class="line">  ![<span class="number">7.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">7.</span>jfif)</span><br><span class="line">  ![<span class="number">8.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">8.</span>jfif)</span><br><span class="line">  ![<span class="number">9.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">9.</span>jfif)</span><br><span class="line">&#123;% endgrouppicture %&#125;</span><br></pre></td></tr></table></figure>
-
-<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="/images/group_images/1.jfif" alt="1.jfif"></div><div class="group-picture-column" style="width: 50%;"><img data-src="/images/group_images/2.jfif" alt="2.jfif"></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="/images/group_images/3.jfif" alt="3.jfif"></div><div class="group-picture-column" style="width: 50%;"><img data-src="/images/group_images/4.jfif" alt="4.jfif"></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="/images/group_images/5.jfif" alt="5.jfif"></div><div class="group-picture-column" style="width: 50%;"><img data-src="/images/group_images/6.jfif" alt="6.jfif"></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="/images/group_images/7.jfif" alt="7.jfif"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="/images/group_images/8.jfif" alt="8.jfif"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="/images/group_images/9.jfif" alt="9.jfif"></div></div></div></div>
-
-<p>这里没有显示全可能是我图片太大了，暂时也不知道怎么解决。</p>
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-        <tag>next</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Spring data jpa demo</title>
-    <url>/cklzjl28i000epcuv3552cu3w/</url>
-    <content><![CDATA[<p>从开始接触Spring这一个框架开始使用的持久层框架就一直是mybatis，最近听说了还有另外的叫做jpa的框架，为了体验一下有什么区别，于是决定打一个小demo测试一下。</p>
+    <url>/posts/945da7b/</url>
+    <content><![CDATA[<p>从开始接触Spring这一个框架开始使用的持久层框架就一直是mybatis，最近听说了还有另外的叫做jpa的框架，为了体验一下有什么区别，于是决定写一个小demo测试一下。</p>
 <span id="more"></span>
 
 <h2 id="相关工具准备"><a href="#相关工具准备" class="headerlink" title="相关工具准备"></a>相关工具准备</h2><h5 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h5><p>用以搭建本地数据库。</p>
@@ -280,22 +204,84 @@
       </tags>
   </entry>
   <entry>
-    <title>python出错记录</title>
-    <url>/cklzjl28k000gpcuv192sc99k/</url>
-    <content><![CDATA[<h5 id="pycharm中升级pip出错，‘NoneType’-object-has-no-attribute-‘bytes’"><a href="#pycharm中升级pip出错，‘NoneType’-object-has-no-attribute-‘bytes’" class="headerlink" title="pycharm中升级pip出错，‘NoneType’ object has no attribute ‘bytes’"></a>pycharm中升级pip出错，‘NoneType’ object has no attribute ‘bytes’</h5><span id="more"></span>
+    <title>android studio出错</title>
+    <url>/posts/f093c269/</url>
+    <content><![CDATA[<span id="more"></span>
 
-<p>使用<code>easy_install -U pip</code>安装</p>
-<p><del>而不是<code>python -m pip install --upgrade pip</code></del></p>
-<h5 id="Do-you-need-to-install-a-parser-library"><a href="#Do-you-need-to-install-a-parser-library" class="headerlink" title="Do you need to install a parser library?"></a>Do you need to install a parser library?</h5><p><code>soup = BeautifulSoup(r.text, &#39;lxml&#39;)</code>更改为：</p>
-<p><code>soup = BeautifulSoup(r.text, &#39;html.parser&#39;)</code></p>
+<h4 id="AndroidStudio-3-6-中-R-layout-找不到对应的xml文件"><a href="#AndroidStudio-3-6-中-R-layout-找不到对应的xml文件" class="headerlink" title="AndroidStudio 3.6 中 R.layout 找不到对应的xml文件"></a><a href="https://blog.csdn.net/Yuan_mingyu/article/details/104853488">AndroidStudio 3.6 中 R.layout 找不到对应的xml文件</a></h4><p>需重启才能找到。。。</p>
 ]]></content>
       <tags>
-        <tag>python</tag>
+        <tag>android studio</tag>
+        <tag>android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo上传图片</title>
+    <url>/posts/f1f3a828/</url>
+    <content><![CDATA[<h4 id="如何上传本地图片"><a href="#如何上传本地图片" class="headerlink" title="如何上传本地图片"></a>如何上传本地图片</h4><p>1 把主页配置文件_config.yml 里：<br><code>post_asset_folder: true</code><br>2 在hexo根目录下执行<br><code>npm install hexo-asset-image --save</code><br>安装一个可以上传本地图片的插件</p>
+<span id="more"></span>
+<p>3 等待一小段时间后，再运行hexo n “xxxx”来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还会生成一个同名的文件夹<br>4 最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片：<br><code>![你想输入的替代文字](xxxx/图片名.jpg)</code></p>
+<h4 id="如何上传在线图片"><a href="#如何上传在线图片" class="headerlink" title="如何上传在线图片"></a>如何上传在线图片</h4><p>1 选择图床，如<a href="https://sm.ms/">https://sm.ms/</a><br>2 上传图片后就能直接生成带有链接的图片<br><a href="https://i.loli.net/2019/03/18/5c8f7ed81bffd.jpg"><img data-src="https://i.loli.net/2019/03/18/5c8f7ed81bffd.jpg" alt="name.jpg"></a></p>
+<p>代码为</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">![name.jpg</span>](<span class="link">https://i.loli.net/2019/03/18/5c8f7ed81bffd.jpg</span>)](<span class="link">https://i.loli.net/2019/03/18/5c8f7ed81bffd.jpg</span>)</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>Saito Asuka</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo对特殊样式的实现</title>
+    <url>/posts/1a984e80/</url>
+    <content><![CDATA[<p>参考<a href="https://theme-next.org/docs/tag-plugins">https://theme-next.org/docs/tag-plugins</a></p>
+<span id="more"></span>
+
+<h3 id="Centered-Quote"><a href="#Centered-Quote" class="headerlink" title="Centered Quote"></a>Centered Quote</h3><h4 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">center-quote.js</span><br><span class="line">&#123;% centerquote %&#125;Something&#123;% endcenterquote %&#125;</span><br><span class="line">&lt;!-- Tag Alias --&gt;</span><br><span class="line">&#123;% cq %&#125;Something&#123;% endcq %&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4> <blockquote class="blockquote-center">
+            <i class="fa fa-quote-left"></i>
+            <h4 id="赠人玫瑰，手有余香"><a href="#赠人玫瑰，手有余香" class="headerlink" title="赠人玫瑰，手有余香"></a><strong>赠人玫瑰，手有余香</strong></h4>
+            <i class="fa fa-quote-right"></i>
+          </blockquote>
+
+<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><h4 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a>Usage</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">note.js</span><br><span class="line">&#123;% note [class] [no-icon] %&#125;</span><br><span class="line">Any content (support inline tags too.io).</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">[class]   : default | primary | success | info | warning | danger.</span><br><span class="line">[no-icon] : Disable icon <span class="keyword">in</span> note.</span><br><span class="line"></span><br><span class="line">All parameters are optional.</span><br></pre></td></tr></table></figure>
+
+<h4 id="Examples-1"><a href="#Examples-1" class="headerlink" title="Examples"></a>Examples</h4><div class="note warning">
+            <h5 id="虚怀若谷"><a href="#虚怀若谷" class="headerlink" title="虚怀若谷"></a><strong>虚怀若谷</strong></h5>
+          </div>
+
+<h3 id="Tabs"><a href="#Tabs" class="headerlink" title="Tabs"></a>Tabs</h3><h4 id="Usage-2"><a href="#Usage-2" class="headerlink" title="Usage"></a>Usage</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">tabs.js</span><br><span class="line">&#123;% tabs Unique name, [index] %&#125;</span><br><span class="line">&lt;!-- tab [Tab caption] [@icon] --&gt;</span><br><span class="line">Any content (support inline tags too).</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br><span class="line"></span><br><span class="line">Unique name   : Unique name <span class="keyword">of</span> tabs block tag without comma.</span><br><span class="line">                Will be used <span class="keyword">in</span> #id<span class="string">&#x27;s as prefix for each tab with their index numbers.</span></span><br><span class="line"><span class="string">                If there are whitespaces in name, for generate #id all whitespaces will replaced by dashes.</span></span><br><span class="line"><span class="string">                Only for current url of post/page must be unique!</span></span><br><span class="line"><span class="string">[index]       : Index number of active tab.</span></span><br><span class="line"><span class="string">                If not specified, first tab (1) will be selected.</span></span><br><span class="line"><span class="string">                If index is -1, no tab will be selected. It&#x27;</span>s will be something like spoiler.</span><br><span class="line">                Optional parameter.</span><br><span class="line">[Tab caption] : Caption <span class="keyword">of</span> current tab.</span><br><span class="line">                If not caption specified, unique name <span class="keyword">with</span> tab index suffix will be used <span class="keyword">as</span> caption <span class="keyword">of</span> tab.</span><br><span class="line">                If not caption specified, but specified icon, caption will empty.</span><br><span class="line">                Optional parameter.</span><br><span class="line">[@icon]       : FontAwesome icon name (without <span class="string">&#x27;fa-&#x27;</span> at the begining).</span><br><span class="line">                Can be specified <span class="keyword">with</span> or without space; e.g. <span class="string">&#x27;Tab caption @icon&#x27;</span> similar to <span class="string">&#x27;Tab caption@icon&#x27;</span>.</span><br><span class="line">                Optional parameter.</span><br></pre></td></tr></table></figure>
+
+<h4 id="Examples-2"><a href="#Examples-2" class="headerlink" title="Examples"></a>Examples</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;% tabs unique name %&#125;</span><br><span class="line">&lt;!-- tab 第一重 --&gt;</span><br><span class="line">**昨夜西风凋碧树。独上高楼，望尽天涯路。**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab 第二重 --&gt;</span><br><span class="line">**衣带渐宽终不悔，为伊消得人憔悴。**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab 第三重 --&gt;</span><br><span class="line">**众里寻他千百度。蓦然回首，那人却在灯火阑珊处。**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
+<div class="tabs" id="unique-name"><ul class="nav-tabs"><li class="tab active"><a href="#unique-name-1">第一重</a></li><li class="tab"><a href="#unique-name-2">第二重</a></li><li class="tab"><a href="#unique-name-3">第三重</a></li></ul><div class="tab-content"><div class="tab-pane active" id="unique-name-1"><p><strong>昨夜西风凋碧树。独上高楼，望尽天涯路。</strong></p></div><div class="tab-pane" id="unique-name-2"><p><strong>衣带渐宽终不悔，为伊消得人憔悴。</strong></p></div><div class="tab-pane" id="unique-name-3"><p><strong>众里寻他千百度。蓦然回首，那人却在灯火阑珊处。</strong></p></div></div></div>
+
+<h3 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h3><h4 id="Usage-3"><a href="#Usage-3" class="headerlink" title="Usage"></a>Usage</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;% pdf url [height] %&#125;</span><br><span class="line"></span><br><span class="line">[url]    : Relative path to PDF file.</span><br><span class="line">[height] : Optional. Height <span class="keyword">of</span> the PDF display element, e.g. 800px.</span><br></pre></td></tr></table></figure>
+
+<h4 id="Examples-3"><a href="#Examples-3" class="headerlink" title="Examples"></a>Examples</h4><p>暂时没有</p>
+<h3 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h3><h4 id="Usage-4"><a href="#Usage-4" class="headerlink" title="Usage"></a>Usage</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;% video https:<span class="comment">//example.com/sample.mp4 %&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;% video /path/to/your/video.mp4 %&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Examples-4"><a href="#Examples-4" class="headerlink" title="Examples"></a>Examples</h4><video src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository@master/%E9%A3%9E%E9%B8%9F.mp4" preload="metadata" controls playsinline poster="">Sorry, your browser does not support the video tag.</video>
+
+<p>自己找存储还是太麻烦了，不如随便找个视频网站上传，引用iframe什么的方便。</p>
+<iframe src="//player.bilibili.com/player.html?aid=18880837&cid=30791741&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h3 id="Group-Pictures"><a href="#Group-Pictures" class="headerlink" title="Group Pictures"></a>Group Pictures</h3><h4 id="Usage-5"><a href="#Usage-5" class="headerlink" title="Usage"></a>Usage</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;% grouppicture [group]-[layout] %&#125;&#123;% endgrouppicture %&#125;</span><br><span class="line">&#123;% gp [group]-[layout] %&#125;&#123;% endgp %&#125;</span><br><span class="line"></span><br><span class="line">[group]  : Total number <span class="keyword">of</span> pictures to add <span class="keyword">in</span> the group.</span><br><span class="line">[layout] : Default picture under the group to show.</span><br></pre></td></tr></table></figure>
+
+<h4 id="Examples-5"><a href="#Examples-5" class="headerlink" title="Examples"></a>Examples</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;% grouppicture <span class="number">9</span>-<span class="number">3</span> %&#125;</span><br><span class="line">  ![<span class="number">1.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">1.</span>jfif)</span><br><span class="line">  ![<span class="number">2.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">2.</span>jfif)</span><br><span class="line">  ![<span class="number">3.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">3.</span>jfif)</span><br><span class="line">  ![<span class="number">4.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">4.</span>jfif)</span><br><span class="line">  ![<span class="number">5.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">5.</span>jfif)</span><br><span class="line">  ![<span class="number">6.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">6.</span>jfif)</span><br><span class="line">  ![<span class="number">7.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">7.</span>jfif)</span><br><span class="line">  ![<span class="number">8.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">8.</span>jfif)</span><br><span class="line">  ![<span class="number">9.</span>jfif](<span class="regexp">/images/g</span>roup_images/<span class="number">9.</span>jfif)</span><br><span class="line">&#123;% endgrouppicture %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="/images/group_images/1.jfif" alt="1.jfif"></div><div class="group-picture-column" style="width: 50%;"><img data-src="/images/group_images/2.jfif" alt="2.jfif"></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="/images/group_images/3.jfif" alt="3.jfif"></div><div class="group-picture-column" style="width: 50%;"><img data-src="/images/group_images/4.jfif" alt="4.jfif"></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img data-src="/images/group_images/5.jfif" alt="5.jfif"></div><div class="group-picture-column" style="width: 50%;"><img data-src="/images/group_images/6.jfif" alt="6.jfif"></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="/images/group_images/7.jfif" alt="7.jfif"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="/images/group_images/8.jfif" alt="8.jfif"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img data-src="/images/group_images/9.jfif" alt="9.jfif"></div></div></div></div>
+
+<p>这里没有显示全可能是我图片太大了，暂时也不知道怎么解决。</p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>next</tag>
       </tags>
   </entry>
   <entry>
     <title>python爬取微博图片</title>
-    <url>/cklzjl28m000ipcuv9keoafir/</url>
+    <url>/posts/331d57e2/</url>
     <content><![CDATA[<h4 id="代码来自"><a href="#代码来自" class="headerlink" title="代码来自"></a>代码来自</h4><blockquote>
 <p>作者：cool_flag<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/cool_flag/article/details/78992628">https://blog.csdn.net/cool_flag/article/details/78992628</a> </p>
 </blockquote>
@@ -325,8 +311,22 @@
       </tags>
   </entry>
   <entry>
+    <title>python出错记录</title>
+    <url>/posts/5af28d7/</url>
+    <content><![CDATA[<h5 id="pycharm中升级pip出错，‘NoneType’-object-has-no-attribute-‘bytes’"><a href="#pycharm中升级pip出错，‘NoneType’-object-has-no-attribute-‘bytes’" class="headerlink" title="pycharm中升级pip出错，‘NoneType’ object has no attribute ‘bytes’"></a>pycharm中升级pip出错，‘NoneType’ object has no attribute ‘bytes’</h5><span id="more"></span>
+
+<p>使用<code>easy_install -U pip</code>安装</p>
+<p><del>而不是<code>python -m pip install --upgrade pip</code></del></p>
+<h5 id="Do-you-need-to-install-a-parser-library"><a href="#Do-you-need-to-install-a-parser-library" class="headerlink" title="Do you need to install a parser library?"></a>Do you need to install a parser library?</h5><p><code>soup = BeautifulSoup(r.text, &#39;lxml&#39;)</code>更改为：</p>
+<p><code>soup = BeautifulSoup(r.text, &#39;html.parser&#39;)</code></p>
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>spring 项目出错记录</title>
-    <url>/cklzjl28o000jpcuv86i0bara/</url>
+    <url>/posts/7761f6cf/</url>
     <content><![CDATA[<h5 id="新拉的项目下完依赖后dependencies还是出现红色波浪线"><a href="#新拉的项目下完依赖后dependencies还是出现红色波浪线" class="headerlink" title="新拉的项目下完依赖后dependencies还是出现红色波浪线"></a>新拉的项目下完依赖后dependencies还是出现红色波浪线</h5><p>删除pom中相关依赖,import change后重新添加即可</p>
 <span id="more"></span>
 
@@ -400,7 +400,7 @@
   </entry>
   <entry>
     <title>一些不错的网站分享</title>
-    <url>/cklzjl28q000lpcuvbilmered/</url>
+    <url>/posts/8a0e18ce/</url>
     <content><![CDATA[<h2 id="素材类"><a href="#素材类" class="headerlink" title="素材类"></a>素材类</h2><h3 id="unsplash-图片分享"><a href="#unsplash-图片分享" class="headerlink" title="unsplash(图片分享)"></a><a href="https://source.unsplash.com/">unsplash(图片分享)</a></h3><p>一个分享<em>免费，无版权</em>的高质量图片的网站，可以在上面寻找壁纸，或者博客的banner。<span id="more"></span>有<a href="https://unsplash.com/documentation">官方api</a>，形如<code>https://source.unsplash.com/800x400/?sky,flower</code>就可以得到一张800x400分辨率，内容为天空&amp;花朵的随机图片了</p>
 <h3 id="Iconfont-阿里巴巴矢量图标库"><a href="#Iconfont-阿里巴巴矢量图标库" class="headerlink" title="Iconfont-阿里巴巴矢量图标库"></a><a href="https://www.iconfont.cn/">Iconfont-阿里巴巴矢量图标库</a></h3><p>可下载各种矢量图标，需要使用github账号登录</p>
 <h2 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h2><h3 id="质感图标生成器精简中文版"><a href="#质感图标生成器精简中文版" class="headerlink" title="质感图标生成器精简中文版"></a><a href="https://pandecheng.coding.me/Icon-Generator">质感图标生成器精简中文版</a></h3><p>如题，上传矢量图标后生成极具质感的图标</p>
@@ -413,7 +413,7 @@
   </entry>
   <entry>
     <title>二分初解</title>
-    <url>/cklzjl28r000npcuv6h4z1z6c/</url>
+    <url>/posts/ebbfa50c/</url>
     <content><![CDATA[<h2 id="适用范围"><a href="#适用范围" class="headerlink" title="适用范围"></a>适用范围</h2><p>从已经排好顺序的数组当中找到目标所在位置或者是正确地向数组中插入一个目标。</p>
 <span id="more"></span>
 
@@ -498,7 +498,7 @@
   </entry>
   <entry>
     <title>代码通用</title>
-    <url>/cklzjl28t000qpcuv2emk1v3r/</url>
+    <url>/posts/e72505fc/</url>
     <content><![CDATA[<h5 id="防止多重-if-嵌套"><a href="#防止多重-if-嵌套" class="headerlink" title="防止多重 if 嵌套"></a>防止多重 if 嵌套</h5><p>before：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> n:</span><br><span class="line">    <span class="keyword">if</span> m:</span><br><span class="line">        //dothing</span><br></pre></td></tr></table></figure>
 
@@ -514,8 +514,25 @@
 ]]></content>
   </entry>
   <entry>
+    <title>泛型与反射</title>
+    <url>/posts/6a9738f6/</url>
+    <content><![CDATA[<h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>业务中有两个DTO，需要对这两个DTO中同时包含的一个属性值进行修改，于是可以编写一个泛型方法来进行设置。</p>
+<span id="more"></span>
+
+
+
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Boolean <span class="title">setPage2</span><span class="params">(T t)</span> </span>&#123;</span><br><span class="line">        Class page = t.getClass();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Method method = page.getDeclaredMethod(<span class="string">&quot;setPageSize&quot;</span>, java.lang.Integer.class);<span class="comment">//获取方法</span></span><br><span class="line">            method.invoke(t, <span class="number">48</span>);<span class="comment">//调用方法</span></span><br><span class="line">            System.out.println(<span class="string">&quot;set successfully!&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> Boolean.TRUE;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (NoSuchMethodException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InvocationTargetException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Boolean.FALSE;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h4><p>通过泛型可以传入不同类型的参数对象，然后使用反射拿到该对象中对某个属性进行设置的方法，再对该方法进行调用，即可完成所需的实现；</p>
+<p>注意：getDeclaredMethod函数中一定要申明所需要的方法的参数类型，不然是找不到结果的</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Method <span class="title">searchMethods</span><span class="params">(Method[] methods,</span></span></span><br><span class="line"><span class="function"><span class="params">                                        String name,</span></span></span><br><span class="line"><span class="function"><span class="params">                                        Class&lt;?&gt;[] parameterTypes)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Method res = <span class="keyword">null</span>;</span><br><span class="line">        String internedName = name.intern();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; methods.length; i++) &#123;</span><br><span class="line">            Method m = methods[i];</span><br><span class="line">            <span class="keyword">if</span> (m.getName() == internedName</span><br><span class="line">                &amp;&amp; arrayContentsEq(parameterTypes, m.getParameterTypes())<span class="comment">//查找时判断了类型</span></span><br><span class="line">                &amp;&amp; (res == <span class="keyword">null</span></span><br><span class="line">                    || res.getReturnType().isAssignableFrom(m.getReturnType())))</span><br><span class="line">                res = m;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (res == <span class="keyword">null</span> ? res : getReflectionFactory().copyMethod(res));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>初识设计模式</title>
-    <url>/cklzjl28u000spcuv9qfshhfp/</url>
+    <url>/posts/b3ea5b44/</url>
     <content><![CDATA[<h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><p>看完一些基础的讲解之后，我理解的工厂模式为：将代码里面的switch…case剥离出来，在其他地方对其进行实现；</p>
 <span id="more"></span>
 
@@ -550,25 +567,8 @@
       </tags>
   </entry>
   <entry>
-    <title>泛型与反射</title>
-    <url>/cklzjl28v000tpcuv4kds4alq/</url>
-    <content><![CDATA[<h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>业务中有两个DTO，需要对这两个DTO中同时包含的一个属性值进行修改，于是可以编写一个泛型方法来进行设置。</p>
-<span id="more"></span>
-
-
-
-<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Boolean <span class="title">setPage2</span><span class="params">(T t)</span> </span>&#123;</span><br><span class="line">        Class page = t.getClass();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Method method = page.getDeclaredMethod(<span class="string">&quot;setPageSize&quot;</span>, java.lang.Integer.class);<span class="comment">//获取方法</span></span><br><span class="line">            method.invoke(t, <span class="number">48</span>);<span class="comment">//调用方法</span></span><br><span class="line">            System.out.println(<span class="string">&quot;set successfully!&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> Boolean.TRUE;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (NoSuchMethodException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InvocationTargetException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Boolean.FALSE;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h4><p>通过泛型可以传入不同类型的参数对象，然后使用反射拿到该对象中对某个属性进行设置的方法，再对该方法进行调用，即可完成所需的实现；</p>
-<p>注意：getDeclaredMethod函数中一定要申明所需要的方法的参数类型，不然是找不到结果的</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Method <span class="title">searchMethods</span><span class="params">(Method[] methods,</span></span></span><br><span class="line"><span class="function"><span class="params">                                        String name,</span></span></span><br><span class="line"><span class="function"><span class="params">                                        Class&lt;?&gt;[] parameterTypes)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Method res = <span class="keyword">null</span>;</span><br><span class="line">        String internedName = name.intern();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; methods.length; i++) &#123;</span><br><span class="line">            Method m = methods[i];</span><br><span class="line">            <span class="keyword">if</span> (m.getName() == internedName</span><br><span class="line">                &amp;&amp; arrayContentsEq(parameterTypes, m.getParameterTypes())<span class="comment">//查找时判断了类型</span></span><br><span class="line">                &amp;&amp; (res == <span class="keyword">null</span></span><br><span class="line">                    || res.getReturnType().isAssignableFrom(m.getReturnType())))</span><br><span class="line">                res = m;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (res == <span class="keyword">null</span> ? res : getReflectionFactory().copyMethod(res));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>简单的中缀表达式转后缀及计算</title>
-    <url>/cklzjl28w000vpcuv3wu5bgem/</url>
+    <url>/posts/7fc2f592/</url>
     <content><![CDATA[<p>参考着做了一下，没有检查输入是否正确，其他应该都差不多了，</p>
 <span id="more"></span>
 
@@ -580,30 +580,8 @@
       </tags>
   </entry>
   <entry>
-    <title>纪念第一次用python</title>
-    <url>/cklzjl28x000wpcuv1m105mhg/</url>
-    <content><![CDATA[<h4 id="用python3爬取百度贴吧图片"><a href="#用python3爬取百度贴吧图片" class="headerlink" title="用python3爬取百度贴吧图片"></a>用python3爬取百度贴吧图片</h4><p>1 寻找想要爬取图片的网页，如<a href="http://tieba.baidu.com/p/6027318572">http://tieba.baidu.com/p/6027318572</a><br>2 查看网页源代码</p>
-<span id="more"></span>
-
-
-
-<p><img data-src="https://i.loli.net/2019/03/18/5c8fb640cbe4a.png" alt="查看源代码.png"><br>3 放代码</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_html</span>(<span class="params">url</span>):</span></span><br><span class="line">    page = urllib.request.urlopen(url)</span><br><span class="line">    html = page.read()</span><br><span class="line">    <span class="keyword">return</span> html</span><br><span class="line">d = os.getcwd()</span><br><span class="line">p = <span class="string">&quot;\\pic&quot;</span></span><br><span class="line">isExists = os.path.exists(d+p)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> isExists:</span><br><span class="line">    os.mkdir(d+p)</span><br><span class="line">    print(<span class="string">&quot;创建文件夹成功&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">&quot;文件夹已存在&quot;</span>)</span><br><span class="line">    </span><br><span class="line">imgName = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    </span><br><span class="line">	html = get_html(<span class="string">&quot;http://tieba.baidu.com/p/6027318572?see_lz=1&amp;pn=&quot;</span>+<span class="built_in">str</span>(i+<span class="number">1</span>))</span><br><span class="line">	html = html.decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">	</span><br><span class="line">	reg = <span class="string">r&#x27;img class=&quot;BDE_Image&quot; src=&quot;(.+?\.jpg)&quot; size&#x27;</span> </span><br><span class="line">	reg_img = re.<span class="built_in">compile</span>(reg)</span><br><span class="line">	imglist = re.findall(reg_img, html)</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> imgPath <span class="keyword">in</span> imglist:</span><br><span class="line">		print(imgPath)</span><br><span class="line">		f = <span class="built_in">open</span>(<span class="string">&quot;pic/&quot;</span>+<span class="built_in">str</span>(imgName)+<span class="string">&quot;.jpg&quot;</span>, <span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">		f.write((urllib.request.urlopen(imgPath)).read())</span><br><span class="line">		f.close()</span><br><span class="line">		imgName += <span class="number">1</span></span><br><span class="line">print(<span class="built_in">str</span>(imgName)+<span class="string">&quot; img have been saved in pic&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;All Done!&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>4 最终效果<br><img data-src="https://i.loli.net/2019/03/18/5c8fb87a0f654.png" alt="效果.png"></p>
-<p>附 半自动实现爬取图片，需要手输入链接及页数</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mkdir</span>():</span></span><br><span class="line">    <span class="keyword">import</span> os</span><br><span class="line">    path = os.getcwd()</span><br><span class="line">    LocalPath = <span class="built_in">input</span>(<span class="string">&quot;Enter folder name to save pics(in now path): &quot;</span>);</span><br><span class="line">    path = path+<span class="string">&quot;\\&quot;</span>+LocalPath</span><br><span class="line">    isExists=os.path.exists(path)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> isExists:</span><br><span class="line">        <span class="comment"># 如果不存在则创建目录</span></span><br><span class="line">        <span class="comment"># 创建目录操作函数</span></span><br><span class="line">        os.makedirs(path) </span><br><span class="line">        <span class="built_in">print</span> (path+<span class="string">&quot; 创建成功&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 如果目录存在则不创建，并提示目录已存在</span></span><br><span class="line">        <span class="built_in">print</span> (path+<span class="string">&quot; 已存在&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> LocalPath</span><br><span class="line">LocalPath = mkdir()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_html</span>(<span class="params">url</span>):</span></span><br><span class="line"></span><br><span class="line">    page = urllib.request.urlopen(url)</span><br><span class="line">    html = page.read()</span><br><span class="line">    <span class="keyword">return</span> html</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_url</span>():</span></span><br><span class="line">    url = <span class="built_in">input</span>(<span class="string">&quot;输入想要获取源码的网页链接: &quot;</span>);</span><br><span class="line">    url = url+<span class="string">&#x27;?see_lz=&#x27;</span></span><br><span class="line">    OrLz =  <span class="built_in">input</span>(<span class="string">&quot;只看楼主？(0否/1是): &quot;</span>);</span><br><span class="line">    OrLz = <span class="built_in">str</span>(OrLz)</span><br><span class="line">    url = url+OrLz</span><br><span class="line">    print(url)</span><br><span class="line">    <span class="keyword">return</span> url</span><br><span class="line">urlFirst = get_url()</span><br><span class="line"></span><br><span class="line">page = <span class="built_in">input</span>(<span class="string">&quot;输入页数:&quot;</span>);</span><br><span class="line">page = <span class="built_in">int</span>(page)</span><br><span class="line">imgName = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(page):</span><br><span class="line">    url = urlFirst+<span class="string">&#x27;&amp;pn=&#x27;</span>+<span class="built_in">str</span>(i+<span class="number">1</span>)</span><br><span class="line">    print(url)</span><br><span class="line">    html = get_html(url)</span><br><span class="line">    html = html.decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    reg = <span class="string">r&#x27;img class=&quot;BDE_Image&quot; src=&quot;(.+?\.jpg)&quot;&#x27;</span> </span><br><span class="line">    reg_img = re.<span class="built_in">compile</span>(reg)</span><br><span class="line">    imglist = re.findall(reg_img, html)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> imgPath <span class="keyword">in</span> imglist:</span><br><span class="line">        <span class="comment">#print(imgPath)</span></span><br><span class="line">        f = <span class="built_in">open</span>(LocalPath+<span class="string">&quot;/&quot;</span>+<span class="built_in">str</span>(imgName)+<span class="string">&quot;.jpg&quot;</span>, <span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">        f.write((urllib.request.urlopen(imgPath)).read())</span><br><span class="line">        f.close()</span><br><span class="line">        imgName += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span>(imgName%<span class="number">10</span> == <span class="number">0</span>):</span><br><span class="line">            print(<span class="built_in">str</span>(imgName)+<span class="string">&quot; imgs have been saved in &quot;</span>+LocalPath)</span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">print(<span class="string">&quot;All &quot;</span>+<span class="built_in">str</span>(imgName)+<span class="string">&quot; imgs have been saved in &quot;</span>+LocalPath)</span><br></pre></td></tr></table></figure>
-
-<p>问题: urllib.error.URLError: &lt;urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。</p>
-]]></content>
-      <tags>
-        <tag>Saito Asuka</tag>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>编译原理</title>
-    <url>/cklzjl28y000ypcuv24891n0l/</url>
+    <url>/posts/118b8ca3/</url>
     <content><![CDATA[<h1 id="第一章-引论"><a href="#第一章-引论" class="headerlink" title="第一章    引论"></a>第一章    引论</h1><h2 id="什么叫编译程序"><a href="#什么叫编译程序" class="headerlink" title="什么叫编译程序"></a>什么叫编译程序</h2><p><strong>翻译程序</strong>：把某一种语言程序（称为<strong>源语言</strong>程序）转换成另一种语言程序（称为<strong>目标语言</strong>程序）。</p>
 <span id="more"></span>
 
@@ -633,8 +611,30 @@
       </tags>
   </entry>
   <entry>
+    <title>纪念第一次用python</title>
+    <url>/posts/e40734d5/</url>
+    <content><![CDATA[<h4 id="用python3爬取百度贴吧图片"><a href="#用python3爬取百度贴吧图片" class="headerlink" title="用python3爬取百度贴吧图片"></a>用python3爬取百度贴吧图片</h4><p>1 寻找想要爬取图片的网页，如<a href="http://tieba.baidu.com/p/6027318572">http://tieba.baidu.com/p/6027318572</a><br>2 查看网页源代码</p>
+<span id="more"></span>
+
+
+
+<p><img data-src="https://i.loli.net/2019/03/18/5c8fb640cbe4a.png" alt="查看源代码.png"><br>3 放代码</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_html</span>(<span class="params">url</span>):</span></span><br><span class="line">    page = urllib.request.urlopen(url)</span><br><span class="line">    html = page.read()</span><br><span class="line">    <span class="keyword">return</span> html</span><br><span class="line">d = os.getcwd()</span><br><span class="line">p = <span class="string">&quot;\\pic&quot;</span></span><br><span class="line">isExists = os.path.exists(d+p)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> isExists:</span><br><span class="line">    os.mkdir(d+p)</span><br><span class="line">    print(<span class="string">&quot;创建文件夹成功&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">&quot;文件夹已存在&quot;</span>)</span><br><span class="line">    </span><br><span class="line">imgName = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    </span><br><span class="line">	html = get_html(<span class="string">&quot;http://tieba.baidu.com/p/6027318572?see_lz=1&amp;pn=&quot;</span>+<span class="built_in">str</span>(i+<span class="number">1</span>))</span><br><span class="line">	html = html.decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">	</span><br><span class="line">	reg = <span class="string">r&#x27;img class=&quot;BDE_Image&quot; src=&quot;(.+?\.jpg)&quot; size&#x27;</span> </span><br><span class="line">	reg_img = re.<span class="built_in">compile</span>(reg)</span><br><span class="line">	imglist = re.findall(reg_img, html)</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> imgPath <span class="keyword">in</span> imglist:</span><br><span class="line">		print(imgPath)</span><br><span class="line">		f = <span class="built_in">open</span>(<span class="string">&quot;pic/&quot;</span>+<span class="built_in">str</span>(imgName)+<span class="string">&quot;.jpg&quot;</span>, <span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">		f.write((urllib.request.urlopen(imgPath)).read())</span><br><span class="line">		f.close()</span><br><span class="line">		imgName += <span class="number">1</span></span><br><span class="line">print(<span class="built_in">str</span>(imgName)+<span class="string">&quot; img have been saved in pic&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;All Done!&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>4 最终效果<br><img data-src="https://i.loli.net/2019/03/18/5c8fb87a0f654.png" alt="效果.png"></p>
+<p>附 半自动实现爬取图片，需要手输入链接及页数</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mkdir</span>():</span></span><br><span class="line">    <span class="keyword">import</span> os</span><br><span class="line">    path = os.getcwd()</span><br><span class="line">    LocalPath = <span class="built_in">input</span>(<span class="string">&quot;Enter folder name to save pics(in now path): &quot;</span>);</span><br><span class="line">    path = path+<span class="string">&quot;\\&quot;</span>+LocalPath</span><br><span class="line">    isExists=os.path.exists(path)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> isExists:</span><br><span class="line">        <span class="comment"># 如果不存在则创建目录</span></span><br><span class="line">        <span class="comment"># 创建目录操作函数</span></span><br><span class="line">        os.makedirs(path) </span><br><span class="line">        <span class="built_in">print</span> (path+<span class="string">&quot; 创建成功&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 如果目录存在则不创建，并提示目录已存在</span></span><br><span class="line">        <span class="built_in">print</span> (path+<span class="string">&quot; 已存在&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> LocalPath</span><br><span class="line">LocalPath = mkdir()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_html</span>(<span class="params">url</span>):</span></span><br><span class="line"></span><br><span class="line">    page = urllib.request.urlopen(url)</span><br><span class="line">    html = page.read()</span><br><span class="line">    <span class="keyword">return</span> html</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_url</span>():</span></span><br><span class="line">    url = <span class="built_in">input</span>(<span class="string">&quot;输入想要获取源码的网页链接: &quot;</span>);</span><br><span class="line">    url = url+<span class="string">&#x27;?see_lz=&#x27;</span></span><br><span class="line">    OrLz =  <span class="built_in">input</span>(<span class="string">&quot;只看楼主？(0否/1是): &quot;</span>);</span><br><span class="line">    OrLz = <span class="built_in">str</span>(OrLz)</span><br><span class="line">    url = url+OrLz</span><br><span class="line">    print(url)</span><br><span class="line">    <span class="keyword">return</span> url</span><br><span class="line">urlFirst = get_url()</span><br><span class="line"></span><br><span class="line">page = <span class="built_in">input</span>(<span class="string">&quot;输入页数:&quot;</span>);</span><br><span class="line">page = <span class="built_in">int</span>(page)</span><br><span class="line">imgName = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(page):</span><br><span class="line">    url = urlFirst+<span class="string">&#x27;&amp;pn=&#x27;</span>+<span class="built_in">str</span>(i+<span class="number">1</span>)</span><br><span class="line">    print(url)</span><br><span class="line">    html = get_html(url)</span><br><span class="line">    html = html.decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    reg = <span class="string">r&#x27;img class=&quot;BDE_Image&quot; src=&quot;(.+?\.jpg)&quot;&#x27;</span> </span><br><span class="line">    reg_img = re.<span class="built_in">compile</span>(reg)</span><br><span class="line">    imglist = re.findall(reg_img, html)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> imgPath <span class="keyword">in</span> imglist:</span><br><span class="line">        <span class="comment">#print(imgPath)</span></span><br><span class="line">        f = <span class="built_in">open</span>(LocalPath+<span class="string">&quot;/&quot;</span>+<span class="built_in">str</span>(imgName)+<span class="string">&quot;.jpg&quot;</span>, <span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">        f.write((urllib.request.urlopen(imgPath)).read())</span><br><span class="line">        f.close()</span><br><span class="line">        imgName += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span>(imgName%<span class="number">10</span> == <span class="number">0</span>):</span><br><span class="line">            print(<span class="built_in">str</span>(imgName)+<span class="string">&quot; imgs have been saved in &quot;</span>+LocalPath)</span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">print(<span class="string">&quot;All &quot;</span>+<span class="built_in">str</span>(imgName)+<span class="string">&quot; imgs have been saved in &quot;</span>+LocalPath)</span><br></pre></td></tr></table></figure>
+
+<p>问题: urllib.error.URLError: &lt;urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。</p>
+]]></content>
+      <tags>
+        <tag>Saito Asuka</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>阿里云centos6搭建jenkins</title>
-    <url>/cklzjl28z0010pcuvfn3xcv4w/</url>
+    <url>/posts/5c39734/</url>
     <content><![CDATA[<h4 id="进入服务器，下载jenkins并安装"><a href="#进入服务器，下载jenkins并安装" class="headerlink" title="进入服务器，下载jenkins并安装"></a>进入服务器，下载jenkins并安装</h4><span id="more"></span>
 
 <p><a href="https://pkg.jenkins.io/redhat-stable/">官方源</a>用着实在是太慢了，这里我们使用清华大学的<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat/">开源镜像站</a>，选择一个版本，服务器中输入<code>wget 版本链接</code>，</p>

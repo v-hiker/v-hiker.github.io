@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="YNYcpRm3a-QQ2xRTNTpx7NlNTxdaDR3Jl0QgH0A9wWc">
+  <meta name="baidu-site-verification" content="cCFNWaJETa">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"v-hiker.tk","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="进入服务器，下载jenkins并安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿里云centos6搭建jenkins">
+<meta property="og:url" content="https://v-hiker.tk/posts/5c39734/">
+<meta property="og:site_name" content="一个小站">
+<meta property="og:description" content="进入服务器，下载jenkins并安装">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/jenkins-java.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/20200424210313.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/20200424210813.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/20200424210947.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/image-20200424211711910.png">
+<meta property="article:published_time" content="2020-03-22T12:15:14.000Z">
+<meta property="article:modified_time" content="2021-03-08T17:57:04.049Z">
+<meta property="article:author" content="v_hiker">
+<meta property="article:tag" content="jenkins">
+<meta property="article:tag" content="cent os">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/jenkins-java.png">
+
+<link rel="canonical" href="https://v-hiker.tk/posts/5c39734/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>阿里云centos6搭建jenkins | 一个小站</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160689296-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-160689296-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cede15e204959b77feb65e7f07c416dc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">一个小站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个小站</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://v-hiker.tk/posts/5c39734/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/v.jpg">
+      <meta itemprop="name" content="v_hiker">
+      <meta itemprop="description" content="一个用于记录个人学习的博客小站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个小站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          阿里云centos6搭建jenkins
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-22 20:15:14" itemprop="dateCreated datePublished" datetime="2020-03-22T20:15:14+08:00">2020-03-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-09 01:57:04" itemprop="dateModified" datetime="2021-03-09T01:57:04+08:00">2021-03-09</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="进入服务器，下载jenkins并安装"><a href="#进入服务器，下载jenkins并安装" class="headerlink" title="进入服务器，下载jenkins并安装"></a>进入服务器，下载jenkins并安装</h4><span id="more"></span>
+
+<p><a target="_blank" rel="noopener" href="https://pkg.jenkins.io/redhat-stable/">官方源</a>用着实在是太慢了，这里我们使用清华大学的<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat/">开源镜像站</a>，选择一个版本，服务器中输入<code>wget 版本链接</code>，</p>
+<p>输入<code>rpm -ivh 文件</code>进行安装，<code>vim /etc/sysconfig/jenkins </code>修改端口以免冲突;</p>
+<p>输入<code>which java</code>查看jdk地址，修改jenkins配置，<code>vim /etc/init.d/jenkins</code></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/jenkins-java.png" alt="jenkins-java"></p>
+<p>先<code>service jenkins start</code>，在浏览器打开ip:端口让jenkins加载必要的文件。</p>
+<div class="note warning">
+            <p><em>下面部分如不更改，由于不通互联网，插件将很难成功下载</em></p>
+          </div>
+
+<p>输入<code>vi /var/lib/jenkins/updates/default.json </code>后参照<a target="_blank" rel="noopener" href="https://www.cnblogs.com/hellxz/p/jenkins_install_plugins_faster.html">Jenkins安装插件提速</a>进行修改，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:1,<span class="variable">$s</span>/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:1,<span class="variable">$s</span>/http:\/\/www.google.com/https:\/\/www.baidu.com/g</span><br></pre></td></tr></table></figure>
+
+<p>或者进入目录下，在终端直接输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">&#x27;s/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g&#x27;</span> default.json &amp;&amp; sed -i <span class="string">&#x27;s/http:\/\/www.google.com/https:\/\/www.baidu.com/g&#x27;</span> default.json</span><br></pre></td></tr></table></figure>
+
+<p>接下来<code>service jenkins restart</code>启动，进入ip:端口，你将看见jenkins启动中。</p>
+<p>按照提示查看密码并输入：</p>
+<p><code>cat /var/lib/jenkins/secrets/initialAdminPassword</code></p>
+<p>然后安装推荐的插件，等待安装完成。</p>
+<p>成功进入jenkins界面后，依次点击Manage Jenkins-Manage Plugins-Advanced，拉到最下面，将默认的</p>
+<p>更改为<code>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</code>,这可以加快获取列表的速度。</p>
+<h4 id="配置jenkins所需插件"><a href="#配置jenkins所需插件" class="headerlink" title="配置jenkins所需插件"></a>配置jenkins所需插件</h4><p>检查是否已安装以下两个插件：</p>
+<p>1.Maven Integration 使我们可以开始一个maven项目作为任务</p>
+<p>2.Git plugin 使我们可以读取存放在git仓库的项目</p>
+<p>如果没有，就去插件管理里面搜索安装。</p>
+<h4 id="配置jenkins全局工具"><a href="#配置jenkins全局工具" class="headerlink" title="配置jenkins全局工具"></a>配置jenkins全局工具</h4><p>系统管理 –&gt; 全局工具配置</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/20200424210313.png"></p>
+<p>主要是配置jdk和git的地址，<code>which java</code>和<code>which git</code>查看就行了。</p>
+<h4 id="新建任务"><a href="#新建任务" class="headerlink" title="新建任务"></a>新建任务</h4><h5 id="maven项目"><a href="#maven项目" class="headerlink" title="maven项目"></a>maven项目</h5><p><img data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/20200424210813.png"></p>
+<p>点击“新建任务”，输入名称，选择构建maven项目。</p>
+<p>如图，添加源码位置，这里可以添加Credentials，一般使用https的方式添加源码就行了。使用ssh还需要到服务器里生成公钥添加到git。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/20200424210947.png"></p>
+<p>接下来添加build goal，<code>clean package -Dmaven.test.skip=true</code>这个是用来生成拥有Spring启动程序的项目的代码，如果是用来生成api供自己的程序使用，需要用<code>clean install -Dmaven.test.skip=true</code>这个命令。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/image-20200424211711910.png"></p>
+<p>最后添加Post Steps</p>
+<p>选中<code>Run only if build succeeds</code>,add post-build step选择执行shell，按照如下格式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span> </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">export</span> BUILD_ID=dontKillMe这一句很重要，这样指定了，项目启动之后才不会被Jenkins杀掉。</span></span><br><span class="line">export BUILD_ID=dontKillMe</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">指定最后编译好的jar存放的位置</span></span><br><span class="line">www_path=/usr/jars</span><br><span class="line"><span class="meta">#</span><span class="bash">Jenkins中编译好的jar位置,其中md_metadata是自己的项目名称</span></span><br><span class="line">jar_path=/var/lib/jenkins/workspace/md_metadata/target/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">Jenkins中编译好的jar名称，注意改成自己的项目名称</span></span><br><span class="line">jar_name=metadata-0.0.1-SNAPSHOT.jar</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">获取运行编译好的进程ID，便于我们在重新部署项目的时候先杀掉以前的进程，注意改成自己的项目名称</span></span><br><span class="line">pid=`ps -ef | grep metadata-0.0.1-SNAPSHOT.jar | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27;`</span><br><span class="line">if [ -n &quot;$pid&quot; ]</span><br><span class="line">then</span><br><span class="line">   kill -9 $pid</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">进入指定的编译好的jar的位置</span></span><br><span class="line">cd  $&#123;jar_path&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">将编译好的jar复制到最后指定的位置</span></span><br><span class="line">cp  $&#123;jar_path&#125;/$&#123;jar_name&#125; $&#123;www_path&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">进入最后指定存放jar的位置</span></span><br><span class="line">cd  $&#123;www_path&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">启动jar</span></span><br><span class="line">java -jar $&#123;jar_name&#125; &amp;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>点击保存，ok。</p>
+<h5 id="流水线任务"><a href="#流水线任务" class="headerlink" title="流水线任务"></a>流水线任务</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">node&#123;</span><br><span class="line">    stage(&quot;starter&quot;)&#123;</span><br><span class="line">        echo &quot;run starter&quot;</span><br><span class="line">        build job:&quot;md_starter&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    stage(&quot;eureka&quot;)&#123;</span><br><span class="line">        echo &quot;run eureka&quot;</span><br><span class="line">        build job:&quot;md_eureka&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>v_hiker
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://v-hiker.tk/posts/5c39734/" title="阿里云centos6搭建jenkins">https://v-hiker.tk/posts/5c39734/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/jenkins/" rel="tag"># jenkins</a>
+              <a href="/tags/cent-os/" rel="tag"># cent os</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/f093c269/" rel="prev" title="android studio出错">
+      <i class="fa fa-chevron-left"></i> android studio出错
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/945da7b/" rel="next" title="Spring data jpa demo">
+      Spring data jpa demo <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E4%B8%8B%E8%BD%BDjenkins%E5%B9%B6%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">进入服务器，下载jenkins并安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEjenkins%E6%89%80%E9%9C%80%E6%8F%92%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">配置jenkins所需插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEjenkins%E5%85%A8%E5%B1%80%E5%B7%A5%E5%85%B7"><span class="nav-number">3.</span> <span class="nav-text">配置jenkins全局工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E4%BB%BB%E5%8A%A1"><span class="nav-number">4.</span> <span class="nav-text">新建任务</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#maven%E9%A1%B9%E7%9B%AE"><span class="nav-number">4.1.</span> <span class="nav-text">maven项目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF%E4%BB%BB%E5%8A%A1"><span class="nav-number">4.2.</span> <span class="nav-text">流水线任务</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="v_hiker"
+      src="/images/v.jpg">
+  <p class="site-author-name" itemprop="name">v_hiker</p>
+  <div class="site-description" itemprop="description">一个用于记录个人学习的博客小站</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/v-hiker" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;v-hiker" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:v_hiker@qq.com" title="E-Mail → mailto:v_hiker@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">v_hiker</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">16k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">14 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

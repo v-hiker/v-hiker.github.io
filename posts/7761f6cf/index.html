@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="YNYcpRm3a-QQ2xRTNTpx7NlNTxdaDR3Jl0QgH0A9wWc">
+  <meta name="baidu-site-verification" content="cCFNWaJETa">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"v-hiker.tk","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="新拉的项目下完依赖后dependencies还是出现红色波浪线删除pom中相关依赖,import change后重新添加即可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring 项目出错记录">
+<meta property="og:url" content="https://v-hiker.tk/posts/7761f6cf/">
+<meta property="og:site_name" content="一个小站">
+<meta property="og:description" content="新拉的项目下完依赖后dependencies还是出现红色波浪线删除pom中相关依赖,import change后重新添加即可">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2019/09/29/Z1pnWJO8VgNfMmU.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/29/dgvwRuiUMXmK7Oa.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/29/OQR1gEbaZMTse6K.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/29/qi5Y2muyJ9pABoG.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/29/b8WqjHUhsDx1Gvg.png">
+<meta property="article:published_time" content="2019-09-23T15:17:58.000Z">
+<meta property="article:modified_time" content="2021-03-08T17:57:04.034Z">
+<meta property="article:author" content="v_hiker">
+<meta property="article:tag" content="spring">
+<meta property="article:tag" content="maven">
+<meta property="article:tag" content="idea">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/29/Z1pnWJO8VgNfMmU.png">
+
+<link rel="canonical" href="https://v-hiker.tk/posts/7761f6cf/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>spring 项目出错记录 | 一个小站</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160689296-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-160689296-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cede15e204959b77feb65e7f07c416dc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">一个小站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个小站</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://v-hiker.tk/posts/7761f6cf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/v.jpg">
+      <meta itemprop="name" content="v_hiker">
+      <meta itemprop="description" content="一个用于记录个人学习的博客小站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个小站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          spring 项目出错记录
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-23 23:17:58" itemprop="dateCreated datePublished" datetime="2019-09-23T23:17:58+08:00">2019-09-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-09 01:57:04" itemprop="dateModified" datetime="2021-03-09T01:57:04+08:00">2021-03-09</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h5 id="新拉的项目下完依赖后dependencies还是出现红色波浪线"><a href="#新拉的项目下完依赖后dependencies还是出现红色波浪线" class="headerlink" title="新拉的项目下完依赖后dependencies还是出现红色波浪线"></a>新拉的项目下完依赖后dependencies还是出现红色波浪线</h5><p>删除pom中相关依赖,import change后重新添加即可</p>
+<span id="more"></span>
+
+<h5 id="启动类报错："><a href="#启动类报错：" class="headerlink" title="启动类报错："></a>启动类报错：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">错误: 找不到或无法加载主类 XXXX</span><br><span class="line">原因: java.lang.ClassNotFoundException: XXXX</span><br></pre></td></tr></table></figure>
+
+<p><code>mvn clean install</code>或者使用lifecycle的clean&amp;install即可</p>
+<h5 id="generatorConfig-xml中"><a href="#generatorConfig-xml中" class="headerlink" title="generatorConfig.xml中"></a>generatorConfig.xml中</h5><p><code>http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd</code>红色，使用idea的红色小灯泡，点击Fetch external resource即可解决</p>
+<h5 id="SprinfBoot启动eureka出现WARNING"><a href="#SprinfBoot启动eureka出现WARNING" class="headerlink" title="SprinfBoot启动eureka出现WARNING:"></a>SprinfBoot启动eureka出现WARNING:</h5><p><code>An illegal reflective access operation has occurred</code></p>
+<p>原因：jdk版本过高，（或许是spring5+的bug，未深究），解决办法：降低项目jdk至1.8以下</p>
+<p><img data-src="https://i.loli.net/2019/09/29/Z1pnWJO8VgNfMmU.png" alt="imageTemp.png"></p>
+<p>如若依然不行，查看每个module中jdk版本是否已降低</p>
+<p><img data-src="https://i.loli.net/2019/09/29/dgvwRuiUMXmK7Oa.png" alt="modulejdk.png"></p>
+<h5 id="启动服务报错："><a href="#启动服务报错：" class="headerlink" title="启动服务报错："></a>启动服务报错：</h5><p><code>Caused by: java.nio.charset.MalformedInputException: Input length = 1</code></p>
+<p>编码设置有问题，File –&gt; Settings –&gt; Editor —&gt;File Encodings   ，将所有的格式都转成utf-8格式</p>
+<h5 id="swagger-swagger-resources-configuration-ui报错404"><a href="#swagger-swagger-resources-configuration-ui报错404" class="headerlink" title="swagger/swagger-resources/configuration/ui报错404"></a>swagger<code>/swagger-resources/configuration/ui</code>报错404</h5><p><img data-src="https://i.loli.net/2019/09/29/OQR1gEbaZMTse6K.png" alt="swagger-ui-404.png"></p>
+<p>查看网上问题后，去检查swagger-ui和swagger2的版本发现也是一样的，实在是没找出来毛病，于是先更改了一个小问题：</p>
+<p>service右上角显示小红x，原因是因为之前更改了一次package的名称，导致configuration里面出现了一点问题，只需要右键编辑以下就好了</p>
+<p><img data-src="https://i.loli.net/2019/09/29/qi5Y2muyJ9pABoG.png" alt="right-red-x.png"><br><img data-src="https://i.loli.net/2019/09/29/b8WqjHUhsDx1Gvg.png" alt="x-next.png"></p>
+<p>在解决了这个事情后，我重启了服务，随便刷了一下swagger，发现它竟然好了！！！我佛了</p>
+<h5 id="idea2019-2中中文字体忽大忽小不规范的问题"><a href="#idea2019-2中中文字体忽大忽小不规范的问题" class="headerlink" title="idea2019.2中中文字体忽大忽小不规范的问题"></a>idea2019.2中中文字体忽大忽小不规范的问题</h5><p>File –&gt; Settings –&gt; Editor —&gt;Font调整“Fallback font”为SimHei、SimSun、YouYuan等</p>
+<h5 id="idea2019-2及以上版本pom文件添加dependency不提示补全"><a href="#idea2019-2及以上版本pom文件添加dependency不提示补全" class="headerlink" title="idea2019.2及以上版本pom文件添加dependency不提示补全"></a>idea2019.2及以上版本pom文件添加dependency不提示补全</h5><p>据说是2019.2版本BUG，但是我更新2019.03后依然还是这样，准确地说是时灵时不灵，需要先输入groupID才会提示，可以参考isuue：<a target="_blank" rel="noopener" href="https://youtrack.jetbrains.com/issue/IDEA-215097">https://youtrack.jetbrains.com/issue/IDEA-215097</a></p>
+<h5 id="idea设置代码行宽度超出限制时自动换行"><a href="#idea设置代码行宽度超出限制时自动换行" class="headerlink" title="idea设置代码行宽度超出限制时自动换行"></a><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8f71436e5bb1">idea设置代码行宽度超出限制时自动换行</a></h5><p>1、settings-&gt;editor-&gt;code style-&gt;default options-&gt;勾选wrap on typing</p>
+<p>2、settings-&gt;editor-&gt;code style-&gt;java-&gt;wrapping and braces栏-&gt;ensure right margin is not exceeded</p>
+<h5 id="duplicate-declaration-of-version"><a href="#duplicate-declaration-of-version" class="headerlink" title="duplicate declaration of version"></a>duplicate declaration of version</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Some problems were encountered while building the effective model for tk.hiker.blog:starter:pom:0.0.1-SNAPSHOT</span><br><span class="line">&#39;dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)&#39; must be unique: com.alibaba:fastjson:jar -&gt; duplicate declaration of version 1.2.60 @ line 114, column 25</span><br><span class="line">It is highly recommended to fix these problems because they threaten the stability of your build.</span><br><span class="line">For this reason, future Maven versions might no longer support building such malformed projects.</span><br></pre></td></tr></table></figure>
+
+<p>单纯的因为多写了一遍依赖，仔细检查下pom文件应该就能找到</p>
+<h5 id="Content-type-‘’-not-supported"><a href="#Content-type-‘’-not-supported" class="headerlink" title="Content type ‘’ not supported"></a>Content type ‘’ not supported</h5><p>因为我在不需要传值的方法中写了consumes</p>
+<p><code>@GetMapping(path = &quot;/postsinfo/getallposts&quot;,consumes = &quot;application/json;charset=UTF-8&quot;)</code></p>
+<h5 id="MyBatis排序时使用order-by-动态参数时需要注意，用-而不是"><a href="#MyBatis排序时使用order-by-动态参数时需要注意，用-而不是" class="headerlink" title="MyBatis排序时使用order by 动态参数时需要注意，用$而不是#"></a>MyBatis排序时使用order by 动态参数时需要注意，用$而不是#</h5><h5 id="引用自定义包报错The-POM-for-xxxx-is-missing-no-dependency-information-available"><a href="#引用自定义包报错The-POM-for-xxxx-is-missing-no-dependency-information-available" class="headerlink" title="引用自定义包报错The POM for xxxx is missing, no dependency information available"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39150374/article/details/91969186">引用自定义包报错The POM for xxxx is missing, no dependency information available</a></h5><p>打成springboot jar包,再引用自己做的包时，不要用这个打包命令:<br><code>mvn package -Dmaven.test.skip=true</code></p>
+<p>正确的打包命令:<br><code>mvn clean install -Dmaven.test.skip=true</code></p>
+<h5 id="关于SpringCloud（Nacos注册中心）集成Gateway时，路由跳转出错的解决方法"><a href="#关于SpringCloud（Nacos注册中心）集成Gateway时，路由跳转出错的解决方法" class="headerlink" title="关于SpringCloud（Nacos注册中心）集成Gateway时，路由跳转出错的解决方法"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43259821/article/details/104481875">关于SpringCloud（Nacos注册中心）集成Gateway时，路由跳转出错的解决方法</a></h5><p>错误提示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">An exception &#x27;java.lang.BootstrapMethodError: java.lang.NoClassDefFoundError: reactor/netty/NettyPipeline$SendOptions&#x27; [enable DEBUG level for full stacktrace] was thrown by a user handler&#x27;s exceptionCaught() method while handling the following exception:</span><br></pre></td></tr></table></figure>
+
+<p>原因：springboot和gateway的版本不匹配</p>
+<p>我是在集成eureka的时候出现的这个错误，看了这篇文章后检查自己的发现springboot版本为2.2.6，gateway的版本却为2.1.4，我去搜了一下<a target="_blank" rel="noopener" href="https://spring.io/projects/spring-cloud-gateway#learn">版本</a>才发现最新的是2.2.2了，因为我一直用idea提示的版本，结果造成了这种问题。</p>
+<h5 id="Failed-to-bind-properties-under-‘spring-redis-port’-to-int"><a href="#Failed-to-bind-properties-under-‘spring-redis-port’-to-int" class="headerlink" title="Failed to bind properties under ‘spring.redis.port’ to int:"></a>Failed to bind properties under ‘spring.redis.port’ to int:</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Description:</span><br><span class="line"></span><br><span class="line">Failed to bind properties under &#x27;spring.redis.port&#x27; to int:</span><br><span class="line"></span><br><span class="line">    Property: spring.redis.port</span><br><span class="line">    Value: $&#123;redis.defult.port&#125;</span><br><span class="line">    Origin: class path resource [application.yml]:12:11</span><br><span class="line">    Reason: failed to convert java.lang.String to int</span><br><span class="line"></span><br><span class="line">Action:</span><br><span class="line"></span><br><span class="line">Update your application&#x27;s configuration</span><br></pre></td></tr></table></figure>
+
+<p>仔细检查，可以发现我把default打成了defult，所以，引用云端配置的时候最好还是直接复制吧。</p>
+<h5 id="mysql插入emoji报错"><a href="#mysql插入emoji报错" class="headerlink" title="mysql插入emoji报错"></a>mysql插入emoji报错</h5><p><code>Incorrect string value: &#39;\xF0\x9F\x90\x96&#39; for column</code></p>
+<p>原因：</p>
+<p>一个ASCII字符占用1个字节，一个汉字占用3个字节；<br>MySql的utf8编码最多3个字节，算不上真正的utf8字符集。在MySql5.5.3的版本增加了utf8mb4编码集，专门用于兼容4个字节的unicode。在MySql中utf8mb4是utf8的超集，除了修改数据库的编码集为utf8mb4外不需要做其他的修改。</p>
+<p>解决办法：<a target="_blank" rel="noopener" href="https://blog.csdn.net/KillerAwp/article/details/82356042">MySql使用utf8mb4</a></p>
+<p>第一步：检查版本<br>查询版本语句：</p>
+<p><code>select version();</code></p>
+<p>第二步：修改MySql配置文件<br>打开mysql配置文件mysql/my.cnf或mysql/my.ini, 并且添加如下内容：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line"><span class="keyword">default</span><span class="operator">-</span><span class="type">character</span><span class="operator">-</span><span class="keyword">set</span><span class="operator">=</span>utf8mb4</span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line"><span class="keyword">default</span><span class="operator">-</span><span class="type">character</span><span class="operator">-</span><span class="keyword">set</span><span class="operator">=</span>utf8mb4</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line"><span class="type">character</span><span class="operator">-</span><span class="keyword">set</span><span class="operator">-</span>client<span class="operator">-</span>handshake<span class="operator">=</span><span class="literal">FALSE</span></span><br><span class="line"><span class="type">character</span><span class="operator">-</span><span class="keyword">set</span><span class="operator">-</span>server<span class="operator">=</span>utf8mb4</span><br><span class="line"><span class="keyword">collation</span><span class="operator">-</span>server<span class="operator">=</span>utf8mb4_unicode_ci</span><br><span class="line">init_connect<span class="operator">=</span><span class="string">&#x27;SET NAMES utf8mb4&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>第三步：重启数据库<br>1、Windows请到服务管理界面重新启动MySql服务：services.msc</p>
+<p>2、Linux请执行命令：/etc/init.d/mysql restart</p>
+<p>第四步：检查数据库配置<br>执行查看数据库字符集命令：</p>
+<p><code>SHOW VARIABLES WHERE Variable_name LIKE &#39;character_set_%&#39; OR Variable_name LIKE &#39;collation%&#39;;</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">+</span><span class="comment">--------------------------+--------------------+</span></span><br><span class="line"><span class="operator">|</span> Variable_name                         <span class="operator">|</span> <span class="keyword">Value</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------------------+--------------------+</span></span><br><span class="line"><span class="operator">||</span> character_set_client         <span class="operator">|</span> utf8mb4 </span><br><span class="line"><span class="operator">||</span> character_set_connection <span class="operator">|</span> utf8mb4 </span><br><span class="line"><span class="operator">||</span> character_set_database     <span class="operator">|</span> utf8mb4 </span><br><span class="line"><span class="operator">||</span> character_set_filesystem <span class="operator">|</span> <span class="type">binary</span> </span><br><span class="line"><span class="operator">||</span> character_set_results         <span class="operator">|</span> utf8mb4 </span><br><span class="line"><span class="operator">||</span> character_set_server         <span class="operator">|</span> utf8mb4 </span><br><span class="line"><span class="operator">||</span> character_set_system         <span class="operator">|</span> utf8 </span><br><span class="line"><span class="operator">||</span> collation_connection         <span class="operator">|</span> utf8mb4_unicode_ci </span><br><span class="line"><span class="operator">||</span> collation_database             <span class="operator">|</span> utf8mb4_unicode_ci </span><br><span class="line"><span class="operator">||</span> collation_server                 <span class="operator">|</span> utf8mb4_unicode_ci</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------------------+--------------------+</span></span><br></pre></td></tr></table></figure>
+
+<p>必须保证:<br><code>character_set_client/character_se_connection/character_set_database/character_set_results/character_set_server</code>为<code>utf8mb4</code>。</p>
+<p>第五步：更新客户端配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jdbc.driverClassName&#x3D;com.mysql.jdbc.Driver</span><br><span class="line">jdbc.url&#x3D;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;database?useUnicode&#x3D;true&amp;characterEncoding&#x3D;utf8&amp;autoReconnect&#x3D;true&amp;rewriteBatchedStatements&#x3D;true</span><br><span class="line">jdbc.username&#x3D;username</span><br><span class="line">jdbc.password&#x3D;password</span><br></pre></td></tr></table></figure>
+
+<p>注意：jdbc.url的内容,<code>characterEncoding=utf8</code>可以配自动识别为utf8bm4  <em>//原作者的话，没理解</em></p>
+<p>第六步：修改数据库、表和列的字符集SQL语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> DATABASE database_name <span class="type">CHARACTER</span> <span class="keyword">SET</span> <span class="operator">=</span> utf8mb4 <span class="keyword">COLLATE</span> <span class="operator">=</span> utf8mb4_unicode_ci;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">CONVERT</span> <span class="keyword">TO</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name table_name CHANGE column_name <span class="type">VARCHAR</span>(<span class="number">1024</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci;</span><br></pre></td></tr></table></figure>
+
+<p>第七步：修改应用连接字符串(druid)：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=<span class="string">&quot;dataSource&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span> init-method=<span class="string">&quot;init&quot;</span> destroy-method=<span class="string">&quot;close&quot;</span>&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;driverClassName&quot;</span> value=<span class="string">&quot;$&#123;jdbc-driver&#125;&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;url&quot;</span> value=<span class="string">&quot;$&#123;jdbc-url&#125;&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;username&quot;</span> value=<span class="string">&quot;$&#123;jdbc-user&#125;&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;password&quot;</span> value=<span class="string">&quot;$&#123;jdbc-password&#125;&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;filters&quot;</span> value=<span class="string">&quot;stat&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;maxActive&quot;</span> value=<span class="string">&quot;20&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;initialSize&quot;</span> value=<span class="string">&quot;1&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;maxWait&quot;</span> value=<span class="string">&quot;60000&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;minIdle&quot;</span> value=<span class="string">&quot;1&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;timeBetweenEvictionRunsMillis&quot;</span> value=<span class="string">&quot;3000&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;minEvictableIdleTimeMillis&quot;</span> value=<span class="string">&quot;300000&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;validationQuery&quot;</span> value=<span class="string">&quot;SELECT &#x27;x&#x27;&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;testWhileIdle&quot;</span> value=<span class="string">&quot;true&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;testOnBorrow&quot;</span> value=<span class="string">&quot;false&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;testOnReturn&quot;</span> value=<span class="string">&quot;false&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;poolPreparedStatements&quot;</span> value=<span class="string">&quot;true&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;maxPoolPreparedStatementPerConnectionSize&quot;</span> value=<span class="string">&quot;20&quot;</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">&quot;connectionInitSqls&quot;</span> value=<span class="string">&quot;set names utf8mb4;&quot;</span>/&gt;  <span class="comment">//必须添加</span></span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：mysql-connector-java驱动在5.1.13之前是不支持utf8mb4，请使用5.1.13以后的版本。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="v_hiker 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>v_hiker
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://v-hiker.tk/posts/7761f6cf/" title="spring 项目出错记录">https://v-hiker.tk/posts/7761f6cf/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/spring/" rel="tag"># spring</a>
+              <a href="/tags/maven/" rel="tag"># maven</a>
+              <a href="/tags/idea/" rel="tag"># idea</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/ebbfa50c/" rel="prev" title="二分初解">
+      <i class="fa fa-chevron-left"></i> 二分初解
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/e72505fc/" rel="next" title="代码通用">
+      代码通用 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B0%E6%8B%89%E7%9A%84%E9%A1%B9%E7%9B%AE%E4%B8%8B%E5%AE%8C%E4%BE%9D%E8%B5%96%E5%90%8Edependencies%E8%BF%98%E6%98%AF%E5%87%BA%E7%8E%B0%E7%BA%A2%E8%89%B2%E6%B3%A2%E6%B5%AA%E7%BA%BF"><span class="nav-number">1.</span> <span class="nav-text">新拉的项目下完依赖后dependencies还是出现红色波浪线</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E7%B1%BB%E6%8A%A5%E9%94%99%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">启动类报错：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#generatorConfig-xml%E4%B8%AD"><span class="nav-number">3.</span> <span class="nav-text">generatorConfig.xml中</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SprinfBoot%E5%90%AF%E5%8A%A8eureka%E5%87%BA%E7%8E%B0WARNING"><span class="nav-number">4.</span> <span class="nav-text">SprinfBoot启动eureka出现WARNING:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1%E6%8A%A5%E9%94%99%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">启动服务报错：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#swagger-swagger-resources-configuration-ui%E6%8A%A5%E9%94%99404"><span class="nav-number">6.</span> <span class="nav-text">swagger&#x2F;swagger-resources&#x2F;configuration&#x2F;ui报错404</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#idea2019-2%E4%B8%AD%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93%E5%BF%BD%E5%A4%A7%E5%BF%BD%E5%B0%8F%E4%B8%8D%E8%A7%84%E8%8C%83%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">7.</span> <span class="nav-text">idea2019.2中中文字体忽大忽小不规范的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#idea2019-2%E5%8F%8A%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%ACpom%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0dependency%E4%B8%8D%E6%8F%90%E7%A4%BA%E8%A1%A5%E5%85%A8"><span class="nav-number">8.</span> <span class="nav-text">idea2019.2及以上版本pom文件添加dependency不提示补全</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#idea%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%A0%81%E8%A1%8C%E5%AE%BD%E5%BA%A6%E8%B6%85%E5%87%BA%E9%99%90%E5%88%B6%E6%97%B6%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C"><span class="nav-number">9.</span> <span class="nav-text">idea设置代码行宽度超出限制时自动换行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#duplicate-declaration-of-version"><span class="nav-number">10.</span> <span class="nav-text">duplicate declaration of version</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Content-type-%E2%80%98%E2%80%99-not-supported"><span class="nav-number">11.</span> <span class="nav-text">Content type ‘’ not supported</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MyBatis%E6%8E%92%E5%BA%8F%E6%97%B6%E4%BD%BF%E7%94%A8order-by-%E5%8A%A8%E6%80%81%E5%8F%82%E6%95%B0%E6%97%B6%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%EF%BC%8C%E7%94%A8-%E8%80%8C%E4%B8%8D%E6%98%AF"><span class="nav-number">12.</span> <span class="nav-text">MyBatis排序时使用order by 动态参数时需要注意，用$而不是#</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8C%85%E6%8A%A5%E9%94%99The-POM-for-xxxx-is-missing-no-dependency-information-available"><span class="nav-number">13.</span> <span class="nav-text">引用自定义包报错The POM for xxxx is missing, no dependency information available</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E4%BA%8ESpringCloud%EF%BC%88Nacos%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%EF%BC%89%E9%9B%86%E6%88%90Gateway%E6%97%B6%EF%BC%8C%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">14.</span> <span class="nav-text">关于SpringCloud（Nacos注册中心）集成Gateway时，路由跳转出错的解决方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Failed-to-bind-properties-under-%E2%80%98spring-redis-port%E2%80%99-to-int"><span class="nav-number">15.</span> <span class="nav-text">Failed to bind properties under ‘spring.redis.port’ to int:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mysql%E6%8F%92%E5%85%A5emoji%E6%8A%A5%E9%94%99"><span class="nav-number">16.</span> <span class="nav-text">mysql插入emoji报错</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="v_hiker"
+      src="/images/v.jpg">
+  <p class="site-author-name" itemprop="name">v_hiker</p>
+  <div class="site-description" itemprop="description">一个用于记录个人学习的博客小站</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/v-hiker" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;v-hiker" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:v_hiker@qq.com" title="E-Mail → mailto:v_hiker@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">v_hiker</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">16k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">14 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
