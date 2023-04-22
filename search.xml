@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Git使用记录</title>
+    <url>/posts/a912528b/</url>
+    <content><![CDATA[<h5 id="Git-warning：LF-will-be-replaced-by-CRLF-in-readme-txt的原因与解决方案"><a href="#Git-warning：LF-will-be-replaced-by-CRLF-in-readme-txt的原因与解决方案" class="headerlink" title="Git warning：LF will be replaced by CRLF in readme.txt的原因与解决方案"></a><a href="https://blog.csdn.net/starry_night9280/article/details/53207928">Git warning：LF will be replaced by CRLF in readme.txt的原因与解决方案</a></h5><span id="more"></span>
+
+<blockquote>
+<p>不同操作系统所使用的换行符是不一样的，下面罗列一下三大主流操作系统的换行符：<br>Uinx&#x2F;Linux采用换行符LF表示下一行（LF：LineFeed，中文意思是换行）；<br>Dos和Windows采用回车+换行CRLF表示下一行（CRLF：CarriageReturn LineFeed，中文意思是回车换行）；<br>Mac OS采用回车CR表示下一行（CR：CarriageReturn，中文意思是回车）。</p>
+<p>在Git中，可以通过以下命令来显示当前你的Git中采取哪种对待换行符的方式</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git config core.autocrlf</span></span><br></pre></td></tr></table></figure>
+
+<p>此命令会有三个输出，“true”，“false”或者“input” 。</p>
+<p>为true时，Git会将你add的所有文件视为文本问价你，将结尾的CRLF转换为LF，而checkout时会再将文件的LF格式转为CRLF格式。</p>
+<p>为false时，line endings不做任何改变，文本文件保持其原来的样子。</p>
+<p>为input时，add时Git会把CRLF转换为LF，而check时仍旧为LF，所以Windows操作系统不建议设置此值。</p>
+<p><strong>解决办法：</strong></p>
+<p>将core.autocrlf设为false即可解决这个问题，不过如果你和你的伙伴只工作于Windows平台或者Linux平台，那么没问题，不过如果是存在跨平台的现象的话，还是需要考虑一下。</p>
+<p>但当 core autocrlf为true时，还有一个需要慎重的地方，当你上传一个二进制文件，Git可能会将二进制文件误以为是文本文件，从而也会修改你的二进制文件，从而产生隐患。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git config --global core.autocrlf <span class="literal">true</span>   <span class="comment">#true的位置放你想使autocrlf成为的结果，true，false或者input</span></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo的使用</title>
+    <url>/posts/3b4634fc/</url>
+    <content><![CDATA[<h1 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h1><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>通过<a href="https://registry.npmmirror.com/binary.html?path=git-for-windows/">淘宝镜像</a>找到最新的版本进行下载。</p>
+<h3 id="配置用户信息"><a href="#配置用户信息" class="headerlink" title="配置用户信息"></a>配置用户信息</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;v_hiker&quot;</span><br><span class="line">git config --global user.email &quot;v_hiker@qq.com&quot;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>如果用了<code>--global</code>选项，那么更改的配置文件就是位于你用户主目录下的那个，以后你所有的项目都会默认使用这里配置的用户信息。如果要在某个特定的项目中使用其他名字或者电邮，只要去掉<code>--global</code>选项重新配置即可，新的设定保存在当前项目的<code>.git/config</code>文件里。</p>
+<p>要检查已有的配置信息，可以使用:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure>
+<p>删除配置，使用:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --<span class="built_in">unset</span> user.name</span><br></pre></td></tr></table></figure>
+
+<h3 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h3><p>以<code>Clash</code>为例:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config http.proxy=http://127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置<code>SSH</code></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;v_hiker@qq.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>一路回车即可。在<code>C:\Users\wangy\.ssh</code>这个路径下会生成两个文件：<code>id_rsa</code>和<code>id_rsa.pub</code></p>
+<p>网页进入<code>Github</code>，找到<code>Settings=&gt;SSH and GPG keys=&gt;New SSH key</code>，添加<code>id_rsa.pub</code>中的内容。</p>
+<h2 id="Node-JS"><a href="#Node-JS" class="headerlink" title="Node.JS"></a>Node.JS</h2><h3 id="nvm"><a href="#nvm" class="headerlink" title="nvm"></a>nvm</h3><p>在<code>Windows</code>上通过三方管理工具进行管理<code>node.Js</code>版本,这里使用<a href="https://github.com/creationix/nvm"><code>nvm</code></a>：</p>
+<ol>
+<li>根据官方文档在<code>PowerShell</code>中输入安装脚本进行安装。<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash</span><br></pre></td></tr></table></figure></li>
+<li>重新打开终端，检查<code>nvm</code>安装情况。<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm --version</span><br></pre></td></tr></table></figure></li>
+<li>查看所有可供安装的<code>node.Js</code>版本。<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm <span class="built_in">ls</span> available</span><br></pre></td></tr></table></figure></li>
+<li>选择自己想要的版本进行安装。<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install v11.11.0</span><br></pre></td></tr></table></figure></li>
+<li>查看本地已安装的<code>node.Js</code>。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+
+<p>安装完<code>nvm</code>之后，通过命令可以很简单地切换<code>node.Js</code>版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm use 18.13.0</span><br></pre></td></tr></table></figure>
+<h3 id="npm配置"><a href="#npm配置" class="headerlink" title="npm配置"></a>npm配置</h3><p>国内配置淘宝镜像加速下载：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry <span class="string">&quot;https://registry.npmmirror.com/&quot;</span></span><br></pre></td></tr></table></figure>
+<p>恢复：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry <span class="string">&quot;https://registry.npmjs.org/&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p> 查看是否更改成功：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>npm</code>查看包版本:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm <span class="built_in">ls</span> -g --depth 0</span><br></pre></td></tr></table></figure>
+<p>其中，<code>-g</code>代表全局，不查看全局去除即可。</p>
+<p>检查更新：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm outdated</span><br></pre></td></tr></table></figure>
+<p>需要更新模块，首先得更新<code>package.json</code>文件，可使用<code>npm-check-updates依赖包</code>：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装&quot;npm-check-updates&quot;模块</span></span><br><span class="line">npm install -g npm-check-updates</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 安装后，检查可更新的模块</span></span><br><span class="line">ncu</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">npm-check-updates</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 更新package.json的依赖包到最新版本</span></span><br><span class="line">ncu -u</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>按照<a href="https://hexo.io/zh-cn/docs/">官方文档</a>很详细</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>安装 Hexo 完成后，执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>这里<code>hexo</code>要求为空文件夹，所以版本控制需要后面进行关联.</p>
+<p>安装完成后进入文件夹，执行预览命令，即可预览效果：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>根据输出打开链接即可:</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INFO</span>  Validating config</span><br><span class="line"><span class="keyword">INFO</span>  <span class="keyword">Start</span> processing</span><br><span class="line"><span class="keyword">INFO</span>  Hexo <span class="keyword">is</span> running at http://localhost:<span class="number">4000</span>/ . Press Ctrl+C <span class="keyword">to</span> stop.</span><br><span class="line"><span class="keyword">INFO</span>  Catch you later</span><br></pre></td></tr></table></figure>
+
+<h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><h2 id="hexo-deployer-git"><a href="#hexo-deployer-git" class="headerlink" title="hexo-deployer-git"></a><a href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a></h2><p>用于 一键部署<code>Github Pages</code>,参考<a href="https://hexo.io/zh-cn/docs/one-command-deployment">官方文档</a>。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="hexo-generator-searchdb"><a href="#hexo-generator-searchdb" class="headerlink" title="hexo-generator-searchdb"></a><a href="https://github.com/theme-next/hexo-generator-searchdb">hexo-generator-searchdb</a></h2><p>支持本地搜索, 安装命令: </p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo-generator-sitemap"><a href="#hexo-generator-sitemap" class="headerlink" title="hexo-generator-sitemap"></a><a href="https://github.com/hexojs/hexo-generator-sitemap">hexo-generator-sitemap</a></h2><p>部署时生成<code>sitemap</code>文件, 安装命令: </p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo-generator-baidu-sitemap"><a href="#hexo-generator-baidu-sitemap" class="headerlink" title="hexo-generator-baidu-sitemap"></a><a href="https://github.com/coneycode/hexo-generator-baidu-sitemap">hexo-generator-baidu-sitemap</a></h2><p>百度所需<code>sitemap</code>生成器, 安装命令:  </p>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install </span>hexo-generator-<span class="keyword">baidu-sitemap </span>--save</span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo-symbols-count-time"><a href="#hexo-symbols-count-time" class="headerlink" title="hexo-symbols-count-time"></a><a href="https://github.com/theme-next/hexo-symbols-count-time">hexo-symbols-count-time</a></h2><p>统计文章字数, 安装命令: </p>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">npm install hexo-symbols-<span class="built_in">count</span>-<span class="built_in">time</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo-abbrlink"><a href="#hexo-abbrlink" class="headerlink" title="hexo-abbrlink"></a><a href="https://github.com/Rozbo/hexo-abbrlink">hexo-abbrlink</a></h2><p>生成永久链接</p>
+<p>Add plugin to Hexo:</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+
+<p>Modify permalink in config.yml file:</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">permalink: posts<span class="regexp">/:abbrlink/</span></span><br></pre></td></tr></table></figure>
+
+<p>There are two settings:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">alg</span> <span class="string">--</span> <span class="string">Algorithm</span> <span class="string">(currently</span> <span class="string">support</span> <span class="string">crc16</span> <span class="string">and</span> <span class="string">crc32,</span> <span class="string">which</span> <span class="string">crc16</span> <span class="string">is</span> <span class="string">default)</span></span><br><span class="line"><span class="string">rep</span> <span class="string">--</span> <span class="string">Represent</span> <span class="string">(the</span> <span class="string">generated</span> <span class="string">link</span> <span class="string">could</span> <span class="string">be</span> <span class="string">presented</span> <span class="string">in</span> <span class="string">hex</span> <span class="string">or</span> <span class="string">dec</span> <span class="string">value)</span></span><br><span class="line"><span class="comment"># abbrlink config</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span>      <span class="comment">#support crc16(default) and crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span>        <span class="comment">#support dec(default) and hex</span></span><br><span class="line">  <span class="attr">drafts:</span> <span class="literal">false</span>   <span class="comment">#(true)Process draft,(false)Do not process draft. false(default) </span></span><br><span class="line">  <span class="comment"># Generate categories from directory-tree</span></span><br><span class="line">  <span class="comment"># depth: the max_depth of directory-tree you want to generate, should &gt; 0</span></span><br><span class="line">  <span class="attr">auto_category:</span></span><br><span class="line">     <span class="attr">enable:</span> <span class="literal">true</span>  <span class="comment">#true(default)</span></span><br><span class="line">     <span class="attr">depth:</span>        <span class="comment">#3(default)</span></span><br><span class="line">     <span class="attr">over_write:</span> <span class="literal">false</span> </span><br><span class="line">  <span class="attr">auto_title:</span> <span class="literal">false</span> <span class="comment">#enable auto title, it can auto fill the title by path</span></span><br><span class="line">  <span class="attr">auto_date:</span> <span class="literal">false</span> <span class="comment">#enable auto date, it can auto fill the date by time today</span></span><br><span class="line">  <span class="attr">force:</span> <span class="literal">false</span> <span class="comment">#enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for e</span></span><br></pre></td></tr></table></figure>
+
+<p>具体使用时根据相关官方页面进行配置。</p>
+<h1 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h1><p>在<a href="https://hexo.io/themes/">主题市场</a>中进行选择，并按照文档安装。<br>为了保持配置的备份和方便修改，可以在<code>Hexo</code>根目录创建独立的<code>_config.[theme].yml</code>文件。<br><code>Hexo</code>在合并主题配置时，<code>Hexo</code>配置文件中的<code>theme_config</code>的优先级最高，其次是<code>_config.[theme].yml</code>文件，最后是位于主题目录下的<code>_config.yml</code>文件。</p>
+<h1 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h1><ol>
+<li>新建私有仓库，复制远程地址，以下以<code>hexo-source</code>作为仓库名。</li>
+<li>关联Git仓库<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">cd &lt;<span class="built_in">folder</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">#初始化本地仓库</span></span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line"><span class="comment">#新建本地分支</span></span><br><span class="line">git checkout -b master</span><br><span class="line"></span><br><span class="line"><span class="comment">#关联远程仓库</span></span><br><span class="line">git remote <span class="built_in">add</span> origin git@github.com:v-hiker/hexo-source.git</span><br><span class="line"></span><br><span class="line"><span class="comment">#获取远程信息</span></span><br><span class="line">git fetch <span class="comment">--all</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#commit到本地</span></span><br><span class="line">git <span class="built_in">add</span> .</span><br><span class="line">git commit -m <span class="string">&quot;init&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#设置远程分支</span></span><br><span class="line">git branch <span class="comment">--set-upstream-to=origin/hexo hexo</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#强制推送，这里以本地的文件为准，直接强制推送，覆盖远程仓库即可</span></span><br><span class="line">git push <span class="comment">--force</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>后续对于修改的内容直接执行<code>Git</code>提交流程即可。</p>
+<h1 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a><code>Hexo</code>常用命令</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo clean #删除本地已创建的网页</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&#x27;ctrl + c&#x27;关闭server）</span><br><span class="line">hexo deploy #部署到GitHub</span><br><span class="line">hexo help  # 查看帮助</span><br><span class="line">hexo version  #查看Hexo的版本</span><br></pre></td></tr></table></figure>
+
+<p>设置文章摘要的长度: 在合适的位置加上<code>&lt;!--more--&gt;</code>即可</p>
+<h1 id="一键部署和备份"><a href="#一键部署和备份" class="headerlink" title="一键部署和备份"></a>一键部署和备份</h1><p>新建脚本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#hexo部署 </span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line"></span><br><span class="line"><span class="comment">#备份源码</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;update blog&quot;</span></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <tags>
+        <tag>Git</tag>
+        <tag>Hexo</tag>
+        <tag>Node.Js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IDEA Spring Boot 项目相关问题</title>
+    <url>/posts/7761f6cf/</url>
+    <content><![CDATA[<h1 id="IDEA设置"><a href="#IDEA设置" class="headerlink" title="IDEA设置"></a>IDEA设置</h1><h2 id="字体不规则"><a href="#字体不规则" class="headerlink" title="字体不规则"></a>字体不规则</h2><p>在使用idea2019.2时存在中文字体忽大忽小不规范的问题，</p>
+<p><code>File =&gt; Settings =&gt; Editor =&gt; Font</code>调整<code>Fallback font</code>为<code>SimHei</code>、<code>SimSun</code>、<code>YouYuan</code>等</p>
+<h2 id="自动换行"><a href="#自动换行" class="headerlink" title="自动换行"></a>自动换行</h2><ul>
+<li><code>settings =&gt; editor =&gt; code style =&gt; default options</code>勾选<code>wrap on typing</code></li>
+<li><code>settings =&gt; editor =&gt; code style =&gt; java =&gt; wrapping and braces</code>勾选<code>ensure right margin is not exceeded</code></li>
+</ul>
+<span id="more"></span>
+
+<h1 id="编译问题"><a href="#编译问题" class="headerlink" title="编译问题"></a>编译问题</h1><h2 id="duplicate-declaration-of-version"><a href="#duplicate-declaration-of-version" class="headerlink" title="duplicate declaration of version"></a><code>duplicate declaration of version</code></h2><p>版本重复，检查<code>pom.xml</code>定义是否重复</p>
+<h2 id="引用自定义包报错"><a href="#引用自定义包报错" class="headerlink" title="引用自定义包报错"></a>引用自定义包报错</h2><p><code>The POM for xxxx is missing, no dependency information available</code></p>
+<p>可能是打包方式错误，使用了</p>
+<p><code>mvn package -Dmaven.test.skip=true</code></p>
+<p>而不是</p>
+<p><code>mvn clean install -Dmaven.test.skip=true</code></p>
+<ul>
+<li><code>mvn clean package</code>：删除目标文件夹、编译代码并打包</li>
+<li><code>mvn clean install</code>：删除目标文件夹、编译代码并打包、将打好的包放置到本地仓库中</li>
+</ul>
+<h1 id="依赖问题"><a href="#依赖问题" class="headerlink" title="依赖问题"></a>依赖问题</h1><p>新下载的项目，下载依赖后依赖还是显示无法找到，或者<code>IDEA</code>中一直显示波浪线</p>
+<p>分为以下两种情况:</p>
+<ul>
+<li><p>依赖未下载完整，文件全部为<code>*.lastUpdated</code></p>
+</li>
+<li><p>依赖文件完整，<code>IDEA</code>飘红不报错</p>
+</li>
+</ul>
+<p>对于第一种情况，可以删除相关临时文件后尝试重新下载。</p>
+<p>以下为删除脚本，在相应目录下执行:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># windows</span></span><br><span class="line"><span class="keyword">for</span> /r %i <span class="keyword">in</span> (*.lastUpdated) <span class="keyword">do</span> del %i</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># linux</span></span><br><span class="line">find ./ -name <span class="string">&quot;*.lastUpdated*&quot;</span> | xargs <span class="built_in">rm</span> -f</span><br></pre></td></tr></table></figure>
+
+<p>对于第二种情况，可能是<code>IDEA</code>的缓存导致，可以尝试剪切<code>pom.xml</code>文件中相关依赖,<code>import change</code>后重新添加并刷新。</p>
+<h1 id="启动问题"><a href="#启动问题" class="headerlink" title="启动问题"></a>启动问题</h1><h2 id="启动时找不到主类"><a href="#启动时找不到主类" class="headerlink" title="启动时找不到主类"></a>启动时找不到主类</h2><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">错误: 找不到或无法加载主类 XXXX</span></span><br><span class="line"><span class="section">原因: java.lang.ClassNotFoundException: XXXX</span></span><br></pre></td></tr></table></figure>
+
+<p>大概率是编译结果问题，尝试<code>mvn clean install</code>。</p>
+<h2 id="警告非法的反射访问操作"><a href="#警告非法的反射访问操作" class="headerlink" title="警告非法的反射访问操作"></a>警告非法的反射访问操作</h2><p><code>An illegal reflective access operation has occurred</code></p>
+<p>原因：<code>JDK9</code>以上模块不能使用反射去访问非公有的成员&#x2F;成员方法以及构造方法，除非模块标识为<code>opens</code>去允许反射访问。旧<code>JDK</code>制作的库（<code>JDK8</code>及以下）运行在<code>JDK9</code>上会自动被标识为未命名模块，为了处理该警告，<code>JDK9</code>以上提出了一个新的<code>JVM</code>参数：<code>--illegal-access</code></p>
+<p>该参数有四个可选值：</p>
+<ul>
+<li><code>permit</code>：默认值，允许通过反射访问，因此会提示像上面一样的警告，这个是首次非法访问警告，后续不警告</li>
+<li><code>warn</code>：每次非法访问都会警告</li>
+<li><code>debug</code>：在warn的基础上加入了类似<code>e.printStackTrace()</code>的功能</li>
+<li><code>deny</code>：禁止所有的非法访问除了使用特别的命令行参数排除的模块，比如使用–add-opens排除某些模块使其能够通过非法反射访问</li>
+</ul>
+<p>解决方法一: 设置以下<code>JVM</code>参数</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">--illegal-access=deny --add-opens java.base/java.lang=ALL-UNNAMED</span><br></pre></td></tr></table></figure>
+
+<p><code>IDEA</code>可以在运行配置中的<code>VM options</code>中添加上述参数</p>
+<p>如果使用<code>Maven</code>打包的时候还是会出现警告，可以在<code>IDEA</code>中的<code>Maven</code>配置中添加全局的<code>Maven</code>参数</p>
+<p>如果使用<code>Gradle</code>,在<code>build.gradle</code>中添加</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">test &#123;</span><br><span class="line">    useJUnitPlatform()</span><br><span class="line">    jvmArgs(<span class="string">&#x27;--illegal-access=deny&#x27;</span>)</span><br><span class="line">    jvmArgs(<span class="string">&#x27;--add-opens&#x27;</span>, <span class="string">&#x27;java.base/java.lang.invoke=ALL-UNNAMED&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="MalformedInputException"><a href="#MalformedInputException" class="headerlink" title="MalformedInputException"></a><code>MalformedInputException</code></h2><p>启动服务时报错：</p>
+<p><code>Caused by: java.nio.charset.MalformedInputException: Input length = 1</code></p>
+<p>编码设置有问题，</p>
+<p><code>File =&gt; Settings =&gt; Editor =&gt; File Encodings</code></p>
+<p>将所有的格式都转成<code>utf-8</code>格式。</p>
+<h1 id="运行问题"><a href="#运行问题" class="headerlink" title="运行问题"></a>运行问题</h1><h2 id="MySQL插入emoji报错"><a href="#MySQL插入emoji报错" class="headerlink" title="MySQL插入emoji报错"></a>MySQL插入emoji报错</h2><p><code>Incorrect string value: &#39;\xF0\x9F\x90\x96&#39; for column</code></p>
+<p>原因：</p>
+<p><code>MySQL</code>的<code>utf8</code>编码最多3个字节，算不上真正的<code>utf8</code>字符集。</p>
+<p>在<code>MySQL5.5.3</code>的版本增加了<code>utf8mb4</code>编码集，专门用于兼容4个字节的<code>unicode</code>。</p>
+<ol>
+<li><p>检查<code>MySQL</code>版本是否支持<code>utf8mb4</code>编码：</p>
+<p> <code>select version();</code></p>
+</li>
+<li><p>修改<code>MySQL</code>配置文件<br>打开<code>MySQL</code>配置文件<code>mysql/my.cnf</code>或<code>mysql/my.ini</code>, 并且添加如下内容：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[client]</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8mb4</span><br><span class="line"></span><br><span class="line"><span class="section">[mysql]</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8mb4</span><br><span class="line"></span><br><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="attr">character-set-client-handshake</span>=<span class="literal">FALSE</span></span><br><span class="line"><span class="attr">character-set-server</span>=utf8mb4</span><br><span class="line"><span class="attr">collation-server</span>=utf8mb4_unicode_ci</span><br><span class="line"><span class="attr">init_connect</span>=<span class="string">&#x27;SET NAMES utf8mb4&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启数据库</p>
+<ul>
+<li>Windows到服务管理界面重新启动<code>MySql</code>服务：<code>services.msc</code></li>
+<li>Linux执行命令：<code>/etc/init.d/mysql restart</code></li>
+</ul>
+</li>
+<li><p>检查数据库配置</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> VARIABLES <span class="keyword">WHERE</span> Variable_name <span class="keyword">LIKE</span> <span class="string">&#x27;character_set_%&#x27;</span> <span class="keyword">OR</span> Variable_name <span class="keyword">LIKE</span> <span class="string">&#x27;collation%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------------------+--------------------+</span></span><br><span class="line"><span class="operator">|</span> Variable_name                         <span class="operator">|</span> <span class="keyword">Value</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------------------+--------------------+</span></span><br><span class="line"><span class="operator">||</span> character_set_client         <span class="operator">|</span> utf8mb4 </span><br><span class="line"><span class="operator">||</span> character_set_connection <span class="operator">|</span> utf8mb4 </span><br><span class="line"><span class="operator">||</span> character_set_database     <span class="operator">|</span> utf8mb4 </span><br><span class="line"><span class="operator">||</span> character_set_filesystem <span class="operator">|</span> <span class="type">binary</span> </span><br><span class="line"><span class="operator">||</span> character_set_results         <span class="operator">|</span> utf8mb4 </span><br><span class="line"><span class="operator">||</span> character_set_server         <span class="operator">|</span> utf8mb4 </span><br><span class="line"><span class="operator">||</span> character_set_system         <span class="operator">|</span> utf8 </span><br><span class="line"><span class="operator">||</span> collation_connection         <span class="operator">|</span> utf8mb4_unicode_ci </span><br><span class="line"><span class="operator">||</span> collation_database             <span class="operator">|</span> utf8mb4_unicode_ci </span><br><span class="line"><span class="operator">||</span> collation_server                 <span class="operator">|</span> utf8mb4_unicode_ci</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------------------+--------------------+</span></span><br></pre></td></tr></table></figure>
+
+<p>必须保证:<br><code>character_set_client</code>、<code>character_se_connection</code>、<code>character_set_database</code>、<code>character_set_results</code>、<code>character_set_server</code>为<code>utf8mb4</code>。</p>
+</li>
+<li><p>更新客户端配置文件</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">jdbc.driverClassName</span>=com.mysql.jdbc.Driver</span><br><span class="line"><span class="attr">jdbc.url</span>=jdbc:mysql://localhost:<span class="number">3306</span>/database?useUnicode=<span class="literal">true</span>&amp;characterEncoding=utf8&amp;autoReconnect=<span class="literal">true</span>&amp;rewriteBatchedStatements=<span class="literal">true</span></span><br><span class="line"><span class="attr">jdbc.username</span>=username</span><br><span class="line"><span class="attr">jdbc.password</span>=password</span><br></pre></td></tr></table></figure>
+
+<p>注意：<code>jdbc.url</code>的内容,<code>characterEncoding=utf8</code>可以被自动识别为<code>utf8bm4</code>  </p>
+</li>
+<li><p>修改数据库、表和列的字符集SQL语句：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> DATABASE database_name <span class="type">CHARACTER</span> <span class="keyword">SET</span> <span class="operator">=</span> utf8mb4 <span class="keyword">COLLATE</span> <span class="operator">=</span> utf8mb4_unicode_ci;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">CONVERT</span> <span class="keyword">TO</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name table_name CHANGE column_name <span class="type">VARCHAR</span>(<span class="number">1024</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改应用连接字符串(druid)：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span> <span class="attr">init-method</span>=<span class="string">&quot;init&quot;</span> <span class="attr">destroy-method</span>=<span class="string">&quot;close&quot;</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driverClassName&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc-driver&#125;&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc-url&#125;&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc-user&#125;&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc-password&#125;&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;filters&quot;</span> <span class="attr">value</span>=<span class="string">&quot;stat&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxActive&quot;</span> <span class="attr">value</span>=<span class="string">&quot;20&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;initialSize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxWait&quot;</span> <span class="attr">value</span>=<span class="string">&quot;60000&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;minIdle&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;timeBetweenEvictionRunsMillis&quot;</span> <span class="attr">value</span>=<span class="string">&quot;3000&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;minEvictableIdleTimeMillis&quot;</span> <span class="attr">value</span>=<span class="string">&quot;300000&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;validationQuery&quot;</span> <span class="attr">value</span>=<span class="string">&quot;SELECT &#x27;x&#x27;&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;testWhileIdle&quot;</span> <span class="attr">value</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;testOnBorrow&quot;</span> <span class="attr">value</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;testOnReturn&quot;</span> <span class="attr">value</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;poolPreparedStatements&quot;</span> <span class="attr">value</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxPoolPreparedStatementPerConnectionSize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;20&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;connectionInitSqls&quot;</span> <span class="attr">value</span>=<span class="string">&quot;set names utf8mb4;&quot;</span>/&gt;</span>  //必须添加</span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意：<code>mysql-connector-java</code>驱动在<code>5.1.13</code>之前是不支持<code>utf8mb4</code>，请使用<code>5.1.13</code>以后的版本。</p>
+</li>
+</ol>
+<h2 id="Collectors-toMap-报错"><a href="#Collectors-toMap-报错" class="headerlink" title="Collectors.toMap 报错"></a><code>Collectors.toMap</code> 报错</h2><h3 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h3><ol>
+<li><p>当<code>value</code>为<code>null</code>时会报错</p>
+<p>解决方法为</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List.stream().collect(HashMap::<span class="keyword">new</span>,(m,v)-&gt;m.put(v.getId(),v.getValue()),HashMap::putAll);</span><br></pre></td></tr></table></figure></li>
+<li><p>当主键重复时会报错，解决方法为</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List.stream().collect(Collectors.toMap(V::getId, V::getValue, (oldValue, newValue) -&gt; newValue));</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>以<code>Oracle JDK1.8.0_291</code>为例，查询<code>Collectors.toMap</code>调用链，</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T, K, U&gt;</span><br><span class="line">    Collector&lt;T, ?, Map&lt;K,U&gt;&gt; toMap(Function&lt;? <span class="built_in">super</span> T, ? <span class="keyword">extends</span> <span class="title class_">K</span>&gt; keyMapper,</span><br><span class="line">                                    Function&lt;? <span class="built_in">super</span> T, ? <span class="keyword">extends</span> <span class="title class_">U</span>&gt; valueMapper) &#123;</span><br><span class="line">        <span class="keyword">return</span> toMap(keyMapper, valueMapper, throwingMerger(), HashMap::<span class="keyword">new</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这里找到<code>throwingMerger()</code>实现</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> &lt;T&gt; BinaryOperator&lt;T&gt; <span class="title function_">throwingMerger</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (u,v) -&gt; &#123; <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalStateException</span>(String.format(<span class="string">&quot;Duplicate key %s&quot;</span>, u)); &#125;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看出默认的合并方法是不允许重复key出现的。</p>
+<p>往下继续看，</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T, K, U, M <span class="keyword">extends</span> <span class="title class_">Map</span>&lt;K, U&gt;&gt;</span><br><span class="line">    Collector&lt;T, ?, M&gt; toMap(Function&lt;? <span class="built_in">super</span> T, ? <span class="keyword">extends</span> <span class="title class_">K</span>&gt; keyMapper,</span><br><span class="line">                                Function&lt;? <span class="built_in">super</span> T, ? <span class="keyword">extends</span> <span class="title class_">U</span>&gt; valueMapper,</span><br><span class="line">                                BinaryOperator&lt;U&gt; mergeFunction,</span><br><span class="line">                                Supplier&lt;M&gt; mapSupplier) &#123;</span><br><span class="line">        BiConsumer&lt;M, T&gt; accumulator</span><br><span class="line">                = (map, element) -&gt; map.merge(keyMapper.apply(element),</span><br><span class="line">                                              valueMapper.apply(element), mergeFunction);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">CollectorImpl</span>&lt;&gt;(mapSupplier, accumulator, mapMerger(mergeFunction), CH_ID);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>找到<code>map.merge</code>的方法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">default</span> V <span class="title function_">merge</span><span class="params">(K key, V value,</span></span><br><span class="line"><span class="params">            BiFunction&lt;? <span class="built_in">super</span> V, ? <span class="built_in">super</span> V, ? extends V&gt; remappingFunction)</span> &#123;</span><br><span class="line">        Objects.requireNonNull(remappingFunction);</span><br><span class="line">        Objects.requireNonNull(value);</span><br><span class="line">        <span class="type">V</span> <span class="variable">oldValue</span> <span class="operator">=</span> get(key);</span><br><span class="line">        <span class="type">V</span> <span class="variable">newValue</span> <span class="operator">=</span> (oldValue == <span class="literal">null</span>) ? value :</span><br><span class="line">                   remappingFunction.apply(oldValue, value);</span><br><span class="line">        <span class="keyword">if</span>(newValue == <span class="literal">null</span>) &#123;</span><br><span class="line">            remove(key);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            put(key, newValue);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> newValue;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>从这里就可以看出来默认的<code>toMap</code>思想是不支持重复键，也不支持空值。</p>
+<p>向下找到<code>HashMap</code>的实现类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> V <span class="title function_">merge</span><span class="params">(K key, V value,</span></span><br><span class="line"><span class="params">                   BiFunction&lt;? <span class="built_in">super</span> V, ? <span class="built_in">super</span> V, ? extends V&gt; remappingFunction)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (value == <span class="literal">null</span>)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NullPointerException</span>();</span><br><span class="line">        <span class="keyword">if</span> (remappingFunction == <span class="literal">null</span>)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NullPointerException</span>();</span><br><span class="line">            ......</span><br><span class="line">        <span class="keyword">if</span> (old != <span class="literal">null</span>) &#123;</span><br><span class="line">            V v;</span><br><span class="line">            <span class="keyword">if</span> (old.value != <span class="literal">null</span>)</span><br><span class="line">                v = remappingFunction.apply(old.value, value);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                v = value;</span><br><span class="line">            <span class="keyword">if</span> (v != <span class="literal">null</span>) &#123;</span><br><span class="line">                old.value = v;</span><br><span class="line">                afterNodeAccess(old);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                removeNode(hash, key, <span class="literal">null</span>, <span class="literal">false</span>, <span class="literal">true</span>);</span><br><span class="line">            <span class="keyword">return</span> v;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看出，和默认方法基本一致，也就导致了报错。</p>
+]]></content>
+      <categories>
+        <category>Spring Boot</category>
+      </categories>
+      <tags>
+        <tag>Spring Boot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring data jpa demo</title>
+    <url>/posts/945da7b/</url>
+    <content><![CDATA[<h2 id="ORM简介"><a href="#ORM简介" class="headerlink" title="ORM简介"></a><code>ORM简介</code></h2><p>对象关系映射（<code>Object Relational Mapping</code>，简称<code>ORM</code>）模式是一种为了解决面向对象与关系数据库存在的互不匹配的现象的技术。是连接数据库的桥梁，只要提供了持久化类与表的映射关系，<code>ORM</code>框架在运行时就能参照映射文件的信息，把对象持久化到数据库中。</p>
+<h2 id="部分对比"><a href="#部分对比" class="headerlink" title="部分对比"></a>部分对比</h2><h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a><code>JDBC</code></h3><h3 id="JdbcTemplate"><a href="#JdbcTemplate" class="headerlink" title="JdbcTemplate"></a><code>JdbcTemplate</code></h3><h3 id="JPA"><a href="#JPA" class="headerlink" title="JPA"></a><code>JPA</code></h3><h3 id="My-I-batis"><a href="#My-I-batis" class="headerlink" title="My(I)batis"></a><code>My(I)batis</code></h3><span id="more"></span>
+
+<h2 id="JPA-demo"><a href="#JPA-demo" class="headerlink" title="JPA demo"></a>JPA demo</h2><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>idea新建Spring Initializr项目，选择<code>Lombok</code>,<code>Spring Data JPA</code>,<code>MySQL Driver</code>,<code>Spring Web</code>等相关依赖。</p>
+<p>编写相关配置文件<code>application.properties</code>或者采用<code>.yml</code>格式，这里使用<code>.yml</code>格式：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">9001</span></span><br><span class="line">  <span class="attr">servlet:</span></span><br><span class="line">    <span class="attr">context-path:</span> <span class="string">/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;allowMultiQueries=true&amp;useSSL=false</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">jpa</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">jpa1234</span></span><br><span class="line">  <span class="attr">jpa:</span></span><br><span class="line">    <span class="attr">database:</span> <span class="string">mysql</span></span><br><span class="line">    <span class="attr">database-platform:</span> <span class="string">org.hibernate.dialect.MySQL5InnoDBDialect</span></span><br><span class="line">    <span class="attr">show-sql:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">hibernate:</span></span><br><span class="line">      <span class="attr">ddl-auto:</span> <span class="string">update</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="创建实体类"><a href="#创建实体类" class="headerlink" title="创建实体类"></a>创建实体类</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name = &quot;base_user&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 主键，用户id</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GenericGenerator(name = &quot;idGenerator&quot;, strategy = &quot;org.hibernate.id.UUIDGenerator&quot;)</span></span><br><span class="line">    <span class="meta">@GeneratedValue(generator = &quot;idGenerator&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String userId;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用户名</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(name = &quot;user_name&quot;, unique = true, nullable = false, length = 64)</span></span><br><span class="line">    <span class="keyword">private</span> String userName;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用户密码</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(name = &quot;password&quot;, nullable = false, length = 128)</span></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用户邮箱</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(name = &quot;email&quot;, nullable = false, length = 64)</span></span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>主键采用UUID策略<br> <code>@GenericGenerator</code>是Hibernate提供的主键生成策略注解，注意下面的<code>@GeneratedValue</code>（JPA注解）使用generator &#x3D; “idGenerator”引用了上面的name &#x3D; “idGenerator”主键生成策略</p>
+</blockquote>
+<blockquote>
+<p>JPA自带的几种主键生成策略</p>
+<ul>
+<li>TABLE： 使用一个特定的数据库表格来保存主键</li>
+<li>SEQUENCE： 根据底层数据库的序列来生成主键，条件是数据库支持序列。这个值要与generator一起使用，generator 指定生成主键使用的生成器（可能是orcale中自己编写的序列）</li>
+<li>IDENTITY： 主键由数据库自动生成（主要是支持自动增长的数据库，如mysql）</li>
+<li>AUTO： 主键由程序控制，也是GenerationType的默认值</li>
+</ul>
+</blockquote>
+<p>如果需要给表添加注释，需要使用<code>@Column(nullable = false,columnDefinition = &quot;varchar(100) default &#39;&#39; comment &#39;我是字段注释...&#39;&quot;)</code>,这个时候<code>length</code>的值就不起作用了，因此使用<code>columnDefinition</code>时需要写全字段类型、长度等属性。</p>
+<p>为了在数据库生成相应注释，这里采用<code>columnDefinition</code>的写法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name = &quot;base_user&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GenericGenerator(name = &quot;idGenerator&quot;, strategy = &quot;org.hibernate.id.UUIDGenerator&quot;)</span></span><br><span class="line">    <span class="meta">@GeneratedValue(generator = &quot;idGenerator&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String userId;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column(name = &quot;user_name&quot;, unique = true, nullable = false, columnDefinition = &quot;varchar(64) comment &#x27;用户名&#x27;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String userName;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column(name = &quot;password&quot;, nullable = false, columnDefinition = &quot;varchar(128) comment &#x27;用户密码&#x27;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column(name = &quot;email&quot;, nullable = false, columnDefinition = &quot;varchar(64) comment &#x27;用户邮箱&#x27;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建repository"><a href="#创建repository" class="headerlink" title="创建repository"></a>创建repository</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserRepository</span> <span class="keyword">extends</span> <span class="title class_">JpaRepository</span>&lt;User,String&gt; &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h3><p>这时候启动项目，可以看见控制台输出相应的创建表语句</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">Hibernate: <span class="keyword">create</span> <span class="keyword">table</span> base_user (user_id <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">not</span> <span class="keyword">null</span>, email <span class="type">varchar</span>(<span class="number">64</span>) comment <span class="string">&#x27;用户邮箱&#x27;</span> <span class="keyword">not</span> <span class="keyword">null</span>, password <span class="type">varchar</span>(<span class="number">128</span>) comment <span class="string">&#x27;用户密码&#x27;</span> <span class="keyword">not</span> <span class="keyword">null</span>, user_name <span class="type">varchar</span>(<span class="number">64</span>) comment <span class="string">&#x27;用户名&#x27;</span> <span class="keyword">not</span> <span class="keyword">null</span>, <span class="keyword">primary</span> key (user_id)) engine<span class="operator">=</span>InnoDB</span><br></pre></td></tr></table></figure>
+
+<p>通过navicat或者idea自带的连接工具查看数据库test，可以发现已经建立了<code>base_user</code>的表。</p>
+<p>这个时候在实体类中添加一个字段</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ApiModelProperty(value = &quot;用户昵称&quot;)</span></span><br><span class="line"><span class="meta">@Column(name = &quot;nick_name&quot;, nullable = false, columnDefinition = &quot;varchar(64) comment &#x27;用户昵称&#x27;&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String nickName;</span><br></pre></td></tr></table></figure>
+
+<p>重新启动项目，会发现控制台输出</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">Hibernate: <span class="keyword">alter</span> <span class="keyword">table</span> base_user <span class="keyword">add</span> <span class="keyword">column</span> nick_name <span class="type">varchar</span>(<span class="number">64</span>) comment <span class="string">&#x27;用户昵称&#x27;</span> <span class="keyword">not</span> <span class="keyword">null</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="配置swagger"><a href="#配置swagger" class="headerlink" title="配置swagger"></a>配置swagger</h3><p>为了方便测试，采用swagger2来生成api文档，这里使用3.0.0版本，pom中只需要添加一项依赖即可：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>配置类：</p>
+<p>在3.0版本中，移除了<code>@EnableSwagger2</code>的注解，在应用类注解<code>@EnableOpenApi</code>即可加入swagger文档。为了实现一些自定义配置，还是可以写一个配置类。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Swagger2Config</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Docket <span class="title function_">createRestApi</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Docket</span>(DocumentationType.OAS_30)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))</span><br><span class="line">                .paths(PathSelectors.any())</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ApiInfo <span class="title function_">apiInfo</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ApiInfoBuilder</span>()</span><br><span class="line">                .title(<span class="string">&quot;jpa测试接口文档&quot;</span>)</span><br><span class="line">                .description(<span class="string">&quot;采用swagger2 3.0版本&quot;</span>)</span><br><span class="line">                .contact(<span class="keyword">new</span> <span class="title class_">Contact</span>(<span class="string">&quot;xx&quot;</span>, <span class="string">&quot;#&quot;</span>, <span class="string">&quot;xx@qq.com&quot;</span>))</span><br><span class="line">                .version(<span class="string">&quot;1.0&quot;</span>)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加controller"><a href="#添加controller" class="headerlink" title="添加controller"></a>添加controller</h3><p>这里为了方便，直接将repository注入到controller中进行实现，省略了中间的service层。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EnableOpenApi</span></span><br><span class="line"><span class="meta">@Api(tags = &quot;基础数据通用接口&quot;)</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/user&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserController</span> &#123;</span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation(value = &quot;新增用户&quot;, httpMethod = &quot;POST&quot;, response = String.class)</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/add&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">addUser</span><span class="params">(<span class="meta">@RequestBody</span> <span class="meta">@Validated</span> User user)</span> &#123;</span><br><span class="line">        <span class="type">User</span> <span class="variable">result</span> <span class="operator">=</span> userRepository.save(user);</span><br><span class="line">        <span class="keyword">return</span> result.getUserId();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation(value = &quot;更新用户&quot;, httpMethod = &quot;POST&quot;, response = String.class)</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/update&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">updateUser</span><span class="params">(<span class="meta">@RequestBody</span> <span class="meta">@Validated</span> User user)</span> &#123;</span><br><span class="line">        <span class="type">User</span> <span class="variable">result</span> <span class="operator">=</span> userRepository.saveAndFlush(user);</span><br><span class="line">        <span class="keyword">return</span> result.getUserId();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation(value = &quot;查询用户详情&quot;, httpMethod = &quot;GET&quot;, response = User.class)</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/detail&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> User <span class="title function_">getUserDetail</span><span class="params">(<span class="meta">@RequestParam(value = &quot;userId&quot;)</span> String userId)</span> &#123;</span><br><span class="line">        Optional&lt;User&gt; user = userRepository.findById(userId);</span><br><span class="line">        <span class="keyword">return</span> user.orElse(<span class="literal">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation(value = &quot;查询用户列表&quot;, httpMethod = &quot;GET&quot;, response = User.class)</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/list&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;User&gt; <span class="title function_">getUserList</span><span class="params">()</span> &#123;</span><br><span class="line">        List&lt;User&gt; userList = userRepository.findAll();</span><br><span class="line">        <span class="keyword">return</span> userList;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation(value = &quot;删除用户&quot;, httpMethod = &quot;DELETE&quot;, response = Boolean.class)</span></span><br><span class="line">    <span class="meta">@DeleteMapping(&quot;/detail&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Boolean <span class="title function_">deleteUser</span><span class="params">(<span class="meta">@RequestParam(value = &quot;userId&quot;)</span> String userId)</span> &#123;</span><br><span class="line">        userRepository.deleteById(userId);</span><br><span class="line">        <span class="keyword">return</span> Boolean.TRUE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>启动项目，在浏览器中打开<a href="http://localhost:9001/swagger-ui/#/">http://localhost:9001/swagger-ui/#/</a>即可看到API文档并进行测试了。</p>
+]]></content>
+      <categories>
+        <category>Spring Boot</category>
+      </categories>
+      <tags>
+        <tag>Spring Boot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Oracle和MySQL常用区别</title>
+    <url>/posts/5febf8d0/</url>
+    <content><![CDATA[<h3 id="XML条件查询优化"><a href="#XML条件查询优化" class="headerlink" title="XML条件查询优化"></a>XML条件查询优化</h3><h4 id="避免使用where-1-1"><a href="#避免使用where-1-1" class="headerlink" title="避免使用where 1=1"></a>避免使用<code>where 1=1</code></h4><span id="more"></span>
+
+<p>当遇到多个查询条件，使用<code>where 1=1</code>可以很方便的解决我们的问题，但是这样很可能会造成非常大的性能损失，</p>
+<p>因为添加了<code>where 1=1</code>的过滤条件之后，数据库系统就无法使用索引等查询优化策略，数据库系统将会被迫对每行数据进行扫描（即全表扫描）以比较此行是否满足过滤条件，当表中的数据量较大时查询速度会非常慢；</p>
+<p>此外，还会存在SQL 注入的风险。</p>
+<h5 id="反例如下："><a href="#反例如下：" class="headerlink" title="反例如下："></a>反例如下：</h5><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="operator">&lt;</span><span class="keyword">select</span> id<span class="operator">=</span>&quot;queryBookInfo&quot; parameterType<span class="operator">=</span>&quot;com.tjt.platform.entity.BookInfo&quot; resultType<span class="operator">=</span>&quot;java.lang.Integer&quot;<span class="operator">&gt;</span></span><br><span class="line"> <span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> t_rule_BookInfo t <span class="keyword">where</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span></span><br><span class="line"> <span class="operator">&lt;</span>if test<span class="operator">=</span>&quot;title !=null and title !=&#x27;&#x27; &quot;<span class="operator">&gt;</span></span><br><span class="line">  <span class="keyword">AND</span> title <span class="operator">=</span> #&#123;title&#125; </span><br><span class="line"> <span class="operator">&lt;</span><span class="operator">/</span>if<span class="operator">&gt;</span> </span><br><span class="line"> <span class="operator">&lt;</span>if test<span class="operator">=</span>&quot;author !=null and author !=&#x27;&#x27; &quot;<span class="operator">&gt;</span></span><br><span class="line">  <span class="keyword">AND</span> author <span class="operator">=</span> #&#123;author&#125;</span><br><span class="line"> <span class="operator">&lt;</span><span class="operator">/</span>if<span class="operator">&gt;</span> </span><br><span class="line"><span class="operator">&lt;</span><span class="operator">/</span><span class="keyword">select</span><span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="正例："><a href="#正例：" class="headerlink" title="正例："></a>正例：</h5><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="operator">&lt;</span><span class="keyword">select</span> id<span class="operator">=</span>&quot;queryBookInfo&quot; parameterType<span class="operator">=</span>&quot;com.tjt.platform.entity.BookInfo&quot; resultType<span class="operator">=</span>&quot;java.lang.Integer&quot;<span class="operator">&gt;</span></span><br><span class="line"> <span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> t_rule_BookInfo t</span><br><span class="line"> <span class="operator">&lt;</span><span class="keyword">where</span><span class="operator">&gt;</span></span><br><span class="line"> <span class="operator">&lt;</span>if test<span class="operator">=</span>&quot;title !=null and title !=&#x27;&#x27; &quot;<span class="operator">&gt;</span></span><br><span class="line">  title <span class="operator">=</span> #&#123;title&#125; </span><br><span class="line"> <span class="operator">&lt;</span><span class="operator">/</span>if<span class="operator">&gt;</span></span><br><span class="line"> <span class="operator">&lt;</span>if test<span class="operator">=</span>&quot;author !=null and author !=&#x27;&#x27; &quot;<span class="operator">&gt;</span> </span><br><span class="line">  <span class="keyword">AND</span> author <span class="operator">=</span> #&#123;author&#125;</span><br><span class="line"> <span class="operator">&lt;</span><span class="operator">/</span>if<span class="operator">&gt;</span></span><br><span class="line"> <span class="operator">&lt;</span><span class="operator">/</span><span class="keyword">where</span><span class="operator">&gt;</span> </span><br><span class="line"><span class="operator">&lt;</span><span class="operator">/</span><span class="keyword">select</span><span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="获取行号"><a href="#获取行号" class="headerlink" title="获取行号"></a>获取行号</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> A.<span class="operator">*</span>,rownum <span class="keyword">from</span> A;</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> a.<span class="operator">*</span> ,<span class="variable">@rownum</span>:<span class="operator">=</span><span class="variable">@rownum</span><span class="operator">+</span><span class="number">1</span> <span class="keyword">from</span> a,(<span class="keyword">select</span> <span class="variable">@rownum</span>:<span class="operator">=</span><span class="number">0</span>) r</span><br></pre></td></tr></table></figure>
+
+<p>mysql中没有获取行号的函数，因此需要通过一些自定义语句来进行获取。通常做法是，通过定义用户变量@rownum来保存表中的数据。通过赋值语句@rownum：&#x3D;@rownum+1来累加达到递增行号。<br>例如：</p>
+<p><code>select a.* ,@rownum:=@rownum+1 from a,(select @rownum:=0) r;</code></p>
+<p>后半部分语句的<code>select @rownum:=0</code>相当于创建了<code>r</code>的新表，其表的列为<code>@rownum</code>，数值为0.</p>
+<p>通过利用变量将<code>@rownum</code>的行进行重新赋值，并显示。可以应用于获取行号或名次排列。</p>
+<p>另外，在名次排列时，由于会有重复的数据，排列时仅仅按照,<code>@rownum:=@rownum+1</code>。排序是不对的，需要在数据相同时，名次应该相同。因此需要另一变量保存上次的数据，并进行与本行数据对比，相同 序号不变，不同序号应该等于行号。此时需要应用到<code>case when</code>进行判断，例如：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Select</span> a.<span class="operator">*</span>,</span><br><span class="line"><span class="keyword">Case</span></span><br><span class="line"><span class="keyword">When</span> <span class="variable">@rownum0</span><span class="operator">=</span>a.c_id  <span class="keyword">then</span>  <span class="variable">@rownum</span>:<span class="operator">=</span><span class="variable">@rownum</span><span class="operator">+</span><span class="number">1</span></span><br><span class="line"><span class="keyword">When</span> <span class="variable">@rownum0</span>:<span class="operator">=</span>a.c_id  <span class="keyword">then</span>  <span class="variable">@rownum</span>:<span class="operator">=</span><span class="number">1</span></span><br><span class="line"><span class="keyword">Else</span>  <span class="variable">@rownum</span></span><br><span class="line"><span class="keyword">End</span> rank1,</span><br><span class="line"><span class="keyword">Case</span></span><br><span class="line"><span class="keyword">When</span> <span class="variable">@rownum1</span><span class="operator">=</span>a.s_score <span class="keyword">then</span> <span class="variable">@rownum2</span></span><br><span class="line"><span class="keyword">When</span> <span class="variable">@rownum1</span>:<span class="operator">=</span>a.s_score <span class="keyword">then</span> <span class="variable">@rownum2</span>:<span class="operator">=</span><span class="variable">@rownum</span></span><br><span class="line"><span class="keyword">Else</span> <span class="variable">@rownum2</span></span><br><span class="line"><span class="keyword">End</span> rank2</span><br><span class="line"> <span class="keyword">from</span> (<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> score  <span class="keyword">order</span> <span class="keyword">by</span> c_id ,s_score <span class="keyword">desc</span></span><br><span class="line">) <span class="keyword">as</span> a,(<span class="keyword">select</span> <span class="variable">@rownum</span>:<span class="operator">=</span><span class="number">0</span>, <span class="variable">@rownum0</span>:<span class="operator">=</span><span class="number">0</span>,<span class="variable">@rownum1</span>:<span class="operator">=</span><span class="number">0</span>,<span class="variable">@rownum2</span>:<span class="operator">=</span><span class="number">0</span>) r;</span><br></pre></td></tr></table></figure>
+
+<h3 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> A.<span class="operator">*</span>,B.<span class="operator">*</span> <span class="keyword">from</span> A,B <span class="keyword">where</span> a.id <span class="operator">=</span> b.id(<span class="operator">+</span>);</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> A.<span class="operator">*</span>,B.<span class="operator">*</span> <span class="keyword">from</span> A <span class="keyword">left</span> <span class="keyword">join</span> B <span class="keyword">on</span> a.id <span class="operator">=</span> b.id;</span><br></pre></td></tr></table></figure>
+
+<h3 id="空值排序"><a href="#空值排序" class="headerlink" title="空值排序"></a>空值排序</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> COUNTRY <span class="keyword">order</span> <span class="keyword">by</span> PHONEORDER <span class="keyword">asc</span> nulls <span class="keyword">last</span></span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> COUNTRY <span class="keyword">order</span> <span class="keyword">by</span> PHONEORDER <span class="keyword">is</span> <span class="keyword">null</span>,PHONEORDER</span><br></pre></td></tr></table></figure>
+
+<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><p>从小到大升序排列时，null会出现在最前方，现在要将其放在后面</p>
+<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>方式一 ：</p>
+<p><code>SELECT * FROM test ORDER BY num IS NULL , num;</code></p>
+<p>方式二：</p>
+<p><code>select * from test order by if(isnull(num),1,0), num desc;</code></p>
+<p>1.将null强制放在最前：</p>
+<p><code>if(isnull(字段名),0,1) asc   //asc可以省略</code></p>
+<p>2.将null强制放在最后</p>
+<p><code>if(isnull(字段名),0,1) desc</code></p>
+<p><code>if(isnull(字段名),1,0)  asc   //asc可以省略</code></p>
+<p>查询空值的运行速度基本上为<code>IFNULL()&gt;is NULL&gt;ISNULL()</code>。</p>
+<h3 id="时间转字符串"><a href="#时间转字符串" class="headerlink" title="时间转字符串"></a>时间转字符串</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">to_char</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">date_format(<span class="type">date</span>,<span class="string">&#x27;%Y-%m-%d&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.w3school.com.cn/sql/func_date_format.asp">https://www.w3school.com.cn/sql/func_date_format.asp</a></p>
+<h3 id="比较时间"><a href="#比较时间" class="headerlink" title="比较时间"></a>比较时间</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> A <span class="keyword">where</span></span><br><span class="line">to_date(to_char(EVENT_DATE,<span class="string">&#x27;yyyy-mm-dd&#x27;</span>),<span class="string">&#x27;yyyy-mm-dd&#x27;</span>) <span class="operator">&gt;</span> <span class="operator">=</span>to_date(to_char(#&#123;fndPortalSystemLogDto.startDate&#125;,<span class="string">&#x27;yyyy-mm-dd&#x27;</span>),<span class="string">&#x27;yyyy-mm-dd&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> A <span class="keyword">where</span> STR_TO_DATE(<span class="string">&#x27;2017-01-06 10:20:30&#x27;</span>,<span class="string">&#x27;%Y-%m-%d %H:%i:%s&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="拼音排序"><a href="#拼音排序" class="headerlink" title="拼音排序"></a>拼音排序</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> A <span class="keyword">order</span> <span class="keyword">by</span> nlssort(NAME_ZH,<span class="string">&#x27;NLS_SORT=SCHINESE_PINYIN_M&#x27;</span>) <span class="keyword">ASC</span></span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> A <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">convert</span>(name <span class="keyword">using</span> gbk) <span class="keyword">asc</span></span><br></pre></td></tr></table></figure>
+
+<p>按照汉字的拼音排序，用的比较多是在人名的排序中，按照姓氏的拼音字母，从A到Z排序；<br>如果存储姓名的字段采用的是GBK字符集，那就好办了，因为GBK内码编码时本身就采用了拼音排序的方法（常用一级汉字3755个采用拼音排序，二级汉字就不是了，但考虑到人名等都是常用汉字，因此只是针对一级汉字能正确排序也够用了）。</p>
+<p>直接在查询语句后面 添加 order by name asc; 查询结果按照姓氏的升序排序；</p>
+<p>如果存储姓名的字段采用的是 utf8字符集，需要在排序的时候对字段进行转码；<code>order by convert(name using gbk) asc</code>; 同样，查询的结果也是按照姓氏的升序排序；</p>
+<h3 id="取当前时间"><a href="#取当前时间" class="headerlink" title="取当前时间"></a>取当前时间</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> T <span class="keyword">WHERE</span> CREATE_TIME <span class="operator">=</span> sysdate</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> T <span class="keyword">WHERE</span> CREATE_TIME <span class="operator">=</span> now()</span><br></pre></td></tr></table></figure>
+
+<p>mysql中日期函数还是比较常用的。主要有NOW()和SYSDATE()两种，虽然都表示当前时间，但使用上有一点点区别。<br>NOW()取的是语句开始执行的时间，SYSDATE()取的是动态的实时时间。</p>
+<p>因为NOW()取自mysql的一个变量”TIMESTAMP”，而这个变量在语句开始执行的时候就设定好了，因此在整个语句执行过程中都不会变化。</p>
+<p>NOW()还有3个同义词，效果跟NOW()一样，而且都有2种形式写法：</p>
+<p><code>LOCALTIME或LOCALTIME()</code></p>
+<p><code>LOCALTIMESTAMP或LOCALTIMESTAMP()</code></p>
+<p><code>CURRENT_TIMESTAMP或CURRENT_TIMESTAMP()</code></p>
+<h3 id="列转行函数listagg"><a href="#列转行函数listagg" class="headerlink" title="列转行函数listagg()"></a>列转行函数listagg()</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">listagg</span>(score, <span class="string">&#x27;,&#x27;</span>) <span class="keyword">within</span> <span class="keyword">group</span>(<span class="keyword">ORDER</span> <span class="keyword">BY</span> )</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> `name`,group_concat(score separator <span class="string">&#x27;,&#x27;</span>) <span class="keyword">from</span> test <span class="keyword">group</span> <span class="keyword">by</span> `name`</span><br></pre></td></tr></table></figure>
+
+<h3 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">T1.EMAIL <span class="keyword">LIKE</span> <span class="string">&#x27;%&#x27;</span> <span class="operator">||</span> #&#123;basePortalUser.email&#125; <span class="operator">||</span> <span class="string">&#x27;%&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">like</span> concat(<span class="string">&#x27;%&#x27;</span>,#&#123;param&#125;,<span class="string">&#x27;%&#x27;</span>) </span><br></pre></td></tr></table></figure>
+
+<p>推荐使用前者，可以避免sql注入。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">like</span> <span class="string">&#x27;%$&#123;param&#125;%&#x27;</span> </span><br></pre></td></tr></table></figure>
+
+<p>oracle中的“||”是连接字符串的作用，mysql中需要用concat(a,b,c)方法</p>
+<h3 id="查看表注释"><a href="#查看表注释" class="headerlink" title="查看表注释"></a>查看表注释</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">TABLE_NAME,</span><br><span class="line">COMMENTS DESCRIPTION</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">all_tab_comments</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">table_name <span class="operator">=</span> #&#123;tableName,jdbcType<span class="operator">=</span><span class="type">VARCHAR</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    TABLE_NAME,</span><br><span class="line">    TABLE_COMMENT  </span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    INFORMATION_SCHEMA.TABLES </span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    table_name <span class="operator">=</span> <span class="string">&#x27;base_portal_file&#x27;</span> </span><br><span class="line">    <span class="keyword">AND</span> table_schema <span class="operator">=</span> <span class="string">&#x27;base&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查看表中列结构"><a href="#查看表中列结构" class="headerlink" title="查看表中列结构"></a>查看表中列结构</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">  T1.COLUMN_NAME FIELD_NAME,</span><br><span class="line">  T1.DATA_TYPE TYPE,</span><br><span class="line">  T2.COMMENTS DESCRIPTION,</span><br><span class="line">  T1.COLUMN_ID</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">  USER_TAB_COLS T1</span><br><span class="line">  <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> USER_COL_COMMENTS T2 <span class="keyword">ON</span> T1.TABLE_NAME <span class="operator">=</span> T2.TABLE_NAME <span class="keyword">AND</span> T1.COLUMN_NAME <span class="operator">=</span> T2.COLUMN_NAME</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">  T1.TABLE_NAME <span class="operator">=</span> #&#123;tableName,jdbcType<span class="operator">=</span><span class="type">VARCHAR</span>&#125;</span><br><span class="line">  <span class="keyword">AND</span> T1.VIRTUAL_COLUMN <span class="operator">=</span> <span class="string">&#x27;NO&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    column_name COLUMN_NAME,</span><br><span class="line">    DATA_TYPE,</span><br><span class="line"><span class="keyword">CASE</span></span><br><span class="line">    DATA_TYPE </span><br><span class="line">    <span class="keyword">WHEN</span> <span class="string">&#x27;decimal&#x27;</span> <span class="keyword">THEN</span></span><br><span class="line">    NUMERIC_PRECISION </span><br><span class="line">    <span class="keyword">WHEN</span> <span class="string">&#x27;datetime&#x27;</span> <span class="keyword">THEN</span></span><br><span class="line">    DATETIME_PRECISION <span class="keyword">ELSE</span> character_maximum_length </span><br><span class="line">    <span class="keyword">END</span> <span class="keyword">AS</span> DATA_LENGTH,</span><br><span class="line">    IS_NULLABLE NULLABLE,</span><br><span class="line">    column_comment DESCRIPTION,</span><br><span class="line">    ORDINAL_POSITION COLUMN_ORDER </span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    information_schema.COLUMNS </span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    table_name <span class="operator">=</span> <span class="string">&#x27;AE_JOURNAL_TYPE&#x27;</span> </span><br><span class="line">  <span class="keyword">and</span> generation_expression <span class="keyword">is</span> <span class="keyword">empty</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br><span class="line">    ORDINAL_POSITION <span class="keyword">ASC</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="判断为空并格式化"><a href="#判断为空并格式化" class="headerlink" title="判断为空并格式化"></a>判断为空并格式化</h3><p>oracle:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> nvl(amount,<span class="number">0</span>) <span class="keyword">from</span> scm_example</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> IFNULL(amount,<span class="number">0</span>) <span class="keyword">from</span> scm_example</span><br></pre></td></tr></table></figure>
+
+<h3 id="实现差集MINUS"><a href="#实现差集MINUS" class="headerlink" title="实现差集MINUS"></a>实现差集MINUS</h3><p>oracle:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> member_id, name <span class="keyword">FROM</span> a</span><br><span class="line">MINUS</span><br><span class="line"><span class="keyword">SELECT</span> member_id, name <span class="keyword">FROM</span> b</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> member_id, name</span><br><span class="line"><span class="keyword">FROM</span> a</span><br><span class="line"><span class="keyword">WHERE</span> (member_id, name) <span class="keyword">NOT</span> <span class="keyword">IN</span></span><br><span class="line">(<span class="keyword">SELECT</span> member_id, name <span class="keyword">FROM</span> table2);</span><br></pre></td></tr></table></figure>
+
+<p>or</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> a.member_id, a.name</span><br><span class="line"><span class="keyword">FROM</span> a <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> b <span class="keyword">USING</span> (member_id, name)</span><br><span class="line"><span class="keyword">WHERE</span> b.member_id <span class="keyword">IS</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span><span class="keyword">using</span>() 中 （） 必需</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>Spring Boot</tag>
+        <tag>Oracle</tag>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二分法</title>
+    <url>/posts/ebbfa50c/</url>
+    <content><![CDATA[<h2 id="适用范围"><a href="#适用范围" class="headerlink" title="适用范围"></a>适用范围</h2><p>从已经排好顺序的数组当中找到目标所在位置或者是正确地向数组中插入一个目标。</p>
+<span id="more"></span>
+
+
+
+<h2 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h2><p>将整个数组不停地拆分为两段（每一段有左边界<code>left</code>和右边界<code>right</code>），用分隔两段的数（<code>mid</code>处值）与目标相比较，观察目标处于哪一段，最终段长小于2时，便可唯一确定位置，其时间复杂度为log<sub>2</sub>n。</p>
+<h3 id="划分的具体过程"><a href="#划分的具体过程" class="headerlink" title="划分的具体过程"></a>划分的具体过程</h3><p>这里列出一种<code>划分&amp;确定边界&amp;结束</code>的方法，仅供参考。</p>
+<p>如下列数组<code>&#123;1,2,4,8,16&#125;</code>,<code>target=11</code>，查找其应该插入的位置，<code>left</code>意味着<code>target</code>至少应该从该位置插入</p>
+<table>
+<thead>
+<tr>
+<th align="center">步骤</th>
+<th>说明</th>
+<th align="center">a[0]</th>
+<th align="center">a[1]</th>
+<th align="center">a[2]</th>
+<th align="center">a[3]</th>
+<th align="center">a[4]</th>
+<th align="center">target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td></td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">4</td>
+<td align="center">8</td>
+<td align="center">16</td>
+<td align="center">11</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td>left&#x3D;0,right&#x3D;4,mid&#x3D;(left+right)&#x2F;2&#x3D;2</td>
+<td align="center">left</td>
+<td align="center"></td>
+<td align="center">mid</td>
+<td align="center"></td>
+<td align="center">right</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>因a[mid]&#x3D;4&lt;target<br />left需右移至mid+1<br />故left&#x3D;3,right&#x3D;4,mid &#x3D; (3+4)&#x2F;2 &#x3D; 3</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">left<br />mid</td>
+<td align="center">right</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td>a[mid]&#x3D;8&lt;target,left右移至4<br />mid &#x3D; 4</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">left<br />mid<br />right</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td>到这一步段距为1了，再做一下判断target&lt;a[mid]&#x3D;16,因此right&#x3D;mid-1&#x3D;3,至此，左边界超过了右边界，那么左边界就是我们需要查找的位置</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">right</td>
+<td align="center">left<br />mid</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a>存在问题</h2><h3 id="中值计算"><a href="#中值计算" class="headerlink" title="中值计算"></a>中值计算</h3><p><code>mid = (left+right)/2</code>在left和right值很大的时候可能造成数值溢出导致结果错误，因此可以换一种写法<code>mid = left+(right-left)/2</code>。</p>
+<p>经过了解，还有另外一种写法就是<code>mid = (left+right)&gt;&gt;&gt;1</code>,其中，<code>&gt;&gt;&gt;</code>表示无符号右移运算符，其在右移时左边空位会补上0，也就是会变成正数。</p>
+<h3 id="确定边界"><a href="#确定边界" class="headerlink" title="确定边界"></a>确定边界</h3><p>在每次判断时，根据不同的使用场景可以确定不同左右边界，可以直接使用<code>mid</code>值作为下一次的<code>左/右</code>边界，也可以使用<code>mid+1/-1</code>作为下一次的<code>左/右</code>边界。对于每种不同的方式，其结束循环的条件也有细微差异，需要仔细确认。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">searchInsert</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>, right = nums.length, mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            mid = (left + right) &gt;&gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>泛型与反射</title>
+    <url>/posts/6a9738f6/</url>
+    <content><![CDATA[<p>使用反射获取泛型对象的方法、属性、注解。</p>
+<span id="more"></span>
+
+<p>本文使用以下实体进行测试：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AaDTO</span> &#123;</span><br><span class="line">    <span class="meta">@NotNull</span></span><br><span class="line">    <span class="keyword">private</span> Integer aaInteger;</span><br><span class="line">    <span class="keyword">public</span> String aaString;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer <span class="title function_">getAaInteger</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> aaInteger;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAaInteger</span><span class="params">(Integer aaInteger)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.aaInteger = aaInteger;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getAaString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> aaString;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAaString</span><span class="params">(String aaString)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.aaString = aaString;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">AaDTO</span><span class="params">(Integer aaInteger, String aaString)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.aaInteger = aaInteger;</span><br><span class="line">        <span class="built_in">this</span>.aaString = aaString;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">AaDTO</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取字段值"><a href="#获取字段值" class="headerlink" title="获取字段值"></a>获取字段值</h3><p>使用<code>getFields()</code>获取所有<code>public</code>字段，但无法获取到<code>private</code>字段；</p>
+<p>使用<code>getDeclaredField(String name)</code>获取指定<code>public</code>字段；</p>
+<p>对<code>field</code>设置<code>field.setAccessible(true)</code>可获取到<code>private</code>字段；</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="keyword">void</span> <span class="title function_">getFields</span><span class="params">(T t)</span> &#123;</span><br><span class="line">        Class&lt;?&gt; tClass = t.getClass();</span><br><span class="line">        Field[] fields = tClass.getFields();</span><br><span class="line">        <span class="keyword">for</span> (Field field : fields) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;field name:&quot;</span> + field.getName());</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;field value:&quot;</span> + field.get(t));</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">Field</span> <span class="variable">auditResult</span> <span class="operator">=</span> tClass.getDeclaredField(<span class="string">&quot;aaString&quot;</span>);</span><br><span class="line">            auditResult.setAccessible(<span class="literal">true</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;aaString value:&quot;</span> + auditResult.get(t));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (NoSuchFieldException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="获取方法并调用"><a href="#获取方法并调用" class="headerlink" title="获取方法并调用"></a>获取方法并调用</h3><p>使用<code>getDeclaredMethods()</code>获取所有方法,包括<code>private</code>方法，但是在调用<code>private</code>方法时会抛出<code>IllegalAccessException</code>；</p>
+<p>使用<code>getDeclaredMethod(String name, Class&lt;?&gt;... parameterTypes)</code>获取指定<code>public</code>方法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="keyword">void</span> <span class="title function_">getMethods</span><span class="params">(T t)</span> &#123;</span><br><span class="line">        Class&lt;?&gt; tClass = t.getClass();</span><br><span class="line">        Method[] methods = tClass.getDeclaredMethods();</span><br><span class="line">        Arrays.stream(methods)</span><br><span class="line">                .filter(method-&gt;method.getName().contains(<span class="string">&quot;get&quot;</span>))</span><br><span class="line">                .forEach(method-&gt;&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        System.out.println(<span class="string">&quot;调用了方法:&quot;</span> + method.getName() + <span class="string">&quot; 值为:&quot;</span> + method.invoke(t));</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">                        System.out.println(<span class="string">&quot;非法调用了方法:&quot;</span> + method.getName());</span><br><span class="line">                        method.setAccessible(<span class="literal">true</span>);</span><br><span class="line">                        <span class="keyword">try</span> &#123;</span><br><span class="line">                            System.out.println(<span class="string">&quot;修改为可访问后,方法:&quot;</span> + method.getName() + <span class="string">&quot; 值为:&quot;</span> + method.invoke(t));</span><br><span class="line">                        &#125; <span class="keyword">catch</span> (IllegalAccessException | InvocationTargetException illegalAccessException) &#123;</span><br><span class="line">                            illegalAccessException.printStackTrace();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InvocationTargetException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>简单的中缀表达式转后缀及计算</title>
+    <url>/posts/7fc2f592/</url>
+    <content><![CDATA[<p>c++版本</p>
+<span id="more"></span>
+
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">pri</span><span class="params">(<span class="type">char</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==<span class="string">&#x27;/&#x27;</span> || x==<span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(x==<span class="string">&#x27;+&#x27;</span> || x==<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x==<span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">vector&lt;string&gt; <span class="title">in_to_post</span><span class="params">(string input)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;<span class="type">char</span>&gt; s;</span><br><span class="line">    vector&lt;string&gt; post;</span><br><span class="line">    string t=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(input[i])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">char</span> tmp = (<span class="type">char</span>)input[i];</span><br><span class="line">        <span class="keyword">if</span>(tmp &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; tmp &lt;= <span class="string">&#x27;9&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            string num_tmp;</span><br><span class="line">            <span class="type">int</span> j = i;</span><br><span class="line">            <span class="keyword">while</span>((tmp &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; tmp &lt;= <span class="string">&#x27;9&#x27;</span>) || tmp == <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                num_tmp += tmp;</span><br><span class="line">                tmp = (<span class="type">char</span>)input[++j];</span><br><span class="line">            &#125;</span><br><span class="line">            post.<span class="built_in">push_back</span>(num_tmp);</span><br><span class="line">            i = j<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(s.<span class="built_in">empty</span>())</span><br><span class="line">            &#123;</span><br><span class="line">                s.<span class="built_in">push</span>(tmp);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(tmp==<span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                s.<span class="built_in">push</span>(tmp);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(tmp==<span class="string">&#x27;)&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span>(s.<span class="built_in">top</span>()!=<span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    t = <span class="string">&quot;&quot;</span>;</span><br><span class="line">                    t += s.<span class="built_in">top</span>();</span><br><span class="line">                    post.<span class="built_in">push_back</span>(t);</span><br><span class="line">                    s.<span class="built_in">pop</span>();</span><br><span class="line">                &#125;</span><br><span class="line">                s.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span>(<span class="built_in">pri</span>(tmp)&lt;=<span class="built_in">pri</span>(s.<span class="built_in">top</span>()))</span><br><span class="line">                &#123;</span><br><span class="line">                    t = <span class="string">&quot;&quot;</span>;</span><br><span class="line">                    t += s.<span class="built_in">top</span>();</span><br><span class="line">                    post.<span class="built_in">push_back</span>(t);</span><br><span class="line">                    s.<span class="built_in">pop</span>();</span><br><span class="line">                    <span class="keyword">if</span>(s.<span class="built_in">empty</span>())</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                s.<span class="built_in">push</span>(tmp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!s.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        t = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        t += s.<span class="built_in">top</span>();</span><br><span class="line">        post.<span class="built_in">push_back</span>(t);</span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> post;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">cal</span><span class="params">(<span class="type">double</span> a,<span class="type">double</span> b,<span class="type">char</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(c==<span class="string">&#x27;+&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> a+b;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> a-b;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> a*b;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> a/b;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">myisdigit</span><span class="params">(string s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;s.<span class="built_in">size</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]!=<span class="string">&#x27;.&#x27;</span>&amp;&amp;(s[i]&lt;<span class="string">&#x27;0&#x27;</span>||s[i]&gt;<span class="string">&#x27;9&#x27;</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">postcal</span><span class="params">(vector&lt;string&gt; in)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack&lt;string&gt; s;</span><br><span class="line">    <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;in.<span class="built_in">size</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        string tmp = in[i];</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">myisdigit</span>(tmp))</span><br><span class="line">        &#123;</span><br><span class="line">            s.<span class="built_in">push</span>(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">double</span> b = <span class="built_in">stod</span>(s.<span class="built_in">top</span>());</span><br><span class="line">            s.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="type">double</span> a= <span class="built_in">stod</span>(s.<span class="built_in">top</span>());</span><br><span class="line">            s.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="type">char</span> c = tmp[<span class="number">0</span>];</span><br><span class="line">            <span class="type">double</span> r = <span class="built_in">cal</span>(a,b,c);</span><br><span class="line">            s.<span class="built_in">push</span>(<span class="built_in">to_string</span>(r));</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">stod</span>(s.<span class="built_in">top</span>());</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string input;</span><br><span class="line">    <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">    vector&lt;string&gt; postinput;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;请输入中缀表达式：&quot;</span>&lt;&lt;endl;</span><br><span class="line">    cin&gt;&gt;input;</span><br><span class="line"></span><br><span class="line">    postinput=<span class="built_in">in_to_post</span>(input);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;后缀表达式为：&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;postinput.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;postinput[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">double</span> res = <span class="built_in">postcal</span>(postinput);</span><br><span class="line"></span><br><span class="line">    cout&lt;&lt;endl&lt;&lt;<span class="string">&quot;结果为：&quot;</span>&lt;&lt;res&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">请输入中缀表达式：</span></span><br><span class="line"><span class="comment">1.2*((2/4.3)*3.2)</span></span><br><span class="line"><span class="comment">后缀表达式为：</span></span><br><span class="line"><span class="comment">1.2 2 4.3 / 3.2 * *</span></span><br><span class="line"><span class="comment">结果为：1.78605</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">to_string stod均为c++11特性,需编译器支持,</span></span><br><span class="line"><span class="comment">in codeblocks,go to settings-&gt;compiler-&gt;check the &quot;have g++ follow the c++11 ISO...&quot;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>逆波兰</tag>
+        <tag>栈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设计模式-简单工厂模式</title>
+    <url>/posts/b3ea5b44/</url>
+    <content><![CDATA[<p>对于输入的不同参数，会有不同的执行，如对以下的参数进行判断执行</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AuditDTO</span> &#123;</span><br><span class="line">    Integer auditResult;</span><br><span class="line">    String auditContent;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> getter and setter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">AuditResultEnum</span> &#123;</span><br><span class="line">    SUCCESS(<span class="number">1</span>, <span class="string">&quot;成功&quot;</span>),</span><br><span class="line">    FAIL(<span class="number">0</span>, <span class="string">&quot;失败&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Integer code;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String message;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> getter;</span><br><span class="line">    </span><br><span class="line">    AuditResultEnum(Integer code, String message) &#123;</span><br><span class="line">        <span class="built_in">this</span>.message = message;</span><br><span class="line">        <span class="built_in">this</span>.code = code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> AuditResultEnum <span class="title function_">getByCode</span><span class="params">(Integer code)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (AuditResultEnum _enum : values()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (_enum.getCode().equals(code)) &#123;</span><br><span class="line">                <span class="keyword">return</span> _enum;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以面向过程的思维编写程序的话，如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> (AuditResultEnum.getByCode(audit.getAuditResult())) &#123;</span><br><span class="line">            <span class="keyword">case</span> SUCCESS:</span><br><span class="line">                System.out.println(SUCCESS.getMessage());</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> FAIL:</span><br><span class="line">                 System.out.println(FAIL.getMessage());</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;error&quot;</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于这种最简单的switch这样写当然是没问题的，但是如果情况变得复杂，需要选择的条件变多之后，一旦某种情况需要修改，或是进行增加操作，直接在这段本就已经十分臃肿冗杂的代码里面进行修改，很有可能导致一些意想不到的问题；而且对于该段逻辑的修改需要编译整段代码，这样也是我们所不希望看见的。</p>
+<p>那么如何使用工厂模式进行改进呢？</p>
+<p>对于每一种case，将其置为一种实现，一般来说，每一种case我们都会处理相同的数据，如上文的<code>auditResult</code>，然后有不同的实现，因此我们需要一个抽象类，类中定义好我们所需要的数据&amp;抽象方法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Audit</span> &#123;</span><br><span class="line">    Integer auditResult;</span><br><span class="line">    String auditContent;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> getter and setter;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">audit</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AuditFail</span> <span class="keyword">extends</span> <span class="title class_">Audit</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">audit</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.setAuditResult(AuditResultEnum.FAIL.getCode());</span><br><span class="line">        <span class="built_in">this</span>.setAuditContent(AuditResultEnum.FAIL.getMessage());</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="built_in">this</span>.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AuditSuccess</span> <span class="keyword">extends</span> <span class="title class_">Audit</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">audit</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.setAuditResult(AuditResultEnum.SUCCESS.getCode());</span><br><span class="line">        <span class="built_in">this</span>.setAuditContent(AuditResultEnum.SUCCESS.getMessage());</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="built_in">this</span>.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后将代码中的<code>switch</code>语句提取出来，进行判断何时使用何类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AuditFactory</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">audit</span><span class="params">(AuditDTO audit)</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> (AuditResultEnum.getByCode(audit.getAuditResult())) &#123;</span><br><span class="line">            <span class="keyword">case</span> SUCCESS:</span><br><span class="line">                <span class="type">AuditSuccess</span> <span class="variable">auditSuccess</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AuditSuccess</span>();</span><br><span class="line">                auditSuccess.setAuditResult(audit.getAuditResult());</span><br><span class="line">                auditSuccess.setAuditContent(audit.getAuditContent());</span><br><span class="line">                auditSuccess.audit();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> FAIL:</span><br><span class="line">                <span class="type">AuditFail</span> <span class="variable">auditFail</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AuditFail</span>();</span><br><span class="line">                auditFail.setAuditResult(audit.getAuditResult());</span><br><span class="line">                auditFail.setAuditContent(audit.getAuditContent());</span><br><span class="line">                auditFail.audit();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.out.println(<span class="string">&quot;error&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后我们在业务中，只需要简单地调用该工厂函数即可，以后对于某种case的修改只需要到该情况的case类中进行修改，而不必在业务实现的代码中修改，避免出错。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FactoryPatternTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">AuditDTO</span> <span class="variable">auditFailure</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AuditDTO</span>(<span class="number">0</span>, <span class="string">&quot;我觉得可以失败&quot;</span>);</span><br><span class="line">        <span class="type">AuditDTO</span> <span class="variable">auditSuccess</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AuditDTO</span>(<span class="number">1</span>,<span class="string">&quot;我觉得可以成功&quot;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="type">AuditFactory</span> <span class="variable">auditFactory</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AuditFactory</span>();</span><br><span class="line">        auditFactory.audit(auditFailure);</span><br><span class="line">        auditFactory.audit(auditSuccess);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阿里云CentOS6搭建Jenkins</title>
+    <url>/posts/5c39734/</url>
+    <content><![CDATA[<h4 id="安装jenkins"><a href="#安装jenkins" class="headerlink" title="安装jenkins"></a>安装<code>jenkins</code></h4><span id="more"></span>
+
+<p>首先下载安装包，因为<a href="https://pkg.jenkins.io/redhat-stable/">官方源</a>用着实在是太慢了，因此换用清华大学的<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat/">开源镜像站</a>，选择一个版本，服务器中输入<code>wget 版本链接</code>，</p>
+<p>输入<code>rpm -ivh 文件</code>进行安装，完成后<code>vim /etc/sysconfig/jenkins </code>修改端口以免冲突;</p>
+<p>输入<code>which java</code>查看<code>jdk</code>地址，修改<code>jenkins</code>配置，<code>vim /etc/init.d/jenkins</code></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/jenkins-java.png" alt="jenkins-java"></p>
+<p>先<code>service jenkins start</code>，在浏览器打开<code>ip:端口</code>让<code>jenkins</code>加载必要的文件。</p>
+<div class="note warning"><p><em>为了提高下载速度，需要先设置更新源为其他国内镜像源</em></p>
+</div>
+
+<p>输入<code>vi /var/lib/jenkins/updates/default.json </code>后参照<a href="https://www.cnblogs.com/hellxz/p/jenkins_install_plugins_faster.html">Jenkins安装插件提速</a>进行修改，</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">:1,<span class="variable">$s</span>/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">:1,<span class="variable">$s</span>/http:\/\/www.google.com/https:\/\/www.baidu.com/g</span><br></pre></td></tr></table></figure>
+
+<p>或者进入目录下，在终端直接输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -i <span class="string">&#x27;s/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g&#x27;</span> default.json &amp;&amp; sed -i <span class="string">&#x27;s/http:\/\/www.google.com/https:\/\/www.baidu.com/g&#x27;</span> default.json</span><br></pre></td></tr></table></figure>
+
+<p>接下来<code>service jenkins restart</code>启动，输入<code>ip:端口</code>，会看见<code>jenkins</code>启动中。</p>
+<p>按照提示查看密码并输入：</p>
+<p><code>cat /var/lib/jenkins/secrets/initialAdminPassword</code></p>
+<p>然后安装推荐的插件，等待安装完成。</p>
+<p>成功进入<code>jenkins</code>界面后，依次点击<code>Manage Jenkins-Manage Plugins-Advanced</code>，拉到最下面，将默认的检查更新源</p>
+<p>更改为<code>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</code>,这可以加快获取列表的速度。</p>
+<h4 id="配置jenkins所需插件"><a href="#配置jenkins所需插件" class="headerlink" title="配置jenkins所需插件"></a>配置<code>jenkins</code>所需插件</h4><p>检查是否已安装以下两个插件：</p>
+<ol>
+<li><p><code>Maven Integration</code> 使我们可以开始一个<code>maven</code>项目作为任务</p>
+</li>
+<li><p><code>Git plugin</code> 使我们可以读取存放在<code>git</code>仓库的项目</p>
+</li>
+</ol>
+<p>如果没有，就去插件管理里面搜索安装。</p>
+<h4 id="配置jenkins全局工具"><a href="#配置jenkins全局工具" class="headerlink" title="配置jenkins全局工具"></a>配置<code>jenkins</code>全局工具</h4><p>系统管理 –&gt; 全局工具配置</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/20200424210313.png"></p>
+<p>主要是配置<code>jdk</code>和<code>git</code>的地址，<code>which java</code>和<code>which git</code>查看就行了。</p>
+<h4 id="新建任务"><a href="#新建任务" class="headerlink" title="新建任务"></a>新建任务</h4><h5 id="maven项目"><a href="#maven项目" class="headerlink" title="maven项目"></a><code>maven</code>项目</h5><p><img data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/20200424210813.png"></p>
+<p>点击“新建任务”，输入名称，选择构建<code>maven</code>项目。</p>
+<p>如图，添加源码位置，这里可以添加<code>Credentials</code>，一般使用<code>https</code>的方式添加源码就行了。使用<code>ssh</code>还需要到服务器里生成公钥添加到<code>git</code>。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/20200424210947.png"></p>
+<p>接下来添加<code>build goal</code>，<code>clean package -Dmaven.test.skip=true</code>这个是用来生成拥有<code>Spring</code>启动程序的项目的代码，如果是用来生成<code>api</code>供自己的程序使用，需要用<code>clean install -Dmaven.test.skip=true</code>这个命令。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/image-20200424211711910.png"></p>
+<p>最后添加<code>Post Steps</code></p>
+<p>选中<code>Run only if build succeeds</code>,<code>add post-build step</code>选择<code>执行shell</code>，按照如下格式：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="built_in">export</span> BUILD_ID=dontKillMe这一句很重要，这样指定了，项目启动之后才不会被Jenkins杀掉。</span></span><br><span class="line">export BUILD_ID=dontKillMe</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">指定最后编译好的jar存放的位置</span></span><br><span class="line">www_path=/usr/jars</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Jenkins中编译好的jar位置,其中md_metadata是自己的项目名称</span></span><br><span class="line">jar_path=/var/lib/jenkins/workspace/md_metadata/target/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Jenkins中编译好的jar名称，注意改成自己的项目名称</span></span><br><span class="line">jar_name=metadata-0.0.1-SNAPSHOT.jar</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">获取运行编译好的进程ID，便于我们在重新部署项目的时候先杀掉以前的进程，注意改成自己的项目名称</span></span><br><span class="line">pid=`ps -ef | grep metadata-0.0.1-SNAPSHOT.jar | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27;`</span><br><span class="line">if [ -n &quot;$pid&quot; ]</span><br><span class="line">then</span><br><span class="line">   kill -9 $pid</span><br><span class="line">fi</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">进入指定的编译好的jar的位置</span></span><br><span class="line">cd  $&#123;jar_path&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将编译好的jar复制到最后指定的位置</span></span><br><span class="line">cp  $&#123;jar_path&#125;/$&#123;jar_name&#125; $&#123;www_path&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">进入最后指定存放jar的位置</span></span><br><span class="line">cd  $&#123;www_path&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">启动jar</span></span><br><span class="line">java -jar $&#123;jar_name&#125; &amp;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>点击保存，ok。</p>
+<h5 id="流水线任务"><a href="#流水线任务" class="headerlink" title="流水线任务"></a>流水线任务</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">node&#123;</span><br><span class="line">    stage(&quot;starter&quot;)&#123;</span><br><span class="line">        echo &quot;run starter&quot;</span><br><span class="line">        build job:&quot;md_starter&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    stage(&quot;eureka&quot;)&#123;</span><br><span class="line">        echo &quot;run eureka&quot;</span><br><span class="line">        build job:&quot;md_eureka&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>编译原理</title>
+    <url>/posts/118b8ca3/</url>
+    <content><![CDATA[<h1 id="第一章引论"><a href="#第一章引论" class="headerlink" title="第一章	引论"></a>第一章	引论</h1><h2 id="什么叫编译程序"><a href="#什么叫编译程序" class="headerlink" title="什么叫编译程序"></a>什么叫编译程序</h2><p><strong>翻译程序</strong>：把某一种语言程序（称为<strong>源语言</strong>程序）转换成另一种语言程序（称为<strong>目标语言</strong>程序）。</p>
+<span id="more"></span>
+
+<p><strong>解释程序</strong>：以源语言写的源程序作为输入，但不产生目标程序，而是边解释边执行源程序本身。<br>优点：易于查错<br>缺点：效率低，运行速度慢</p>
+<p><strong>编译程序</strong>：源语言为高级语言，目标语言为汇编语言或机器语言之类的“低级语言”的翻译程序。<br>优点：只需分析和翻译一次，<br>缺点：在运行中发现的错误必须在源程序中查找</p>
+<p><em>(运行编译程序的计算机称<strong>宿主机</strong>，运行编译程序所产生目标代码的计算机称*<em>目标机</em></em>)*</p>
+<ul>
+<li>诊断编译程序：专门用于帮助程序开发和调试</li>
+<li>优化编译程序：着重于提高目标代码效率</li>
+<li>交叉编译程序：产生不同于其宿主机的机器代码</li>
+<li>可变目标编译程序：不需重写编译程序中与机器无关的部分就能改变目标机</li>
+</ul>
+<p>世界上第一个编译程序–FORTRAN编译程序是20世纪50年代中期研制成功的。</p>
+<h2 id="编译程序的结构"><a href="#编译程序的结构" class="headerlink" title="编译程序的结构"></a>编译程序的结构</h2><p><img data-src="https://i.loli.net/2019/04/02/5ca35e7179f8d.png" alt="编译程序结构.png"><br><strong>词法分析器</strong>：又称<strong>扫描器</strong>，输入源程序，进行词法分析，输出单词符号。</p>
+<p><strong>语法分析器</strong>：简称<strong>分析器</strong>，对单词符号串进行语法分析（根据与法规则进行推导或归约），识别出各类语法单位，最终判断输入串是否构成语法上正确的“程序”。</p>
+<p><strong>语义分析与中间代码产生器</strong>：按照语义规则对语法分析器归约出（或推导出）的语法单位进行语义分析并把它们翻译成一定形式的中间代码。<br>中间代码可采用四元式、三元式、间接三元式、逆波兰记号和树形表示等等。<br>例如：许多编译程序采用四元序列形式：<br>Z :&#x3D; (X + 0.418)*Y&#x2F;w 翻译成四元式为：<br><img data-src="https://i.loli.net/2019/04/12/5cb08214a1577.png" alt="四元式.png"></p>
+<p><strong>优化器</strong>：对中间代码进行优化处理。</p>
+<p><strong>目标代码生成器</strong>：把中间代码翻译成目标程序。</p>
+<p>表格中最重要的是<strong>符号表</strong>，出错处理中<strong>出错处理程序</strong>。</p>
+<p><strong>遍</strong>：具体实现编译过程时，受不同源语言、设计要求、使用对象和计算机条件（如主存容量）的限制，往往将编译程序组织为若干<strong>遍</strong>（Pass）。所谓“遍”就是对源程序或源程序的中间结果从头到尾扫描一次，并作有关的加工处理，生成新的中间结果或目标程序。</p>
+<p><strong>编译前端与后端</strong>：前端主要由与源语言有关但与目标机无关的那些部分（词法分析、语法分析、语义分析、中间代码产生）组成，后端反之，包括与目标机有关的代码优化和目标代码生成等。通常，后端不依赖于源语言而仅仅依赖于<strong>中间语言</strong>。</p>
+<p>Ada程序设计环境APSE中使用一种称为Diana的树形结构的中间语言；<br>Java语言环境中，虚拟机代码Bytecode。</p>
+<p><strong>程序设计环境</strong>：编译程序与编辑程序、连接程序、调试工具等一起构成。</p>
+]]></content>
+      <tags>
+        <tag>编译原理</tag>
+      </tags>
+  </entry>
+</search>
