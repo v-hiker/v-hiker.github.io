@@ -1,271 +1,257 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
-  <meta name="baidu-site-verification" content="codeva-8LctiVQKvO">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="为美好的世界献上祝福">
+    <meta name="author" content="Tamako">
+    
+    <title>
+        
+            IDEA Spring Boot 项目相关问题 |
+        
+        兔子山商店街
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
 
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
-  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"tamako.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
-
-
-
-<link rel="canonical" href="https://tamako.top/posts/7761f6cf/">
-
-
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://tamako.top/posts/7761f6cf/","path":"posts/7761f6cf/","title":"IDEA Spring Boot 项目相关问题"}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>IDEA Spring Boot 项目相关问题 | 美好世界</title>
-  
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160689296-1"></script>
-  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-160689296-1","only_pageview":false}</script>
-  <script src="/js/third-party/analytics/google-analytics.js"></script>
-
-  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
-  <script async src="https://hm.baidu.com/hm.js?cede15e204959b77feb65e7f07c416dc"></script>
+    <link rel="shortcut icon" href="/imgs/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"tamako.top","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/imgs/android-chrome-512x512.png","favicon":"/imgs/favicon.ico","avatar":"/imgs/tamako.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":false,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"v-hiker","github_admins":null,"repository":"blog_comments","client_id":"aef854a5b7ee3b49c333","client_secret":"534d65534bd80e67ec090d585a5bbd8135c5a19a","proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":false,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
 
 
+<body>
+<div class="progress-bar-container">
+    
 
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">美好世界</p>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
 </div>
 
 
+<main class="page-container">
 
-<nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">11</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">13</span></a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
+    
 
+    <div class="page-main-content">
 
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/imgs/android-chrome-512x512.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               兔子山商店街
+            </a>
+        </div>
 
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
 
 </header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">IDEA Spring Boot 项目相关问题</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/imgs/tamako.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Tamako</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
         
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IDEA%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">IDEA设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E4%B8%8D%E8%A7%84%E5%88%99"><span class="nav-number">1.1.</span> <span class="nav-text">字体不规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C"><span class="nav-number">1.2.</span> <span class="nav-text">自动换行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">编译问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#duplicate-declaration-of-version"><span class="nav-number">2.1.</span> <span class="nav-text">duplicate declaration of version</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8C%85%E6%8A%A5%E9%94%99"><span class="nav-number">2.2.</span> <span class="nav-text">引用自定义包报错</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">依赖问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">启动问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%97%B6%E6%89%BE%E4%B8%8D%E5%88%B0%E4%B8%BB%E7%B1%BB"><span class="nav-number">4.1.</span> <span class="nav-text">启动时找不到主类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AD%A6%E5%91%8A%E9%9D%9E%E6%B3%95%E7%9A%84%E5%8F%8D%E5%B0%84%E8%AE%BF%E9%97%AE%E6%93%8D%E4%BD%9C"><span class="nav-number">4.2.</span> <span class="nav-text">警告非法的反射访问操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MalformedInputException"><span class="nav-number">4.3.</span> <span class="nav-text">MalformedInputException</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">运行问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL%E6%8F%92%E5%85%A5emoji%E6%8A%A5%E9%94%99"><span class="nav-number">5.1.</span> <span class="nav-text">MySQL插入emoji报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collectors-toMap-%E6%8A%A5%E9%94%99"><span class="nav-number">5.2.</span> <span class="nav-text">Collectors.toMap 报错</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%99%E8%AF%AF"><span class="nav-number">5.2.1.</span> <span class="nav-text">错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">5.2.2.</span> <span class="nav-text">原因</span></a></li></ol></li></ol></li></ol></div>
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="紫颂果"
-      src="/images/v.jpg">
-  <p class="site-author-name" itemprop="name">紫颂果</p>
-  <div class="site-description" itemprop="description">为美好的世界献上祝福</div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">11</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">13</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author animated">
-      <span class="links-of-author-item">
-        <a href="mailto:v_hiker@qq.com" title="E-Mail → mailto:v_hiker@qq.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-  </div>
-
-        </div>
-      </div>
-    </div>
-
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2019-09-23 23:17:58</span>
+        <span class="mobile">2019-09-23 23:17</span>
+    </span>
     
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tamako.top/posts/7761f6cf/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/v.jpg">
-      <meta itemprop="name" content="紫颂果">
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-01-29 02:41:44</span>
     </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="美好世界">
-      <meta itemprop="description" content="为美好的世界献上祝福">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="IDEA Spring Boot 项目相关问题 | 美好世界">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          IDEA Spring Boot 项目相关问题
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-09-23 23:17:58" itemprop="dateCreated datePublished" datetime="2019-09-23T23:17:58+08:00">2019-09-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-29 02:41:44" itemprop="dateModified" datetime="2023-01-29T02:41:44+08:00">2023-01-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Spring-Boot/">Spring Boot</a>&nbsp;
+                    </li>
+                
+            </ul>
         </span>
-    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Spring-Boot/">Spring Boot</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
 
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
-    </span>
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.8k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>8 分钟</span>
+        </span>
+    
+    
 </div>
 
-        </div>
-      </header>
+                        </div>
+                    </div>
+                </div>
+            
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="IDEA设置"><a href="#IDEA设置" class="headerlink" title="IDEA设置"></a>IDEA设置</h1><h2 id="字体不规则"><a href="#字体不规则" class="headerlink" title="字体不规则"></a>字体不规则</h2><p>在使用idea2019.2时存在中文字体忽大忽小不规范的问题，</p>
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="IDEA设置"><a href="#IDEA设置" class="headerlink" title="IDEA设置"></a>IDEA设置</h1><h2 id="字体不规则"><a href="#字体不规则" class="headerlink" title="字体不规则"></a>字体不规则</h2><p>在使用idea2019.2时存在中文字体忽大忽小不规范的问题，</p>
 <p><code>File =&gt; Settings =&gt; Editor =&gt; Font</code>调整<code>Fallback font</code>为<code>SimHei</code>、<code>SimSun</code>、<code>YouYuan</code>等</p>
 <h2 id="自动换行"><a href="#自动换行" class="headerlink" title="自动换行"></a>自动换行</h2><ul>
 <li><code>settings =&gt; editor =&gt; code style =&gt; default options</code>勾选<code>wrap on typing</code></li>
@@ -293,12 +279,12 @@
 </ul>
 <p>对于第一种情况，可以删除相关临时文件后尝试重新下载。</p>
 <p>以下为删除脚本，在相应目录下执行:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># windows</span></span><br><span class="line"><span class="keyword">for</span> /r %i <span class="keyword">in</span> (*.lastUpdated) <span class="keyword">do</span> del %i</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># windows</span><br><span class="hljs-keyword">for</span> /r %i <span class="hljs-keyword">in</span> (*.lastUpdated) <span class="hljs-keyword">do</span> del %i<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># linux</span></span><br><span class="line">find ./ -name <span class="string">&quot;*.lastUpdated*&quot;</span> | xargs <span class="built_in">rm</span> -f</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># linux</span><br>find ./ -name <span class="hljs-string">&quot;*.lastUpdated*&quot;</span> | xargs <span class="hljs-built_in">rm</span> -f<br></code></pre></td></tr></table></figure>
 
 <p>对于第二种情况，可能是<code>IDEA</code>的缓存导致，可以尝试剪切<code>pom.xml</code>文件中相关依赖,<code>import change</code>后重新添加并刷新。</p>
-<h1 id="启动问题"><a href="#启动问题" class="headerlink" title="启动问题"></a>启动问题</h1><h2 id="启动时找不到主类"><a href="#启动时找不到主类" class="headerlink" title="启动时找不到主类"></a>启动时找不到主类</h2><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">错误: 找不到或无法加载主类 XXXX</span></span><br><span class="line"><span class="section">原因: java.lang.ClassNotFoundException: XXXX</span></span><br></pre></td></tr></table></figure>
+<h1 id="启动问题"><a href="#启动问题" class="headerlink" title="启动问题"></a>启动问题</h1><h2 id="启动时找不到主类"><a href="#启动时找不到主类" class="headerlink" title="启动时找不到主类"></a>启动时找不到主类</h2><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">错误: 找不到或无法加载主类 XXXX</span><br><span class="hljs-section">原因: java.lang.ClassNotFoundException: XXXX</span><br></code></pre></td></tr></table></figure>
 
 <p>大概率是编译结果问题，尝试<code>mvn clean install</code>。</p>
 <h2 id="警告非法的反射访问操作"><a href="#警告非法的反射访问操作" class="headerlink" title="警告非法的反射访问操作"></a>警告非法的反射访问操作</h2><p><code>An illegal reflective access operation has occurred</code></p>
@@ -311,12 +297,12 @@
 <li><code>deny</code>：禁止所有的非法访问除了使用特别的命令行参数排除的模块，比如使用–add-opens排除某些模块使其能够通过非法反射访问</li>
 </ul>
 <p>解决方法一: 设置以下<code>JVM</code>参数</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--illegal-access=deny --add-opens java.base/java.lang=ALL-UNNAMED</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">--illegal-access=deny --add-opens java.base/java.lang=ALL-UNNAMED<br></code></pre></td></tr></table></figure>
 
 <p><code>IDEA</code>可以在运行配置中的<code>VM options</code>中添加上述参数</p>
 <p>如果使用<code>Maven</code>打包的时候还是会出现警告，可以在<code>IDEA</code>中的<code>Maven</code>配置中添加全局的<code>Maven</code>参数</p>
 <p>如果使用<code>Gradle</code>,在<code>build.gradle</code>中添加</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">test &#123;</span><br><span class="line">    useJUnitPlatform()</span><br><span class="line">    jvmArgs(<span class="string">&#x27;--illegal-access=deny&#x27;</span>)</span><br><span class="line">    jvmArgs(<span class="string">&#x27;--add-opens&#x27;</span>, <span class="string">&#x27;java.base/java.lang.invoke=ALL-UNNAMED&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">test &#123;<br>    useJUnitPlatform()<br>    jvmArgs(<span class="hljs-string">&#x27;--illegal-access=deny&#x27;</span>)<br>    jvmArgs(<span class="hljs-string">&#x27;--add-opens&#x27;</span>, <span class="hljs-string">&#x27;java.base/java.lang.invoke=ALL-UNNAMED&#x27;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="MalformedInputException"><a href="#MalformedInputException" class="headerlink" title="MalformedInputException"></a><code>MalformedInputException</code></h2><p>启动服务时报错：</p>
 <p><code>Caused by: java.nio.charset.MalformedInputException: Input length = 1</code></p>
@@ -332,7 +318,7 @@
 <p> <code>select version();</code></p>
 </li>
 <li><p>修改<code>MySQL</code>配置文件<br>打开<code>MySQL</code>配置文件<code>mysql/my.cnf</code>或<code>mysql/my.ini</code>, 并且添加如下内容：</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[client]</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8mb4</span><br><span class="line"></span><br><span class="line"><span class="section">[mysql]</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8mb4</span><br><span class="line"></span><br><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="attr">character-set-client-handshake</span>=<span class="literal">FALSE</span></span><br><span class="line"><span class="attr">character-set-server</span>=utf8mb4</span><br><span class="line"><span class="attr">collation-server</span>=utf8mb4_unicode_ci</span><br><span class="line"><span class="attr">init_connect</span>=<span class="string">&#x27;SET NAMES utf8mb4&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[client]</span><br><span class="hljs-attr">default-character-set</span>=utf8mb4<br><br><span class="hljs-section">[mysql]</span><br><span class="hljs-attr">default-character-set</span>=utf8mb4<br><br><span class="hljs-section">[mysqld]</span><br><span class="hljs-attr">character-set-client-handshake</span>=<span class="hljs-literal">FALSE</span><br><span class="hljs-attr">character-set-server</span>=utf8mb4<br><span class="hljs-attr">collation-server</span>=utf8mb4_unicode_ci<br><span class="hljs-attr">init_connect</span>=<span class="hljs-string">&#x27;SET NAMES utf8mb4&#x27;</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>重启数据库</p>
 <ul>
@@ -341,184 +327,335 @@
 </ul>
 </li>
 <li><p>检查数据库配置</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> VARIABLES <span class="keyword">WHERE</span> Variable_name <span class="keyword">LIKE</span> <span class="string">&#x27;character_set_%&#x27;</span> <span class="keyword">OR</span> Variable_name <span class="keyword">LIKE</span> <span class="string">&#x27;collation%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------------------+--------------------+</span></span><br><span class="line"><span class="operator">|</span> Variable_name                         <span class="operator">|</span> <span class="keyword">Value</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------------------+--------------------+</span></span><br><span class="line"><span class="operator">||</span> character_set_client         <span class="operator">|</span> utf8mb4 </span><br><span class="line"><span class="operator">||</span> character_set_connection <span class="operator">|</span> utf8mb4 </span><br><span class="line"><span class="operator">||</span> character_set_database     <span class="operator">|</span> utf8mb4 </span><br><span class="line"><span class="operator">||</span> character_set_filesystem <span class="operator">|</span> <span class="type">binary</span> </span><br><span class="line"><span class="operator">||</span> character_set_results         <span class="operator">|</span> utf8mb4 </span><br><span class="line"><span class="operator">||</span> character_set_server         <span class="operator">|</span> utf8mb4 </span><br><span class="line"><span class="operator">||</span> character_set_system         <span class="operator">|</span> utf8 </span><br><span class="line"><span class="operator">||</span> collation_connection         <span class="operator">|</span> utf8mb4_unicode_ci </span><br><span class="line"><span class="operator">||</span> collation_database             <span class="operator">|</span> utf8mb4_unicode_ci </span><br><span class="line"><span class="operator">||</span> collation_server                 <span class="operator">|</span> utf8mb4_unicode_ci</span><br><span class="line"><span class="operator">+</span><span class="comment">--------------------------+--------------------+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SHOW</span> VARIABLES <span class="hljs-keyword">WHERE</span> Variable_name <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;character_set_%&#x27;</span> <span class="hljs-keyword">OR</span> Variable_name <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;collation%&#x27;</span>;<br><br><span class="hljs-operator">+</span><span class="hljs-comment">--------------------------+--------------------+</span><br><span class="hljs-operator">|</span> Variable_name                         <span class="hljs-operator">|</span> <span class="hljs-keyword">Value</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">--------------------------+--------------------+</span><br><span class="hljs-operator">||</span> character_set_client         <span class="hljs-operator">|</span> utf8mb4 <br><span class="hljs-operator">||</span> character_set_connection <span class="hljs-operator">|</span> utf8mb4 <br><span class="hljs-operator">||</span> character_set_database     <span class="hljs-operator">|</span> utf8mb4 <br><span class="hljs-operator">||</span> character_set_filesystem <span class="hljs-operator">|</span> <span class="hljs-type">binary</span> <br><span class="hljs-operator">||</span> character_set_results         <span class="hljs-operator">|</span> utf8mb4 <br><span class="hljs-operator">||</span> character_set_server         <span class="hljs-operator">|</span> utf8mb4 <br><span class="hljs-operator">||</span> character_set_system         <span class="hljs-operator">|</span> utf8 <br><span class="hljs-operator">||</span> collation_connection         <span class="hljs-operator">|</span> utf8mb4_unicode_ci <br><span class="hljs-operator">||</span> collation_database             <span class="hljs-operator">|</span> utf8mb4_unicode_ci <br><span class="hljs-operator">||</span> collation_server                 <span class="hljs-operator">|</span> utf8mb4_unicode_ci<br><span class="hljs-operator">+</span><span class="hljs-comment">--------------------------+--------------------+</span><br></code></pre></td></tr></table></figure>
 
 <p>必须保证:<br><code>character_set_client</code>、<code>character_se_connection</code>、<code>character_set_database</code>、<code>character_set_results</code>、<code>character_set_server</code>为<code>utf8mb4</code>。</p>
 </li>
 <li><p>更新客户端配置文件</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">jdbc.driverClassName</span>=com.mysql.jdbc.Driver</span><br><span class="line"><span class="attr">jdbc.url</span>=jdbc:mysql://localhost:<span class="number">3306</span>/database?useUnicode=<span class="literal">true</span>&amp;characterEncoding=utf8&amp;autoReconnect=<span class="literal">true</span>&amp;rewriteBatchedStatements=<span class="literal">true</span></span><br><span class="line"><span class="attr">jdbc.username</span>=username</span><br><span class="line"><span class="attr">jdbc.password</span>=password</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">jdbc.driverClassName</span>=com.mysql.jdbc.Driver<br><span class="hljs-attr">jdbc.url</span>=jdbc:mysql://localhost:<span class="hljs-number">3306</span>/database?useUnicode=<span class="hljs-literal">true</span>&amp;characterEncoding=utf8&amp;autoReconnect=<span class="hljs-literal">true</span>&amp;rewriteBatchedStatements=<span class="hljs-literal">true</span><br><span class="hljs-attr">jdbc.username</span>=username<br><span class="hljs-attr">jdbc.password</span>=password<br></code></pre></td></tr></table></figure>
 
 <p>注意：<code>jdbc.url</code>的内容,<code>characterEncoding=utf8</code>可以被自动识别为<code>utf8bm4</code>  </p>
 </li>
 <li><p>修改数据库、表和列的字符集SQL语句：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> DATABASE database_name <span class="type">CHARACTER</span> <span class="keyword">SET</span> <span class="operator">=</span> utf8mb4 <span class="keyword">COLLATE</span> <span class="operator">=</span> utf8mb4_unicode_ci;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">CONVERT</span> <span class="keyword">TO</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name table_name CHANGE column_name <span class="type">VARCHAR</span>(<span class="number">1024</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> DATABASE database_name <span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> <span class="hljs-operator">=</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> <span class="hljs-operator">=</span> utf8mb4_unicode_ci;<br><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name <span class="hljs-keyword">CONVERT</span> <span class="hljs-keyword">TO</span> <span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> utf8mb4_unicode_ci;<br><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name table_name CHANGE column_name <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">1024</span>) <span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> utf8mb4_unicode_ci;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>修改应用连接字符串(druid)：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span> <span class="attr">init-method</span>=<span class="string">&quot;init&quot;</span> <span class="attr">destroy-method</span>=<span class="string">&quot;close&quot;</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driverClassName&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc-driver&#125;&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc-url&#125;&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc-user&#125;&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;jdbc-password&#125;&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;filters&quot;</span> <span class="attr">value</span>=<span class="string">&quot;stat&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxActive&quot;</span> <span class="attr">value</span>=<span class="string">&quot;20&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;initialSize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxWait&quot;</span> <span class="attr">value</span>=<span class="string">&quot;60000&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;minIdle&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;timeBetweenEvictionRunsMillis&quot;</span> <span class="attr">value</span>=<span class="string">&quot;3000&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;minEvictableIdleTimeMillis&quot;</span> <span class="attr">value</span>=<span class="string">&quot;300000&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;validationQuery&quot;</span> <span class="attr">value</span>=<span class="string">&quot;SELECT &#x27;x&#x27;&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;testWhileIdle&quot;</span> <span class="attr">value</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;testOnBorrow&quot;</span> <span class="attr">value</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;testOnReturn&quot;</span> <span class="attr">value</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;poolPreparedStatements&quot;</span> <span class="attr">value</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxPoolPreparedStatementPerConnectionSize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;20&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;connectionInitSqls&quot;</span> <span class="attr">value</span>=<span class="string">&quot;set names utf8mb4;&quot;</span>/&gt;</span>  //必须添加</span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;dataSource&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span> <span class="hljs-attr">init-method</span>=<span class="hljs-string">&quot;init&quot;</span> <span class="hljs-attr">destroy-method</span>=<span class="hljs-string">&quot;close&quot;</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;driverClassName&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$&#123;jdbc-driver&#125;&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;url&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$&#123;jdbc-url&#125;&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;username&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$&#123;jdbc-user&#125;&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;password&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$&#123;jdbc-password&#125;&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;filters&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;stat&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxActive&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;20&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;initialSize&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;1&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxWait&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;60000&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;minIdle&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;1&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;timeBetweenEvictionRunsMillis&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;3000&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;minEvictableIdleTimeMillis&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;300000&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;validationQuery&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;SELECT &#x27;x&#x27;&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;testWhileIdle&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;testOnBorrow&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;false&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;testOnReturn&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;false&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;poolPreparedStatements&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxPoolPreparedStatementPerConnectionSize&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;20&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;connectionInitSqls&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;set names utf8mb4;&quot;</span>/&gt;</span>  //必须添加<br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>注意：<code>mysql-connector-java</code>驱动在<code>5.1.13</code>之前是不支持<code>utf8mb4</code>，请使用<code>5.1.13</code>以后的版本。</p>
 </li>
 </ol>
 <h2 id="Collectors-toMap-报错"><a href="#Collectors-toMap-报错" class="headerlink" title="Collectors.toMap 报错"></a><code>Collectors.toMap</code> 报错</h2><h3 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h3><ol>
 <li><p>当<code>value</code>为<code>null</code>时会报错</p>
 <p>解决方法为</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List.stream().collect(HashMap::<span class="keyword">new</span>,(m,v)-&gt;m.put(v.getId(),v.getValue()),HashMap::putAll);</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">List.stream().collect(HashMap::<span class="hljs-keyword">new</span>,(m,v)-&gt;m.put(v.getId(),v.getValue()),HashMap::putAll);<br></code></pre></td></tr></table></figure></li>
 <li><p>当主键重复时会报错，解决方法为</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List.stream().collect(Collectors.toMap(V::getId, V::getValue, (oldValue, newValue) -&gt; newValue));</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">List.stream().collect(Collectors.toMap(V::getId, V::getValue, (oldValue, newValue) -&gt; newValue));<br></code></pre></td></tr></table></figure></li>
 </ol>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>以<code>Oracle JDK1.8.0_291</code>为例，查询<code>Collectors.toMap</code>调用链，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T, K, U&gt;</span><br><span class="line">    Collector&lt;T, ?, Map&lt;K,U&gt;&gt; toMap(Function&lt;? <span class="built_in">super</span> T, ? <span class="keyword">extends</span> <span class="title class_">K</span>&gt; keyMapper,</span><br><span class="line">                                    Function&lt;? <span class="built_in">super</span> T, ? <span class="keyword">extends</span> <span class="title class_">U</span>&gt; valueMapper) &#123;</span><br><span class="line">        <span class="keyword">return</span> toMap(keyMapper, valueMapper, throwingMerger(), HashMap::<span class="keyword">new</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T, K, U&gt;<br>    Collector&lt;T, ?, Map&lt;K,U&gt;&gt; toMap(Function&lt;? <span class="hljs-built_in">super</span> T, ? <span class="hljs-keyword">extends</span> <span class="hljs-title class_">K</span>&gt; keyMapper,<br>                                    Function&lt;? <span class="hljs-built_in">super</span> T, ? <span class="hljs-keyword">extends</span> <span class="hljs-title class_">U</span>&gt; valueMapper) &#123;<br>        <span class="hljs-keyword">return</span> toMap(keyMapper, valueMapper, throwingMerger(), HashMap::<span class="hljs-keyword">new</span>);<br>    &#125;<br></code></pre></td></tr></table></figure>
 <p>这里找到<code>throwingMerger()</code>实现</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> &lt;T&gt; BinaryOperator&lt;T&gt; <span class="title function_">throwingMerger</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (u,v) -&gt; &#123; <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalStateException</span>(String.format(<span class="string">&quot;Duplicate key %s&quot;</span>, u)); &#125;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> &lt;T&gt; BinaryOperator&lt;T&gt; <span class="hljs-title function_">throwingMerger</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> (u,v) -&gt; &#123; <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalStateException</span>(String.format(<span class="hljs-string">&quot;Duplicate key %s&quot;</span>, u)); &#125;;<br>    &#125;<br></code></pre></td></tr></table></figure>
 
 <p>可以看出默认的合并方法是不允许重复key出现的。</p>
 <p>往下继续看，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T, K, U, M <span class="keyword">extends</span> <span class="title class_">Map</span>&lt;K, U&gt;&gt;</span><br><span class="line">    Collector&lt;T, ?, M&gt; toMap(Function&lt;? <span class="built_in">super</span> T, ? <span class="keyword">extends</span> <span class="title class_">K</span>&gt; keyMapper,</span><br><span class="line">                                Function&lt;? <span class="built_in">super</span> T, ? <span class="keyword">extends</span> <span class="title class_">U</span>&gt; valueMapper,</span><br><span class="line">                                BinaryOperator&lt;U&gt; mergeFunction,</span><br><span class="line">                                Supplier&lt;M&gt; mapSupplier) &#123;</span><br><span class="line">        BiConsumer&lt;M, T&gt; accumulator</span><br><span class="line">                = (map, element) -&gt; map.merge(keyMapper.apply(element),</span><br><span class="line">                                              valueMapper.apply(element), mergeFunction);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">CollectorImpl</span>&lt;&gt;(mapSupplier, accumulator, mapMerger(mergeFunction), CH_ID);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T, K, U, M <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Map</span>&lt;K, U&gt;&gt;<br>    Collector&lt;T, ?, M&gt; toMap(Function&lt;? <span class="hljs-built_in">super</span> T, ? <span class="hljs-keyword">extends</span> <span class="hljs-title class_">K</span>&gt; keyMapper,<br>                                Function&lt;? <span class="hljs-built_in">super</span> T, ? <span class="hljs-keyword">extends</span> <span class="hljs-title class_">U</span>&gt; valueMapper,<br>                                BinaryOperator&lt;U&gt; mergeFunction,<br>                                Supplier&lt;M&gt; mapSupplier) &#123;<br>        BiConsumer&lt;M, T&gt; accumulator<br>                = (map, element) -&gt; map.merge(keyMapper.apply(element),<br>                                              valueMapper.apply(element), mergeFunction);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CollectorImpl</span>&lt;&gt;(mapSupplier, accumulator, mapMerger(mergeFunction), CH_ID);<br>    &#125;<br></code></pre></td></tr></table></figure>
 
 <p>找到<code>map.merge</code>的方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">default</span> V <span class="title function_">merge</span><span class="params">(K key, V value,</span></span><br><span class="line"><span class="params">            BiFunction&lt;? <span class="built_in">super</span> V, ? <span class="built_in">super</span> V, ? extends V&gt; remappingFunction)</span> &#123;</span><br><span class="line">        Objects.requireNonNull(remappingFunction);</span><br><span class="line">        Objects.requireNonNull(value);</span><br><span class="line">        <span class="type">V</span> <span class="variable">oldValue</span> <span class="operator">=</span> get(key);</span><br><span class="line">        <span class="type">V</span> <span class="variable">newValue</span> <span class="operator">=</span> (oldValue == <span class="literal">null</span>) ? value :</span><br><span class="line">                   remappingFunction.apply(oldValue, value);</span><br><span class="line">        <span class="keyword">if</span>(newValue == <span class="literal">null</span>) &#123;</span><br><span class="line">            remove(key);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            put(key, newValue);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> newValue;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">default</span> V <span class="hljs-title function_">merge</span><span class="hljs-params">(K key, V value,</span><br><span class="hljs-params">            BiFunction&lt;? <span class="hljs-built_in">super</span> V, ? <span class="hljs-built_in">super</span> V, ? extends V&gt; remappingFunction)</span> &#123;<br>        Objects.requireNonNull(remappingFunction);<br>        Objects.requireNonNull(value);<br>        <span class="hljs-type">V</span> <span class="hljs-variable">oldValue</span> <span class="hljs-operator">=</span> get(key);<br>        <span class="hljs-type">V</span> <span class="hljs-variable">newValue</span> <span class="hljs-operator">=</span> (oldValue == <span class="hljs-literal">null</span>) ? value :<br>                   remappingFunction.apply(oldValue, value);<br>        <span class="hljs-keyword">if</span>(newValue == <span class="hljs-literal">null</span>) &#123;<br>            remove(key);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            put(key, newValue);<br>        &#125;<br>        <span class="hljs-keyword">return</span> newValue;<br>    &#125;<br></code></pre></td></tr></table></figure>
 
 <p>从这里就可以看出来默认的<code>toMap</code>思想是不支持重复键，也不支持空值。</p>
 <p>向下找到<code>HashMap</code>的实现类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> V <span class="title function_">merge</span><span class="params">(K key, V value,</span></span><br><span class="line"><span class="params">                   BiFunction&lt;? <span class="built_in">super</span> V, ? <span class="built_in">super</span> V, ? extends V&gt; remappingFunction)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (value == <span class="literal">null</span>)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NullPointerException</span>();</span><br><span class="line">        <span class="keyword">if</span> (remappingFunction == <span class="literal">null</span>)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NullPointerException</span>();</span><br><span class="line">            ......</span><br><span class="line">        <span class="keyword">if</span> (old != <span class="literal">null</span>) &#123;</span><br><span class="line">            V v;</span><br><span class="line">            <span class="keyword">if</span> (old.value != <span class="literal">null</span>)</span><br><span class="line">                v = remappingFunction.apply(old.value, value);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                v = value;</span><br><span class="line">            <span class="keyword">if</span> (v != <span class="literal">null</span>) &#123;</span><br><span class="line">                old.value = v;</span><br><span class="line">                afterNodeAccess(old);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                removeNode(hash, key, <span class="literal">null</span>, <span class="literal">false</span>, <span class="literal">true</span>);</span><br><span class="line">            <span class="keyword">return</span> v;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> V <span class="hljs-title function_">merge</span><span class="hljs-params">(K key, V value,</span><br><span class="hljs-params">                   BiFunction&lt;? <span class="hljs-built_in">super</span> V, ? <span class="hljs-built_in">super</span> V, ? extends V&gt; remappingFunction)</span> &#123;<br>        <span class="hljs-keyword">if</span> (value == <span class="hljs-literal">null</span>)<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">NullPointerException</span>();<br>        <span class="hljs-keyword">if</span> (remappingFunction == <span class="hljs-literal">null</span>)<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">NullPointerException</span>();<br>            ......<br>        <span class="hljs-keyword">if</span> (old != <span class="hljs-literal">null</span>) &#123;<br>            V v;<br>            <span class="hljs-keyword">if</span> (old.value != <span class="hljs-literal">null</span>)<br>                v = remappingFunction.apply(old.value, value);<br>            <span class="hljs-keyword">else</span><br>                v = value;<br>            <span class="hljs-keyword">if</span> (v != <span class="hljs-literal">null</span>) &#123;<br>                old.value = v;<br>                afterNodeAccess(old);<br>            &#125;<br>            <span class="hljs-keyword">else</span><br>                removeNode(hash, key, <span class="hljs-literal">null</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>);<br>            <span class="hljs-keyword">return</span> v;<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
 
 <p>可以看出，和默认方法基本一致，也就导致了报错。</p>
 
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">IDEA Spring Boot 项目相关问题</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Tamako</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2019-09-23 23:17:58</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/7761f6cf/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Spring-Boot/">#Spring Boot</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/a912528b/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">Git使用记录</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/ebbfa50c/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">二分法</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IDEA%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">IDEA设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E4%B8%8D%E8%A7%84%E5%88%99"><span class="nav-number">1.1.</span> <span class="nav-text">字体不规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C"><span class="nav-number">1.2.</span> <span class="nav-text">自动换行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">编译问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#duplicate-declaration-of-version"><span class="nav-number">2.1.</span> <span class="nav-text">duplicate declaration of version</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8C%85%E6%8A%A5%E9%94%99"><span class="nav-number">2.2.</span> <span class="nav-text">引用自定义包报错</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">依赖问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">启动问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%97%B6%E6%89%BE%E4%B8%8D%E5%88%B0%E4%B8%BB%E7%B1%BB"><span class="nav-number">4.1.</span> <span class="nav-text">启动时找不到主类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AD%A6%E5%91%8A%E9%9D%9E%E6%B3%95%E7%9A%84%E5%8F%8D%E5%B0%84%E8%AE%BF%E9%97%AE%E6%93%8D%E4%BD%9C"><span class="nav-number">4.2.</span> <span class="nav-text">警告非法的反射访问操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MalformedInputException"><span class="nav-number">4.3.</span> <span class="nav-text">MalformedInputException</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">运行问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL%E6%8F%92%E5%85%A5emoji%E6%8A%A5%E9%94%99"><span class="nav-number">5.1.</span> <span class="nav-text">MySQL插入emoji报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collectors-toMap-%E6%8A%A5%E9%94%99"><span class="nav-number">5.2.</span> <span class="nav-text">Collectors.toMap 报错</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%99%E8%AF%AF"><span class="nav-number">5.2.1.</span> <span class="nav-text">错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">5.2.2.</span> <span class="nav-text">原因</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Tamako</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
     </div>
 
     
-    
-    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
 
-    <footer class="post-footer">
-          <div class="reward-container">
-  <div>请我一杯咖啡吧！</div>
-  <button>
-    赞赏
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="/images/wechatpay.png" alt="紫颂果 微信">
-        <span>微信</span>
-      </div>
-
-  </div>
+        <!-- go comment -->
+        
+    </ul>
 </div>
 
-          
+        </div>
+    
 
-<div class="post-copyright">
-<ul>
-  <li class="post-copyright-author">
-      <strong>本文作者： </strong>紫颂果
-  </li>
-  <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://tamako.top/posts/7761f6cf/" title="IDEA Spring Boot 项目相关问题">https://tamako.top/posts/7761f6cf/</a>
-  </li>
-  <li class="post-copyright-license">
-      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-</div>
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
 
-          <div class="post-tags">
-              <a href="/tags/Spring-Boot/" rel="tag"># Spring Boot</a>
-          </div>
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/posts/ebbfa50c/" rel="prev" title="二分法">
-                  <i class="fa fa-chevron-left"></i> 二分法
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/posts/a912528b/" rel="next" title="Git使用记录">
-                  Git使用记录 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
-</div>
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
 
-
-
-
-
-
-</div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">紫颂果</span>
-</div>
-<div class="wordcount">
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-line"></i>
-    </span>
-    <span title="站点总字数">10k</span>
-  </span>
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-    <span title="站点阅读时长">35 分钟</span>
-  </span>
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
 </div>
 
     </div>
-  </footer>
 
-  
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
 
 
-  
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
+    
+
+</main>
 
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@9.4.3/dist/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
-  <script src="/js/third-party/tags/mermaid.js"></script>
 
-  <script src="/js/third-party/fancybox.js"></script>
-
-  <script src="/js/third-party/pace.js"></script>
-
-  
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/dark-light-toggle.js"></script>
 
 
 
 
-  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.3.0/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://tamako.top/posts/7761f6cf/"}</script>
-  <script src="/js/third-party/quicklink.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
 
 </body>
 </html>
