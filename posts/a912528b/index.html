@@ -245,7 +245,7 @@
 <blockquote>
 <p>不同操作系统所使用的换行符是不一样的，下面罗列一下三大主流操作系统的换行符：<br>Uinx&#x2F;Linux采用换行符LF表示下一行（LF：LineFeed，中文意思是换行）；<br>Dos和Windows采用回车+换行CRLF表示下一行（CRLF：CarriageReturn LineFeed，中文意思是回车换行）；<br>Mac OS采用回车CR表示下一行（CR：CarriageReturn，中文意思是回车）。</p>
 <p>在Git中，可以通过以下命令来显示当前你的Git中采取哪种对待换行符的方式</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git config core.autocrlf</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git config core.autocrlf</span></span><br></pre></td></tr></table></figure>
 
 <p>此命令会有三个输出，“true”，“false”或者“input” 。</p>
 <p>为true时，Git会将你add的所有文件视为文本问价你，将结尾的CRLF转换为LF，而checkout时会再将文件的LF格式转为CRLF格式。</p>
@@ -254,7 +254,7 @@
 <p><strong>解决办法：</strong></p>
 <p>将core.autocrlf设为false即可解决这个问题，不过如果你和你的伙伴只工作于Windows平台或者Linux平台，那么没问题，不过如果是存在跨平台的现象的话，还是需要考虑一下。</p>
 <p>但当 core autocrlf为true时，还有一个需要慎重的地方，当你上传一个二进制文件，Git可能会将二进制文件误以为是文本文件，从而也会修改你的二进制文件，从而产生隐患。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git config --global core.autocrlf <span class="hljs-literal">true</span>   <span class="hljs-comment">#true的位置放你想使autocrlf成为的结果，true，false或者input</span></span><br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git config --global core.autocrlf <span class="literal">true</span>   <span class="comment">#true的位置放你想使autocrlf成为的结果，true，false或者input</span></span></span><br></pre></td></tr></table></figure>
 </blockquote>
 
             </div>
