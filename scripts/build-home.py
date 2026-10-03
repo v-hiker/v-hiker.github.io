@@ -106,7 +106,7 @@ html = f'''<!DOCTYPE html>
 
     <section class="closing section-shell"><p lang="ja">いつもの街、いつもの笑顔。</p><strong>明天，也来商店街吧。</strong><div class="closing-links"><a href="#home">回到故事的开始 ↑</a>{link('https://tamakomarket.com/', '玉子市场官网')}{link('https://tamakolovestory.com/', '玉子爱情故事官网')}</div></section>
   </main>
-  <footer class="site-footer section-shell"><div><a class="footer-brand" href="#home">北白川玉子</a><p>© 京都アニメーション／うさぎ山商店街</p></div><details class="source-details"><summary>作品与素材来源</summary><div><p>角色、绘图与画面属于原作品权利方；图片出处可在画廊大图中查看。</p><ul>{sources}</ul></div></details><a class="back-top" href="#home" aria-label="回到顶部">↑</a></footer>
+  <footer class="site-footer section-shell"><div><a class="footer-brand" href="#home">北白川玉子</a><p>© 京都アニメーション／うさぎ山商店街</p><p class="footer-companion"><a href="liz/">利兹与青鸟</a></p></div><details class="source-details"><summary>作品与素材来源</summary><div><p>角色、绘图与画面属于原作品权利方；图片出处可在画廊大图中查看。</p><ul>{sources}</ul></div></details><a class="back-top" href="#home" aria-label="回到顶部">↑</a></footer>
   <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-title"><button class="lightbox-close" type="button" aria-label="关闭大图">×</button><div class="lightbox-image-wrap"><button class="lightbox-prev" type="button" aria-label="上一张">‹</button><img id="lightbox-image" alt=""><button class="lightbox-next" type="button" aria-label="下一张">›</button></div><div class="lightbox-info"><div><p id="lightbox-credit"></p><h2 id="lightbox-title"></h2><p id="lightbox-caption"></p></div><span id="lightbox-counter"></span></div></dialog>
 </body>
 </html>

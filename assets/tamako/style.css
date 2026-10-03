@@ -241,6 +241,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .closing-links a:hover { color: var(--pink-deep); }
 .site-footer { display: flex; justify-content: space-between; align-items: center; gap: 25px; padding-block: 23px; border-top: 1px solid var(--line); color: #a18b79; font-size: 9px; line-height: 1.8; letter-spacing: .025em; }
 .footer-brand { font-family: var(--hand); font-size: 18px; color: #8a6e59; letter-spacing: .07em; }
+.footer-companion { margin-top: 8px; font-size: 10px; }
+.footer-companion a { padding-block: 3px; border-bottom: 1px solid transparent; }
+.footer-companion a:hover { border-color: currentColor; color: #66858f; }
 .source-details { position: relative; margin-left: auto; }
 .source-details summary { cursor: pointer; color: #92745d; font-size: 10px; line-height: 1.8; }
 .source-details > div { position: absolute; z-index: 15; bottom: 35px; right: 0; width: 360px; max-width: calc(100vw - 40px); max-height: 65vh; overflow-y: auto; padding: 21px 24px; border: 1px solid #dfccb8; border-radius: 7px; background: var(--paper-light); box-shadow: 0 8px 35px #5f402219; color: var(--muted); font-size: 10px; line-height: 1.85; }
