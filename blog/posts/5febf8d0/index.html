@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="为美好的世界献上祝福">
+    <meta name="author" content="Tamako">
+    
+    <title>
+        
+            Oracle和MySQL常用区别 |
+        
+        兔子山商店街
+    </title>
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <link rel="shortcut icon" href="/blog/imgs/favicon.ico">
+    <link rel="stylesheet" href="/blog/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/blog/font/css/regular.min.css">
+    <link rel="stylesheet" href="/blog/font/css/solid.min.css">
+    <link rel="stylesheet" href="/blog/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"tamako.top","root":"/blog/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/imgs/android-chrome-512x512.png","favicon":"/imgs/favicon.ico","avatar":"/imgs/tamako.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":false,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"v-hiker","github_admins":null,"repository":"blog_comments","client_id":"aef854a5b7ee3b49c333","client_secret":"534d65534bd80e67ec090d585a5bbd8135c5a19a","proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":false,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/blog/">
+                    <img src="/blog/imgs/android-chrome-512x512.png">
+                </a>
+            
+            <a class="logo-title" href="/blog/">
+               兔子山商店街
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Oracle和MySQL常用区别</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/blog/imgs/tamako.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Tamako</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2021-03-11 00:45:55</span>
+        <span class="mobile">2021-03-11 00:45</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-04-23 01:42:24</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/blog/tags/Oracle/">Oracle</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/blog/tags/MySQL/">MySQL</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/blog/tags/Spring-Boot/">Spring Boot</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.6k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>7 分钟</span>
+        </span>
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h3 id="XML条件查询优化"><a href="#XML条件查询优化" class="headerlink" title="XML条件查询优化"></a>XML条件查询优化</h3><h4 id="避免使用where-1-1"><a href="#避免使用where-1-1" class="headerlink" title="避免使用where 1=1"></a>避免使用<code>where 1=1</code></h4><span id="more"></span>
+
+<p>当遇到多个查询条件，使用<code>where 1=1</code>可以很方便的解决我们的问题，但是这样很可能会造成非常大的性能损失，</p>
+<p>因为添加了<code>where 1=1</code>的过滤条件之后，数据库系统就无法使用索引等查询优化策略，数据库系统将会被迫对每行数据进行扫描（即全表扫描）以比较此行是否满足过滤条件，当表中的数据量较大时查询速度会非常慢；</p>
+<p>此外，还会存在SQL 注入的风险。</p>
+<h5 id="反例如下："><a href="#反例如下：" class="headerlink" title="反例如下："></a>反例如下：</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&lt;</span><span class="keyword">select</span> id<span class="operator">=</span>&quot;queryBookInfo&quot; parameterType<span class="operator">=</span>&quot;com.tjt.platform.entity.BookInfo&quot; resultType<span class="operator">=</span>&quot;java.lang.Integer&quot;<span class="operator">&gt;</span></span><br><span class="line"> <span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> t_rule_BookInfo t <span class="keyword">where</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span></span><br><span class="line"> <span class="operator">&lt;</span>if test<span class="operator">=</span>&quot;title !=null and title !=&#x27;&#x27; &quot;<span class="operator">&gt;</span></span><br><span class="line">  <span class="keyword">AND</span> title <span class="operator">=</span> #&#123;title&#125; </span><br><span class="line"> <span class="operator">&lt;</span><span class="operator">/</span>if<span class="operator">&gt;</span> </span><br><span class="line"> <span class="operator">&lt;</span>if test<span class="operator">=</span>&quot;author !=null and author !=&#x27;&#x27; &quot;<span class="operator">&gt;</span></span><br><span class="line">  <span class="keyword">AND</span> author <span class="operator">=</span> #&#123;author&#125;</span><br><span class="line"> <span class="operator">&lt;</span><span class="operator">/</span>if<span class="operator">&gt;</span> </span><br><span class="line"><span class="operator">&lt;</span><span class="operator">/</span><span class="keyword">select</span><span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="正例："><a href="#正例：" class="headerlink" title="正例："></a>正例：</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&lt;</span><span class="keyword">select</span> id<span class="operator">=</span>&quot;queryBookInfo&quot; parameterType<span class="operator">=</span>&quot;com.tjt.platform.entity.BookInfo&quot; resultType<span class="operator">=</span>&quot;java.lang.Integer&quot;<span class="operator">&gt;</span></span><br><span class="line"> <span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> t_rule_BookInfo t</span><br><span class="line"> <span class="operator">&lt;</span><span class="keyword">where</span><span class="operator">&gt;</span></span><br><span class="line"> <span class="operator">&lt;</span>if test<span class="operator">=</span>&quot;title !=null and title !=&#x27;&#x27; &quot;<span class="operator">&gt;</span></span><br><span class="line">  title <span class="operator">=</span> #&#123;title&#125; </span><br><span class="line"> <span class="operator">&lt;</span><span class="operator">/</span>if<span class="operator">&gt;</span></span><br><span class="line"> <span class="operator">&lt;</span>if test<span class="operator">=</span>&quot;author !=null and author !=&#x27;&#x27; &quot;<span class="operator">&gt;</span> </span><br><span class="line">  <span class="keyword">AND</span> author <span class="operator">=</span> #&#123;author&#125;</span><br><span class="line"> <span class="operator">&lt;</span><span class="operator">/</span>if<span class="operator">&gt;</span></span><br><span class="line"> <span class="operator">&lt;</span><span class="operator">/</span><span class="keyword">where</span><span class="operator">&gt;</span> </span><br><span class="line"><span class="operator">&lt;</span><span class="operator">/</span><span class="keyword">select</span><span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="获取行号"><a href="#获取行号" class="headerlink" title="获取行号"></a>获取行号</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A.<span class="operator">*</span>,rownum <span class="keyword">from</span> A;</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.<span class="operator">*</span> ,<span class="variable">@rownum</span>:<span class="operator">=</span><span class="variable">@rownum</span><span class="operator">+</span><span class="number">1</span> <span class="keyword">from</span> a,(<span class="keyword">select</span> <span class="variable">@rownum</span>:<span class="operator">=</span><span class="number">0</span>) r</span><br></pre></td></tr></table></figure>
+
+<p>mysql中没有获取行号的函数，因此需要通过一些自定义语句来进行获取。通常做法是，通过定义用户变量@rownum来保存表中的数据。通过赋值语句@rownum：&#x3D;@rownum+1来累加达到递增行号。<br>例如：</p>
+<p><code>select a.* ,@rownum:=@rownum+1 from a,(select @rownum:=0) r;</code></p>
+<p>后半部分语句的<code>select @rownum:=0</code>相当于创建了<code>r</code>的新表，其表的列为<code>@rownum</code>，数值为0.</p>
+<p>通过利用变量将<code>@rownum</code>的行进行重新赋值，并显示。可以应用于获取行号或名次排列。</p>
+<p>另外，在名次排列时，由于会有重复的数据，排列时仅仅按照,<code>@rownum:=@rownum+1</code>。排序是不对的，需要在数据相同时，名次应该相同。因此需要另一变量保存上次的数据，并进行与本行数据对比，相同 序号不变，不同序号应该等于行号。此时需要应用到<code>case when</code>进行判断，例如：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span> a.<span class="operator">*</span>,</span><br><span class="line"><span class="keyword">Case</span></span><br><span class="line"><span class="keyword">When</span> <span class="variable">@rownum0</span><span class="operator">=</span>a.c_id  <span class="keyword">then</span>  <span class="variable">@rownum</span>:<span class="operator">=</span><span class="variable">@rownum</span><span class="operator">+</span><span class="number">1</span></span><br><span class="line"><span class="keyword">When</span> <span class="variable">@rownum0</span>:<span class="operator">=</span>a.c_id  <span class="keyword">then</span>  <span class="variable">@rownum</span>:<span class="operator">=</span><span class="number">1</span></span><br><span class="line"><span class="keyword">Else</span>  <span class="variable">@rownum</span></span><br><span class="line"><span class="keyword">End</span> rank1,</span><br><span class="line"><span class="keyword">Case</span></span><br><span class="line"><span class="keyword">When</span> <span class="variable">@rownum1</span><span class="operator">=</span>a.s_score <span class="keyword">then</span> <span class="variable">@rownum2</span></span><br><span class="line"><span class="keyword">When</span> <span class="variable">@rownum1</span>:<span class="operator">=</span>a.s_score <span class="keyword">then</span> <span class="variable">@rownum2</span>:<span class="operator">=</span><span class="variable">@rownum</span></span><br><span class="line"><span class="keyword">Else</span> <span class="variable">@rownum2</span></span><br><span class="line"><span class="keyword">End</span> rank2</span><br><span class="line"> <span class="keyword">from</span> (<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> score  <span class="keyword">order</span> <span class="keyword">by</span> c_id ,s_score <span class="keyword">desc</span></span><br><span class="line">) <span class="keyword">as</span> a,(<span class="keyword">select</span> <span class="variable">@rownum</span>:<span class="operator">=</span><span class="number">0</span>, <span class="variable">@rownum0</span>:<span class="operator">=</span><span class="number">0</span>,<span class="variable">@rownum1</span>:<span class="operator">=</span><span class="number">0</span>,<span class="variable">@rownum2</span>:<span class="operator">=</span><span class="number">0</span>) r;</span><br></pre></td></tr></table></figure>
+
+<h3 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A.<span class="operator">*</span>,B.<span class="operator">*</span> <span class="keyword">from</span> A,B <span class="keyword">where</span> a.id <span class="operator">=</span> b.id(<span class="operator">+</span>);</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A.<span class="operator">*</span>,B.<span class="operator">*</span> <span class="keyword">from</span> A <span class="keyword">left</span> <span class="keyword">join</span> B <span class="keyword">on</span> a.id <span class="operator">=</span> b.id;</span><br></pre></td></tr></table></figure>
+
+<h3 id="空值排序"><a href="#空值排序" class="headerlink" title="空值排序"></a>空值排序</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> COUNTRY <span class="keyword">order</span> <span class="keyword">by</span> PHONEORDER <span class="keyword">asc</span> nulls <span class="keyword">last</span></span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> COUNTRY <span class="keyword">order</span> <span class="keyword">by</span> PHONEORDER <span class="keyword">is</span> <span class="keyword">null</span>,PHONEORDER</span><br></pre></td></tr></table></figure>
+
+<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><p>从小到大升序排列时，null会出现在最前方，现在要将其放在后面</p>
+<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>方式一 ：</p>
+<p><code>SELECT * FROM test ORDER BY num IS NULL , num;</code></p>
+<p>方式二：</p>
+<p><code>select * from test order by if(isnull(num),1,0), num desc;</code></p>
+<p>1.将null强制放在最前：</p>
+<p><code>if(isnull(字段名),0,1) asc   //asc可以省略</code></p>
+<p>2.将null强制放在最后</p>
+<p><code>if(isnull(字段名),0,1) desc</code></p>
+<p><code>if(isnull(字段名),1,0)  asc   //asc可以省略</code></p>
+<p>查询空值的运行速度基本上为<code>IFNULL()&gt;is NULL&gt;ISNULL()</code>。</p>
+<h3 id="时间转字符串"><a href="#时间转字符串" class="headerlink" title="时间转字符串"></a>时间转字符串</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">to_char</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date_format(<span class="type">date</span>,<span class="string">&#x27;%Y-%m-%d&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.w3school.com.cn/sql/func_date_format.asp" >https://www.w3school.com.cn/sql/func_date_format.asp<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="比较时间"><a href="#比较时间" class="headerlink" title="比较时间"></a>比较时间</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> A <span class="keyword">where</span></span><br><span class="line">to_date(to_char(EVENT_DATE,<span class="string">&#x27;yyyy-mm-dd&#x27;</span>),<span class="string">&#x27;yyyy-mm-dd&#x27;</span>) <span class="operator">&gt;</span> <span class="operator">=</span>to_date(to_char(#&#123;fndPortalSystemLogDto.startDate&#125;,<span class="string">&#x27;yyyy-mm-dd&#x27;</span>),<span class="string">&#x27;yyyy-mm-dd&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> A <span class="keyword">where</span> STR_TO_DATE(<span class="string">&#x27;2017-01-06 10:20:30&#x27;</span>,<span class="string">&#x27;%Y-%m-%d %H:%i:%s&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="拼音排序"><a href="#拼音排序" class="headerlink" title="拼音排序"></a>拼音排序</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> A <span class="keyword">order</span> <span class="keyword">by</span> nlssort(NAME_ZH,<span class="string">&#x27;NLS_SORT=SCHINESE_PINYIN_M&#x27;</span>) <span class="keyword">ASC</span></span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> A <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">convert</span>(name <span class="keyword">using</span> gbk) <span class="keyword">asc</span></span><br></pre></td></tr></table></figure>
+
+<p>按照汉字的拼音排序，用的比较多是在人名的排序中，按照姓氏的拼音字母，从A到Z排序；<br>如果存储姓名的字段采用的是GBK字符集，那就好办了，因为GBK内码编码时本身就采用了拼音排序的方法（常用一级汉字3755个采用拼音排序，二级汉字就不是了，但考虑到人名等都是常用汉字，因此只是针对一级汉字能正确排序也够用了）。</p>
+<p>直接在查询语句后面 添加 order by name asc; 查询结果按照姓氏的升序排序；</p>
+<p>如果存储姓名的字段采用的是 utf8字符集，需要在排序的时候对字段进行转码；<code>order by convert(name using gbk) asc</code>; 同样，查询的结果也是按照姓氏的升序排序；</p>
+<h3 id="取当前时间"><a href="#取当前时间" class="headerlink" title="取当前时间"></a>取当前时间</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> T <span class="keyword">WHERE</span> CREATE_TIME <span class="operator">=</span> sysdate</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> T <span class="keyword">WHERE</span> CREATE_TIME <span class="operator">=</span> now()</span><br></pre></td></tr></table></figure>
+
+<p>mysql中日期函数还是比较常用的。主要有NOW()和SYSDATE()两种，虽然都表示当前时间，但使用上有一点点区别。<br>NOW()取的是语句开始执行的时间，SYSDATE()取的是动态的实时时间。</p>
+<p>因为NOW()取自mysql的一个变量”TIMESTAMP”，而这个变量在语句开始执行的时候就设定好了，因此在整个语句执行过程中都不会变化。</p>
+<p>NOW()还有3个同义词，效果跟NOW()一样，而且都有2种形式写法：</p>
+<p><code>LOCALTIME或LOCALTIME()</code></p>
+<p><code>LOCALTIMESTAMP或LOCALTIMESTAMP()</code></p>
+<p><code>CURRENT_TIMESTAMP或CURRENT_TIMESTAMP()</code></p>
+<h3 id="列转行函数listagg"><a href="#列转行函数listagg" class="headerlink" title="列转行函数listagg()"></a>列转行函数listagg()</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">listagg</span>(score, <span class="string">&#x27;,&#x27;</span>) <span class="keyword">within</span> <span class="keyword">group</span>(<span class="keyword">ORDER</span> <span class="keyword">BY</span> )</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> `name`,group_concat(score separator <span class="string">&#x27;,&#x27;</span>) <span class="keyword">from</span> test <span class="keyword">group</span> <span class="keyword">by</span> `name`</span><br></pre></td></tr></table></figure>
+
+<h3 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T1.EMAIL <span class="keyword">LIKE</span> <span class="string">&#x27;%&#x27;</span> <span class="operator">||</span> #&#123;basePortalUser.email&#125; <span class="operator">||</span> <span class="string">&#x27;%&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">like</span> concat(<span class="string">&#x27;%&#x27;</span>,#&#123;param&#125;,<span class="string">&#x27;%&#x27;</span>) </span><br></pre></td></tr></table></figure>
+
+<p>推荐使用前者，可以避免sql注入。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">like</span> <span class="string">&#x27;%$&#123;param&#125;%&#x27;</span> </span><br></pre></td></tr></table></figure>
+
+<p>oracle中的“||”是连接字符串的作用，mysql中需要用concat(a,b,c)方法</p>
+<h3 id="查看表注释"><a href="#查看表注释" class="headerlink" title="查看表注释"></a>查看表注释</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">TABLE_NAME,</span><br><span class="line">COMMENTS DESCRIPTION</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">all_tab_comments</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">table_name <span class="operator">=</span> #&#123;tableName,jdbcType<span class="operator">=</span><span class="type">VARCHAR</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	TABLE_NAME,</span><br><span class="line">	TABLE_COMMENT  </span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	INFORMATION_SCHEMA.TABLES </span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	table_name <span class="operator">=</span> <span class="string">&#x27;base_portal_file&#x27;</span> </span><br><span class="line">	<span class="keyword">AND</span> table_schema <span class="operator">=</span> <span class="string">&#x27;base&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查看表中列结构"><a href="#查看表中列结构" class="headerlink" title="查看表中列结构"></a>查看表中列结构</h3><p>oracle：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">  T1.COLUMN_NAME FIELD_NAME,</span><br><span class="line">  T1.DATA_TYPE TYPE,</span><br><span class="line">  T2.COMMENTS DESCRIPTION,</span><br><span class="line">  T1.COLUMN_ID</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">  USER_TAB_COLS T1</span><br><span class="line">  <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> USER_COL_COMMENTS T2 <span class="keyword">ON</span> T1.TABLE_NAME <span class="operator">=</span> T2.TABLE_NAME <span class="keyword">AND</span> T1.COLUMN_NAME <span class="operator">=</span> T2.COLUMN_NAME</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">  T1.TABLE_NAME <span class="operator">=</span> #&#123;tableName,jdbcType<span class="operator">=</span><span class="type">VARCHAR</span>&#125;</span><br><span class="line">  <span class="keyword">AND</span> T1.VIRTUAL_COLUMN <span class="operator">=</span> <span class="string">&#x27;NO&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	column_name COLUMN_NAME,</span><br><span class="line">	DATA_TYPE,</span><br><span class="line"><span class="keyword">CASE</span></span><br><span class="line">	DATA_TYPE </span><br><span class="line">	<span class="keyword">WHEN</span> <span class="string">&#x27;decimal&#x27;</span> <span class="keyword">THEN</span></span><br><span class="line">	NUMERIC_PRECISION </span><br><span class="line">	<span class="keyword">WHEN</span> <span class="string">&#x27;datetime&#x27;</span> <span class="keyword">THEN</span></span><br><span class="line">	DATETIME_PRECISION <span class="keyword">ELSE</span> character_maximum_length </span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">AS</span> DATA_LENGTH,</span><br><span class="line">	IS_NULLABLE NULLABLE,</span><br><span class="line">	column_comment DESCRIPTION,</span><br><span class="line">	ORDINAL_POSITION COLUMN_ORDER </span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	information_schema.COLUMNS </span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	table_name <span class="operator">=</span> <span class="string">&#x27;AE_JOURNAL_TYPE&#x27;</span> </span><br><span class="line">  <span class="keyword">and</span> generation_expression <span class="keyword">is</span> <span class="keyword">empty</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br><span class="line">	ORDINAL_POSITION <span class="keyword">ASC</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="判断为空并格式化"><a href="#判断为空并格式化" class="headerlink" title="判断为空并格式化"></a>判断为空并格式化</h3><p>oracle:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> nvl(amount,<span class="number">0</span>) <span class="keyword">from</span> scm_example</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> IFNULL(amount,<span class="number">0</span>) <span class="keyword">from</span> scm_example</span><br></pre></td></tr></table></figure>
+
+<h3 id="实现差集MINUS"><a href="#实现差集MINUS" class="headerlink" title="实现差集MINUS"></a>实现差集MINUS</h3><p>oracle:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> member_id, name <span class="keyword">FROM</span> a</span><br><span class="line">MINUS</span><br><span class="line"><span class="keyword">SELECT</span> member_id, name <span class="keyword">FROM</span> b</span><br></pre></td></tr></table></figure>
+
+<p>mysql:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> member_id, name</span><br><span class="line"><span class="keyword">FROM</span> a</span><br><span class="line"><span class="keyword">WHERE</span> (member_id, name) <span class="keyword">NOT</span> <span class="keyword">IN</span></span><br><span class="line">(<span class="keyword">SELECT</span> member_id, name <span class="keyword">FROM</span> table2);</span><br></pre></td></tr></table></figure>
+
+<p>or</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> a.member_id, a.name</span><br><span class="line"><span class="keyword">FROM</span> a <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> b <span class="keyword">USING</span> (member_id, name)</span><br><span class="line"><span class="keyword">WHERE</span> b.member_id <span class="keyword">IS</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span><span class="keyword">using</span>() 中 （） 必需</span><br></pre></td></tr></table></figure>
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">Oracle和MySQL常用区别</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Tamako</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2021-03-11 00:45:55</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/5febf8d0/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/blog/tags/Oracle/">#Oracle</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/blog/tags/MySQL/">#MySQL</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/blog/tags/Spring-Boot/">#Spring Boot</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/blog/posts/945da7b/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Spring data jpa demo</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#XML%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">XML条件查询优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8where-1-1"><span class="nav-number">1.1.</span> <span class="nav-text">避免使用where 1&#x3D;1</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%8D%E4%BE%8B%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="nav-number">1.1.1.</span> <span class="nav-text">反例如下：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AD%A3%E4%BE%8B%EF%BC%9A"><span class="nav-number">1.1.2.</span> <span class="nav-text">正例：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%A1%8C%E5%8F%B7"><span class="nav-number">2.</span> <span class="nav-text">获取行号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">3.</span> <span class="nav-text">外连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E5%80%BC%E6%8E%92%E5%BA%8F"><span class="nav-number">4.</span> <span class="nav-text">空值排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">4.1.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">解决办法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">5.</span> <span class="nav-text">时间转字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E6%97%B6%E9%97%B4"><span class="nav-number">6.</span> <span class="nav-text">比较时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%BC%E9%9F%B3%E6%8E%92%E5%BA%8F"><span class="nav-number">7.</span> <span class="nav-text">拼音排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4"><span class="nav-number">8.</span> <span class="nav-text">取当前时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E8%BD%AC%E8%A1%8C%E5%87%BD%E6%95%B0listagg"><span class="nav-number">9.</span> <span class="nav-text">列转行函数listagg()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2"><span class="nav-number">10.</span> <span class="nav-text">模糊查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E6%B3%A8%E9%87%8A"><span class="nav-number">11.</span> <span class="nav-text">查看表注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E4%B8%AD%E5%88%97%E7%BB%93%E6%9E%84"><span class="nav-number">12.</span> <span class="nav-text">查看表中列结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E4%B8%BA%E7%A9%BA%E5%B9%B6%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-number">13.</span> <span class="nav-text">判断为空并格式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%B7%AE%E9%9B%86MINUS"><span class="nav-number">14.</span> <span class="nav-text">实现差集MINUS</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/blog/">Tamako</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/blog/js/utils.js"></script><script src="/blog/js/main.js"></script><script src="/blog/js/header-shrink.js"></script><script src="/blog/js/back2top.js"></script><script src="/blog/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="/blog/js/local-search.js"></script>
+
+
+
+    <script src="/blog/js/code-block.js"></script>
+
+
+
+    <script src="/blog/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="/blog/js/post-helper.js"></script>
+        
+            <script src="/blog/js/libs/anime.min.js"></script>
+        
+        
+            <script src="/blog/js/toc.js"></script>
+        
+    
+</div>
+
+
+    <script src="/blog/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="为美好的世界献上祝福">
+    <meta name="author" content="Tamako">
+    
+    <title>
+        
+            阿里云CentOS6搭建Jenkins |
+        
+        兔子山商店街
+    </title>
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <link rel="shortcut icon" href="/blog/imgs/favicon.ico">
+    <link rel="stylesheet" href="/blog/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/blog/font/css/regular.min.css">
+    <link rel="stylesheet" href="/blog/font/css/solid.min.css">
+    <link rel="stylesheet" href="/blog/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"tamako.top","root":"/blog/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/imgs/android-chrome-512x512.png","favicon":"/imgs/favicon.ico","avatar":"/imgs/tamako.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":false,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"v-hiker","github_admins":null,"repository":"blog_comments","client_id":"aef854a5b7ee3b49c333","client_secret":"534d65534bd80e67ec090d585a5bbd8135c5a19a","proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":false,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/blog/">
+                    <img src="/blog/imgs/android-chrome-512x512.png">
+                </a>
+            
+            <a class="logo-title" href="/blog/">
+               兔子山商店街
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">阿里云CentOS6搭建Jenkins</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/blog/imgs/tamako.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Tamako</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2020-03-22 20:15:14</span>
+        <span class="mobile">2020-03-22 20:15</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-04-23 03:35:24</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/blog/tags/Jenkins/">Jenkins</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>908 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+        </span>
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h4 id="安装jenkins"><a href="#安装jenkins" class="headerlink" title="安装jenkins"></a>安装<code>jenkins</code></h4><span id="more"></span>
+
+<p>首先下载安装包，因为<a class="link"   target="_blank" rel="noopener" href="https://pkg.jenkins.io/redhat-stable/" >官方源<i class="fas fa-external-link-alt"></i></a>用着实在是太慢了，因此换用清华大学的<a class="link"   target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat/" >开源镜像站<i class="fas fa-external-link-alt"></i></a>，选择一个版本，服务器中输入<code>wget 版本链接</code>，</p>
+<p>输入<code>rpm -ivh 文件</code>进行安装，完成后<code>vim /etc/sysconfig/jenkins </code>修改端口以免冲突;</p>
+<p>输入<code>which java</code>查看<code>jdk</code>地址，修改<code>jenkins</code>配置，<code>vim /etc/init.d/jenkins</code></p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/jenkins-java.png"
+                      alt="jenkins-java"
+                ></p>
+<p>先<code>service jenkins start</code>，在浏览器打开<code>ip:端口</code>让<code>jenkins</code>加载必要的文件。</p>
+<p><em>为了提高下载速度，需要先设置更新源为其他国内镜像源</em></p>
+<p>输入<code>vi /var/lib/jenkins/updates/default.json </code>后参照<a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/hellxz/p/jenkins_install_plugins_faster.html" >Jenkins安装插件提速<i class="fas fa-external-link-alt"></i></a>进行修改，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:1,<span class="variable">$s</span>/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:1,<span class="variable">$s</span>/http:\/\/www.google.com/https:\/\/www.baidu.com/g</span><br></pre></td></tr></table></figure>
+
+<p>或者进入目录下，在终端直接输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">&#x27;s/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g&#x27;</span> default.json &amp;&amp; sed -i <span class="string">&#x27;s/http:\/\/www.google.com/https:\/\/www.baidu.com/g&#x27;</span> default.json</span><br></pre></td></tr></table></figure>
+
+<p>接下来<code>service jenkins restart</code>启动，输入<code>ip:端口</code>，会看见<code>jenkins</code>启动中。</p>
+<p>按照提示查看密码并输入：</p>
+<p><code>cat /var/lib/jenkins/secrets/initialAdminPassword</code></p>
+<p>然后安装推荐的插件，等待安装完成。</p>
+<p>成功进入<code>jenkins</code>界面后，依次点击<code>Manage Jenkins-Manage Plugins-Advanced</code>，拉到最下面，将默认的检查更新源</p>
+<p>更改为<code>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</code>,这可以加快获取列表的速度。</p>
+<h4 id="配置jenkins所需插件"><a href="#配置jenkins所需插件" class="headerlink" title="配置jenkins所需插件"></a>配置<code>jenkins</code>所需插件</h4><p>检查是否已安装以下两个插件：</p>
+<ol>
+<li><p><code>Maven Integration</code> 使我们可以开始一个<code>maven</code>项目作为任务</p>
+</li>
+<li><p><code>Git plugin</code> 使我们可以读取存放在<code>git</code>仓库的项目</p>
+</li>
+</ol>
+<p>如果没有，就去插件管理里面搜索安装。</p>
+<h4 id="配置jenkins全局工具"><a href="#配置jenkins全局工具" class="headerlink" title="配置jenkins全局工具"></a>配置<code>jenkins</code>全局工具</h4><p>系统管理 –&gt; 全局工具配置</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/20200424210313.png"
+                     
+                ></p>
+<p>主要是配置<code>jdk</code>和<code>git</code>的地址，<code>which java</code>和<code>which git</code>查看就行了。</p>
+<h4 id="新建任务"><a href="#新建任务" class="headerlink" title="新建任务"></a>新建任务</h4><h5 id="maven项目"><a href="#maven项目" class="headerlink" title="maven项目"></a><code>maven</code>项目</h5><p><img  
+                     lazyload
+                     alt="image"
+                     data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/20200424210813.png"
+                     
+                ></p>
+<p>点击“新建任务”，输入名称，选择构建<code>maven</code>项目。</p>
+<p>如图，添加源码位置，这里可以添加<code>Credentials</code>，一般使用<code>https</code>的方式添加源码就行了。使用<code>ssh</code>还需要到服务器里生成公钥添加到<code>git</code>。</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/20200424210947.png"
+                     
+                ></p>
+<p>接下来添加<code>build goal</code>，<code>clean package -Dmaven.test.skip=true</code>这个是用来生成拥有<code>Spring</code>启动程序的项目的代码，如果是用来生成<code>api</code>供自己的程序使用，需要用<code>clean install -Dmaven.test.skip=true</code>这个命令。</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="https://cdn.jsdelivr.net/gh/v-hiker/pic_repository/img/image-20200424211711910.png"
+                     
+                ></p>
+<p>最后添加<code>Post Steps</code></p>
+<p>选中<code>Run only if build succeeds</code>,<code>add post-build step</code>选择<code>执行shell</code>，按照如下格式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="built_in">export</span> BUILD_ID=dontKillMe这一句很重要，这样指定了，项目启动之后才不会被Jenkins杀掉。</span></span><br><span class="line">export BUILD_ID=dontKillMe</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">指定最后编译好的jar存放的位置</span></span><br><span class="line">www_path=/usr/jars</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Jenkins中编译好的jar位置,其中md_metadata是自己的项目名称</span></span><br><span class="line">jar_path=/var/lib/jenkins/workspace/md_metadata/target/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Jenkins中编译好的jar名称，注意改成自己的项目名称</span></span><br><span class="line">jar_name=metadata-0.0.1-SNAPSHOT.jar</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">获取运行编译好的进程ID，便于我们在重新部署项目的时候先杀掉以前的进程，注意改成自己的项目名称</span></span><br><span class="line">pid=`ps -ef | grep metadata-0.0.1-SNAPSHOT.jar | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27;`</span><br><span class="line">if [ -n &quot;$pid&quot; ]</span><br><span class="line">then</span><br><span class="line">   kill -9 $pid</span><br><span class="line">fi</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">进入指定的编译好的jar的位置</span></span><br><span class="line">cd  $&#123;jar_path&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将编译好的jar复制到最后指定的位置</span></span><br><span class="line">cp  $&#123;jar_path&#125;/$&#123;jar_name&#125; $&#123;www_path&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">进入最后指定存放jar的位置</span></span><br><span class="line">cd  $&#123;www_path&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">启动jar</span></span><br><span class="line">java -jar $&#123;jar_name&#125; &amp;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>点击保存，ok。</p>
+<h5 id="流水线任务"><a href="#流水线任务" class="headerlink" title="流水线任务"></a>流水线任务</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">node&#123;</span><br><span class="line">    stage(&quot;starter&quot;)&#123;</span><br><span class="line">        echo &quot;run starter&quot;</span><br><span class="line">        build job:&quot;md_starter&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    stage(&quot;eureka&quot;)&#123;</span><br><span class="line">        echo &quot;run eureka&quot;</span><br><span class="line">        build job:&quot;md_eureka&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">阿里云CentOS6搭建Jenkins</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Tamako</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2020-03-22 20:15:14</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/5c39734/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/blog/tags/Jenkins/">#Jenkins</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/blog/posts/945da7b/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">Spring data jpa demo</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/blog/posts/6a9738f6/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">泛型与反射</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85jenkins"><span class="nav-number">1.</span> <span class="nav-text">安装jenkins</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEjenkins%E6%89%80%E9%9C%80%E6%8F%92%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">配置jenkins所需插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEjenkins%E5%85%A8%E5%B1%80%E5%B7%A5%E5%85%B7"><span class="nav-number">3.</span> <span class="nav-text">配置jenkins全局工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E4%BB%BB%E5%8A%A1"><span class="nav-number">4.</span> <span class="nav-text">新建任务</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#maven%E9%A1%B9%E7%9B%AE"><span class="nav-number">4.1.</span> <span class="nav-text">maven项目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF%E4%BB%BB%E5%8A%A1"><span class="nav-number">4.2.</span> <span class="nav-text">流水线任务</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/blog/">Tamako</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/blog/js/utils.js"></script><script src="/blog/js/main.js"></script><script src="/blog/js/header-shrink.js"></script><script src="/blog/js/back2top.js"></script><script src="/blog/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="/blog/js/local-search.js"></script>
+
+
+
+    <script src="/blog/js/code-block.js"></script>
+
+
+
+    <script src="/blog/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="/blog/js/post-helper.js"></script>
+        
+            <script src="/blog/js/libs/anime.min.js"></script>
+        
+        
+            <script src="/blog/js/toc.js"></script>
+        
+    
+</div>
+
+
+    <script src="/blog/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

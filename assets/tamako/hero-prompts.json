@@ -1,0 +1,15 @@
+{
+  "tool": "built-in image_gen",
+  "prompts": [
+    {
+      "key": "final_mockup",
+      "prompt": "Edit the supplied homepage mockup with a STRICTLY minimal change. Remove the exact small label \"非官方同好站\" from BOTH the top-left header and bottom-left footer. Erase it cleanly into the existing cream paper background; do not replace it with any disclaimer or other words. Keep the nearby \"北白川玉子\" character wordmark and pink mochi icon. Preserve ALL other pixels, composition, Tamako likeness, background, large headline, Chinese navigation, lower three panels and colors as closely as possible. No domain, no blog text. Do not insert \"非官方\", \"同好站\", \"同号站\", or similar badge anywhere. This is a character tribute homepage visual, no official-site claims. Keep original wide canvas size."
+    },
+    {
+      "key": "hero_art",
+      "prompt": "Use case: compositing. From the supplied approved website screenshot, reconstruct ONLY its hero ILLUSTRATION as a clean full-bleed standalone anime art asset for an actual website. Remove the entire website UI: no header, footer, cards, Chinese heading, handwritten website phrases, buttons, decorations or website label. Expand the warm sunlit covered neighborhood shopping street across the entire wide 16:9 canvas, keeping the beautiful wooden mochi shop, soft pink noren, flowers and bright glass-roofed arcade. Tamako Kitashirakawa, identical to the reference's character identity and Kyoto Animation-like quality, is prominently on the RIGHT 40 percent of canvas, smiling gently and holding a white small plate with mochi in both hands. Keep navy-black low twin tails, white round hair ties, small ahoge, dark blue eyes and navy school dress over white blouse with red ribbon. Show from waist up with head safely below the upper edge. The LEFT 45 percent has warm pastel shopping-street environment and usable quiet negative space for later HTML typography overlay. Beautiful warm cream, pink and amber daylight. Faithful 2D anime rendering, age-appropriate. Absolutely no printed heading or marketing/website text, no address, no watermark, no browser frame. Natural fictional shop signs in Japanese may remain as environmental background, but no huge text. Requested asset high-resolution landscape roughly 2048x1152."
+    }
+  ],
+  "heroOriginalPath": "C:\\Users\\wangy\\.codex\\generated_images\\01a10189-3aa8-7af0-8c06-7255d80511be\\exec-2d3cdc9c-013b-44ec-8027-7a162253abcc.png",
+  "mockupOriginalPath": "C:\\Users\\wangy\\.codex\\generated_images\\01a10189-3aa8-7af0-8c06-7255d80511be\\exec-3ab99c38-ca68-4f11-ae4b-fe30769cda35.png"
+}
