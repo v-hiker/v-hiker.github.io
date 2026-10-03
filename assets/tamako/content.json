@@ -1,0 +1,548 @@
+{
+  "verifiedDate": "2026-10-03",
+  "profile": {
+    "description": [
+      "北白川玉子是兔子山商店街年糕店“玉屋”的女儿。她开朗、热心，爱吃年糕，也珍惜家人、朋友和街坊。虽有些冒失，揉圆年糕的手艺却十分出色。",
+      "上学、参加棒舞部、帮家里的店铺、为商店街策划活动，构成了她的日常。故事从一次与会说话的鸟相遇开始，逐渐讲到朋友、家人，以及成长中的心意。"
+    ],
+    "facts": [
+      {
+        "label": "生日",
+        "value": "12 月 31 日"
+      },
+      {
+        "label": "血型",
+        "value": "O 型"
+      },
+      {
+        "label": "家里的店",
+        "value": "玉屋（たまや）"
+      },
+      {
+        "label": "社团",
+        "value": "棒舞部（バトン部）"
+      },
+      {
+        "label": "拿手的事",
+        "value": "把年糕揉圆"
+      },
+      {
+        "label": "声优",
+        "value": "洲崎绫"
+      }
+    ],
+    "note": "TV 动画里，玉子从高一走进高二；到了电影中，她已经站在高三的春天。",
+    "sources": [
+      "https://tamakomarket.com/character/1/",
+      "https://tamakomarket.com/story/",
+      "https://tamakolovestory.com/character/"
+    ]
+  },
+  "friends": [
+    {
+      "key": "mochizo",
+      "name": "大路饼藏",
+      "jaName": "大路もち蔵",
+      "relation": "住在对门的青梅竹马",
+      "description": "玉子的同学，也是对门年糕店 RICE CAKE Oh!ZEE 的儿子。他参加电影研究会，与玉子一起在商店街长大。",
+      "cv": "田丸笃志",
+      "source": "https://tamakomarket.com/character/3/"
+    },
+    {
+      "key": "midori",
+      "name": "常盘绿",
+      "jaName": "常盤みどり",
+      "relation": "从小一起长大的好友",
+      "description": "同学兼棒舞部伙伴，祖父母经营商店街的玩具店“常盘堂”。她常照顾玉子，也会带着关心吐槽她。",
+      "cv": "金子有希",
+      "source": "https://tamakomarket.com/character/2/"
+    },
+    {
+      "key": "kanna",
+      "name": "牧野神奈",
+      "jaName": "牧野かんな",
+      "relation": "有自己节奏的棒舞部伙伴",
+      "description": "木工家的女儿，性格从容。她会留意建筑是否垂直，常拿着工具测量；学校与商店街都能见到她的身影。",
+      "cv": "长妻树里",
+      "source": "https://tamakomarket.com/character/2/"
+    },
+    {
+      "key": "shiori",
+      "name": "朝雾史织",
+      "jaName": "朝霧史織",
+      "relation": "慢慢走近的同班朋友",
+      "description": "认真、安静的羽毛球部成员。进入高二后与玉子同班，一次拜访让她们逐渐熟悉起来。",
+      "cv": "山下百合惠",
+      "sources": [
+        "https://tamakomarket.com/character/2/",
+        "https://tamakomarket.com/story/"
+      ]
+    },
+    {
+      "key": "anko",
+      "name": "北白川杏子",
+      "jaName": "北白川あんこ",
+      "relation": "妹妹，也有自己的小心事",
+      "description": "注重打扮的小学生，觉得家里的年糕店有一点土。她与姐姐一样在商店街长大，却有着不同的喜好与烦恼。",
+      "cv": "日高里菜",
+      "source": "https://tamakomarket.com/character/1/"
+    },
+    {
+      "key": "dera",
+      "name": "德拉",
+      "jaName": "デラ・モチマッヅィ",
+      "relation": "住进玉子家的南国来客",
+      "description": "从南方国家来到商店街、会说人话的鸟。与玉子在花店相遇后借住在她家，给熟悉的街坊生活带来许多意外。",
+      "cv": "山崎巧",
+      "sources": [
+        "https://tamakomarket.com/character/5/",
+        "https://tamakomarket.com/map/still/03/"
+      ]
+    }
+  ],
+  "places": [
+    {
+      "name": "玉屋",
+      "jaName": "たまや",
+      "type": "北白川家的年糕店",
+      "description": "玉子的家，也是日常故事的重要起点。父亲豆大专心做年糕，祖父福与两个女儿一起生活在这里。",
+      "source": "https://tamakomarket.com/character/1/"
+    },
+    {
+      "name": "RICE CAKE Oh!ZEE",
+      "jaName": "RICE CAKE Oh!ZEE",
+      "type": "玉屋对面的年糕店",
+      "description": "饼藏家的店，旧名“大路屋”。父亲吾平喜欢开发新年糕商品，常与坚持传统的豆大拌嘴。",
+      "sources": [
+        "https://tamakomarket.com/character/3/",
+        "https://tamakomarket.com/map/still/04/"
+      ]
+    },
+    {
+      "name": "花店 Princess",
+      "jaName": "フローリスト プリンセス",
+      "type": "玉子与德拉相遇的花店",
+      "description": "由花濑薰经营，店内摆着各色花卉。德拉随着花束来到这里，玉子的故事也由这次相遇展开。",
+      "sources": [
+        "https://tamakomarket.com/character/4/",
+        "https://tamakomarket.com/map/still/03/"
+      ]
+    },
+    {
+      "name": "星与小丑",
+      "jaName": "星とピエロ",
+      "type": "可以喝咖啡的唱片店",
+      "description": "店主八百比邦夫会根据客人的心情选唱片。这里把音乐、咖啡与谈话连在一起，是商店街特别的休息角落。",
+      "sources": [
+        "https://tamakomarket.com/character/4/",
+        "https://tamakomarket.com/map/still/06/"
+      ]
+    },
+    {
+      "name": "兔子汤",
+      "jaName": "うさ湯",
+      "type": "公共澡堂与邻里聚会处",
+      "description": "这里有兼任町内会长的汤本长治，也有看板娘さゆり。澡堂的更衣室同时承担着街坊集会的功能。",
+      "sources": [
+        "https://tamakomarket.com/character/4/",
+        "https://tamakomarket.com/map/still/05/"
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "number": 1,
+      "jaTitle": "あの娘はかわいいもち屋の娘",
+      "title": "那女孩是可爱的年糕店之女",
+      "description": "寒假前，玉子在花店遇见会说话的德拉。",
+      "source": "https://tamakomarket.com/story/#01",
+      "file": "official/episode-01.jpg"
+    },
+    {
+      "number": 2,
+      "jaTitle": "恋の花咲くバレンタイン",
+      "title": "情人节，恋之花开",
+      "description": "玉子提议让商店街也热闹地过情人节。",
+      "source": "https://tamakomarket.com/story/#02",
+      "file": "official/episode-02-04.jpg"
+    },
+    {
+      "number": 3,
+      "jaTitle": "クールなあの子にあっちっち",
+      "title": "冷淡的女孩，热乎乎的心",
+      "description": "新学期，同班的史织第一次来到玉子家。",
+      "source": "https://tamakomarket.com/story/#03",
+      "file": "official/episode-03-03.jpg"
+    },
+    {
+      "number": 4,
+      "jaTitle": "小さな恋、咲いちゃった",
+      "title": "小小的恋爱，开花了",
+      "description": "五月祭典将近，杏子另有在意的事情。",
+      "source": "https://tamakomarket.com/story/#04",
+      "file": "official/episode-04-05.jpg"
+    },
+    {
+      "number": 5,
+      "jaTitle": "一夜を共に過ごしたぜ",
+      "title": "一起度过了一夜",
+      "description": "临海学校前，不会游泳的玉子开始练习。",
+      "source": "https://tamakomarket.com/story/#05",
+      "file": "official/episode-05.jpg"
+    },
+    {
+      "number": 6,
+      "jaTitle": "俺の背筋も凍ったぜ",
+      "title": "我的后背也发凉了",
+      "description": "暑假，大家为商店街筹备一座鬼屋。",
+      "source": "https://tamakomarket.com/story/#06",
+      "file": "official/episode-06-04.jpg"
+    },
+    {
+      "number": 7,
+      "jaTitle": "あの子がお嫁に行っちゃった",
+      "title": "那女孩要出嫁了",
+      "description": "一位来自德拉故乡的少女拜访玉子家。",
+      "source": "https://tamakomarket.com/story/#07",
+      "file": "official/episode-07-03.jpg"
+    },
+    {
+      "number": 8,
+      "jaTitle": "ニワトリだとは言わせねぇ",
+      "title": "可别叫我鸡",
+      "description": "神奈做的新鸟窝，引出德拉的减肥计划。",
+      "source": "https://tamakomarket.com/story/#08",
+      "file": "official/episode-08-05.jpg"
+    },
+    {
+      "number": 9,
+      "jaTitle": "歌っちゃうんだ、恋の歌",
+      "title": "唱出来吧，恋爱之歌",
+      "description": "玉子哼唱的旋律，让家人的记忆渐渐浮现。",
+      "source": "https://tamakomarket.com/story/#09",
+      "file": "official/episode-09-04.jpg"
+    },
+    {
+      "number": 10,
+      "jaTitle": "あの子のバトンに花が咲く",
+      "title": "那女孩的舞棒开了花",
+      "description": "文化祭前，棒舞部准备受人瞩目的演出。",
+      "source": "https://tamakomarket.com/story/#10",
+      "file": "official/episode-10-04.jpg"
+    },
+    {
+      "number": 11,
+      "jaTitle": "まさかあの娘がプリンセス",
+      "title": "没想到那女孩是公主",
+      "description": "意外消息传来，玉子却惦记着集点卡。",
+      "source": "https://tamakomarket.com/story/#11",
+      "file": "official/episode-11-02.jpg"
+    },
+    {
+      "number": 12,
+      "jaTitle": "今年もまた暮れてった",
+      "title": "今年也又过去了",
+      "description": "年末的商店街，因新访客的到来热闹起来。",
+      "source": "https://tamakomarket.com/story/#12",
+      "file": "official/episode-12-03.jpg"
+    }
+  ],
+  "episodeNotes": "日文为官方标题，中文为本站参考译题，不声称是发行方的官方译名。概述只保留每集的故事起点，不介绍解答与结局；第 11 集标题本身含原作公开信息。",
+  "works": {
+    "tv": {
+      "name": "玉子市场",
+      "jaName": "たまこまーけっと",
+      "year": 2013,
+      "format": "TV 动画 · 全 12 集",
+      "description": "以商店街与学校为舞台，讲述玉子、家人、朋友和街坊之间的关系。会说话的德拉住进年糕店，季节、节日与社团活动串起了一整年的日常。",
+      "focus": [
+        "商店街的人情",
+        "家庭与友情",
+        "四季与学校生活"
+      ],
+      "url": "https://tamakomarket.com/",
+      "sources": [
+        "https://tamakomarket.com/story/",
+        "https://tamakomarket.com/onair/",
+        "https://tamakolovestory.com/product/bddvd/pkgTVBOX02/"
+      ]
+    },
+    "movie": {
+      "name": "玉子爱情故事",
+      "jaName": "たまこラブストーリー",
+      "year": 2014,
+      "releaseDate": "2014-04-26",
+      "format": "剧场动画 · 83 分钟",
+      "description": "高三的春天，朋友们开始认真考虑升学与未来。仍把年糕店放在心上的玉子，也逐渐感受到周围的变化；故事把目光转向青春中的选择与心意。",
+      "focus": [
+        "高三的春天",
+        "对未来的选择",
+        "青春与初恋"
+      ],
+      "url": "https://tamakolovestory.com/",
+      "sources": [
+        "https://tamakolovestory.com/introduction/",
+        "https://tamakolovestory.com/",
+        "https://tamakolovestory.com/product/bddvd/pkgMovie01/"
+      ]
+    }
+  },
+  "staff": {
+    "director": "山田尚子",
+    "writer": "吉田玲子",
+    "writerNote": "TV 为系列构成；电影为剧本。",
+    "characterDesign": "堀口悠纪子",
+    "music": "片冈知子",
+    "animation": "京都动画",
+    "artDirector": "田峰育子",
+    "sources": [
+      "https://tamakomarket.com/staff-cast/",
+      "https://tamakolovestory.com/staff-cast/"
+    ]
+  },
+  "music": [
+    {
+      "type": "TV 片头曲",
+      "title": "ドラマチックマーケットライド",
+      "artist": "北白川玉子（CV：洲崎绫）",
+      "description": "由藤本功一作词、片冈知子作曲、宫川弹编曲。",
+      "url": "https://tamakolovestory.com/product/cd/cdTV01/"
+    },
+    {
+      "type": "TV 片尾曲",
+      "title": "ねぐせ",
+      "artist": "北白川玉子（CV：洲崎绫）",
+      "description": "由宫川弹作词、山口优作曲，赤羽俊之与山口优编曲。",
+      "url": "https://tamakolovestory.com/product/cd/cdTV02/"
+    },
+    {
+      "type": "电影主题歌",
+      "title": "プリンシプル",
+      "artist": "洲崎绫",
+      "description": "由爱铃作词、藤本功一作曲、谷口尚久编曲。",
+      "url": "https://tamakolovestory.com/product/cd/cdMovie01/",
+      "officialSampleUrl": "https://www.youtube.com/watch?v=EWMLtvbx2XA",
+      "sampleNote": "官方商品页提供的试听链接；当前环境未完成 YouTube 播放验证。"
+    },
+    {
+      "type": "电影中的歌曲",
+      "title": "こいのうた",
+      "artist": "北白川玉子（CV：洲崎绫）",
+      "description": "由山田尚子作词、山口优作曲、藤本功一编曲，收录于电影主题歌单曲。",
+      "url": "https://tamakolovestory.com/product/cd/cdMovie01/"
+    },
+    {
+      "type": "TV 原声专辑",
+      "title": "Snappy Music Around of Tamako",
+      "artist": "片冈知子、Manual of Errors",
+      "description": "两张 CD 收录 54 曲，包含 TV 版片头、片尾与背景音乐。",
+      "url": "https://tamakolovestory.com/product/cd/cdTV04/"
+    },
+    {
+      "type": "唱片店的剧中曲合集",
+      "title": "星とピエロ",
+      "artist": "剧中曲合辑",
+      "description": "收录 TV 与电影中唱片店“星与小丑”播放的音乐，把街坊的谈话与唱片声保存在同一张专辑里。",
+      "url": "https://tamakolovestory.com/product/cd/cdMovie03/"
+    }
+  ],
+  "musicNote": "Staff 页将音乐署名为片冈知子；TV 与电影原声商品页列为片冈知子、Manual of Errors。两者是不同署名粒度，并不冲突。若只显示一行制作人员，可沿用 Staff 页；原声专辑使用商品页完整署名。",
+  "watchOrder": [
+    "先看《玉子市场》12 集，认识商店街与人物关系。",
+    "再看《玉子爱情故事》，进入高三春天的故事。"
+  ],
+  "sources": [
+    {
+      "title": "TV 官方：北白川家",
+      "url": "https://tamakomarket.com/character/1/"
+    },
+    {
+      "title": "TV 官方：同学们",
+      "url": "https://tamakomarket.com/character/2/"
+    },
+    {
+      "title": "TV 官方：大路家",
+      "url": "https://tamakomarket.com/character/3/"
+    },
+    {
+      "title": "TV 官方：商店街的人们",
+      "url": "https://tamakomarket.com/character/4/"
+    },
+    {
+      "title": "TV 官方：南国来客",
+      "url": "https://tamakomarket.com/character/5/"
+    },
+    {
+      "title": "TV 官方：12 集故事目录",
+      "url": "https://tamakomarket.com/story/"
+    },
+    {
+      "title": "TV 官方：商店街地图",
+      "url": "https://tamakomarket.com/map/"
+    },
+    {
+      "title": "TV 官方：制作人员与配音",
+      "url": "https://tamakomarket.com/staff-cast/"
+    },
+    {
+      "title": "电影官方：角色资料",
+      "url": "https://tamakolovestory.com/character/"
+    },
+    {
+      "title": "电影官方：作品与故事介绍",
+      "url": "https://tamakolovestory.com/introduction/"
+    },
+    {
+      "title": "电影官方：制作人员与配音",
+      "url": "https://tamakolovestory.com/staff-cast/"
+    },
+    {
+      "title": "官方：音乐商品目录",
+      "url": "https://tamakolovestory.com/product/cd/"
+    },
+    {
+      "title": "电影宣传剧照：TBS节目目录",
+      "url": "https://www.tbscontents.com/en/program/tamkolovestory"
+    },
+    {
+      "title": "电影宣传剧照：JFDB / UNIJAPAN",
+      "url": "https://jfdb.jp/title/4162"
+    }
+  ],
+  "movieMoments": [
+    {
+      "alt": "散下头发、戴眼镜的玉子在家中，电影原作画面",
+      "caption": "在家里的时候，也有自己的节奏。"
+    },
+    {
+      "alt": "玉子与饼藏的课堂，电影官方宣传剧照",
+      "caption": "同一间教室，藏着还没说出口的话。"
+    },
+    {
+      "alt": "玉子站在夕阳河岸，电影官方宣传剧照",
+      "caption": "沿着熟悉的河岸，走向新的心情。"
+    }
+  ],
+  "gallery": [
+    {
+      "file": "official/episode-01-04.jpg",
+      "category": "tv",
+      "label": "日常",
+      "title": "今天的年糕，也很甜",
+      "alt": "玉子托着脸微笑",
+      "caption": "从玉屋开始，普通的一天也有可爱的表情。",
+      "credit": "《玉子市场》第 1 集 · 官方剧照",
+      "source": "https://tamakomarket.com/story/1/still/04/"
+    },
+    {
+      "file": "official/episode-03.jpg",
+      "category": "tv",
+      "label": "日常",
+      "title": "放学后的相遇",
+      "alt": "史织戴眼镜捧着德拉走在商店街",
+      "caption": "从一次拜访开始，安静的同学也成为了熟悉的朋友。",
+      "credit": "《玉子市场》第 3 集 · 官方剧照",
+      "source": "https://tamakomarket.com/story/3/still/01/"
+    },
+    {
+      "file": "official/episode-04-03.jpg",
+      "category": "tv",
+      "label": "日常",
+      "title": "祭典的街坊",
+      "alt": "兔子山商店街的人们在祭典中合影",
+      "caption": "大家都在的地方，就是熟悉的商店街。",
+      "credit": "《玉子市场》第 4 集 · 官方剧照",
+      "source": "https://tamakomarket.com/story/4/still/03/"
+    },
+    {
+      "file": "official/movie-glasses.jpg",
+      "category": "movie",
+      "label": "电影",
+      "title": "安静的早晨",
+      "alt": "电影中在家戴眼镜的玉子",
+      "caption": "散下头发，留一点时间给自己。",
+      "credit": "《玉子爱情故事》原作截图 · 图片转载",
+      "source": "https://k.sina.com.cn/article_5864380259_p15d8b576300100dj32.html"
+    },
+    {
+      "file": "official/episode-05.jpg",
+      "category": "tv",
+      "label": "日常",
+      "title": "和朋友一起的夏天",
+      "alt": "玉子与绿、神奈、史织的夏日剧照",
+      "caption": "离开商店街，也有一起出发的朋友。",
+      "credit": "《玉子市场》第 5 集 · 官方剧照",
+      "source": "https://tamakomarket.com/story/5/still/01/"
+    },
+    {
+      "file": "official/hero-background.jpg",
+      "category": "art",
+      "label": "官方绘图",
+      "title": "玉子市场",
+      "alt": "玉子市场官方主视觉",
+      "caption": "玉子、朋友与商店街里的热闹日常。",
+      "credit": "《玉子市场》官方主视觉",
+      "source": "https://tamakomarket.com/"
+    },
+    {
+      "file": "official/episode-06-04.jpg",
+      "category": "tv",
+      "label": "日常",
+      "title": "夏日的街角",
+      "alt": "商店街上的夏日出行",
+      "caption": "帽檐下的阳光，和街坊的招呼声。",
+      "credit": "《玉子市场》第 6 集 · 官方剧照",
+      "source": "https://tamakomarket.com/story/6/still/04/"
+    },
+    {
+      "file": "official/movie-classroom.jpg",
+      "category": "movie",
+      "label": "电影",
+      "title": "我们的教室",
+      "alt": "课堂里的玉子与饼藏",
+      "caption": "熟悉的座位旁，青春正慢慢向前。",
+      "credit": "《玉子爱情故事》TBS 官方剧照",
+      "source": "https://www.tbscontents.com/en/program/tamkolovestory"
+    },
+    {
+      "file": "official/episode-09-04.jpg",
+      "category": "tv",
+      "label": "日常",
+      "title": "风里的那支歌",
+      "alt": "玉子在学校操场上的日常",
+      "caption": "一段熟悉的旋律，藏着家人的故事。",
+      "credit": "《玉子市场》第 9 集 · 官方剧照",
+      "source": "https://tamakomarket.com/story/9/still/04/"
+    },
+    {
+      "file": "official/movie-visual.jpg",
+      "category": "art",
+      "label": "官方绘图",
+      "title": "春日的树影",
+      "alt": "玉子与饼藏在春日树影下的电影主视觉",
+      "caption": "心意，也会像季节一样慢慢变化。",
+      "credit": "《玉子爱情故事》官方主视觉",
+      "source": "https://tamakolovestory.com/"
+    },
+    {
+      "file": "official/episode-10-04.jpg",
+      "category": "tv",
+      "label": "日常",
+      "title": "准备演出的午后",
+      "alt": "玉子与朋友们坐在一起讨论",
+      "caption": "关于舞棒、文化祭，还有大家共同的时间。",
+      "credit": "《玉子市场》第 10 集 · 官方剧照",
+      "source": "https://tamakomarket.com/story/10/still/04/"
+    },
+    {
+      "file": "official/movie-riverbank.jpg",
+      "category": "movie",
+      "label": "电影",
+      "title": "河岸的光",
+      "alt": "夕阳中的玉子在河岸微笑",
+      "caption": "向前走一点，新的心情就在前面。",
+      "credit": "《玉子爱情故事》JFDB 宣传剧照",
+      "source": "https://jfdb.jp/title/4162"
+    }
+  ]
+}

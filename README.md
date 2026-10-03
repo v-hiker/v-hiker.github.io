@@ -1,6 +1,6 @@
-# 北白川玉子 · 今天，也有一点甜。
+# 北白川玉子 · 把每天，做成一点甜。
 
-温暖的奶油白与樱粉角色宣传页，包含角色介绍、两部作品、六张画廊图片，以及三张眼镜玉子主题插画。
+奶油白与樱粉的角色／作品专题页，包含角色资料、六位人物关系、五个商店街场所、两部作品、十二集导览、音乐介绍和十二幅原作画廊。首屏使用官方主视觉拼贴；电影家居镜头自然融入日常图组。
 
 ## 访问与部署
 
@@ -15,7 +15,9 @@
 - `index.html`：页面文案、导航、角色信息和画廊条目。
 - `assets/tamako/style.css`：电脑和手机布局、配色与字体。
 - `assets/tamako/app.js`：手机导航、画廊分类、大图查看及键盘操作。
-- 画廊支持分类筛选、点击放大、上一张/下一张、方向键和 Escape 关闭。
+- `assets/tamako/content.json`：经过来源核对的内容与画廊数据。
+- `scripts/build-home.py`：从内容生成已提交的静态首页。仅修改内容后需要运行，生成时使用 Python 与 Pillow；部署无需构建。
+- 画廊按日常、电影与官方绘图筛选，支持点击放大、上一张/下一张、方向键、Escape 关闭及图片出处链接。十二集导览使用原生可展开卡片。
 - 尊重系统的减少动态效果设置；主要图片在本地，非首屏图片懒加载。
 
 ## 素材来源
@@ -27,9 +29,11 @@
 - https://tamakomarket.com/story/
 - https://tamakolovestory.com/introduction/
 
-官方图片的来源与原始尺寸在 `assets/tamako/official-sources.json`。原始作品图片保持原有版权信息。
+当前页面素材的来源、尺寸、类型与 SHA-256 在 `assets/tamako/official/manifest.json`。官方原图保留原有版权信息，没有生成插画混入画廊。
 
-`hero-market.png` 和三张 `glasses-*.png` 是根据角色参考生成的主题插画，并非电影截图。提示词及来源分别在 `hero-prompts.json`、`glasses-prompts.json`。眼镜造型的本地绘图参考来自电影镜头转载，未将转载图作为网页图片发布。
+电影教室画面来自 TBS 节目目录，河岸画面来自 JFDB／UNIJAPAN 的电影宣传资料。家居眼镜镜头是已核实的电影画面转载，尚未定位官方上游帧；在素材记录和大图出处中明确标注，未冒充官方发布图。
+
+早期方案的 `hero-market.png`、`glasses-*.png` 与相应提示词留作设计历史记录，当前主页不引用。`official-sources.json` 为初版的三图记录，当前版本以 `official/manifest.json` 为准。
 
 ## 博客保留
 

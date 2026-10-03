@@ -32,6 +32,7 @@ function setFilter(category) {
     button.setAttribute('aria-pressed', String(selected));
   });
   galleryItems.forEach(item => { item.hidden = category !== 'all' && item.dataset.category !== category; });
+  document.querySelector('#gallery-count').textContent = galleryItems.filter(item => !item.hidden).length + ' 幅画面';
 }
 filters.forEach(button => button.addEventListener('click', () => setFilter(button.dataset.filter)));
 document.querySelectorAll('[data-gallery-filter]').forEach(link => {
@@ -46,7 +47,14 @@ function displayImage(index) {
   lightboxImage.alt = sourceImage.alt;
   document.querySelector('#lightbox-title').textContent = item.dataset.title;
   document.querySelector('#lightbox-caption').textContent = item.dataset.caption;
-  document.querySelector('#lightbox-credit').textContent = item.dataset.credit;
+  const credit = document.querySelector('#lightbox-credit');
+  credit.replaceChildren(document.createTextNode(item.dataset.credit + ' · '));
+  const sourceLink = document.createElement('a');
+  sourceLink.href = item.dataset.source;
+  sourceLink.target = '_blank';
+  sourceLink.rel = 'noopener noreferrer';
+  sourceLink.textContent = '查看出处 ↗';
+  credit.append(sourceLink);
   document.querySelector('#lightbox-counter').textContent = (activeIndex + 1) + ' / ' + activeItems.length;
 }
 galleryItems.forEach(item => item.addEventListener('click', () => {
@@ -84,5 +92,5 @@ if ('IntersectionObserver' in window) {
       });
     }
   }, { rootMargin: '-12% 0px -58% 0px', threshold: 0 });
-  ['about', 'stories', 'gallery'].forEach(id => observer.observe(document.getElementById(id)));
+  ['about', 'friends', 'street', 'stories', 'gallery'].forEach(id => observer.observe(document.getElementById(id)));
 }
