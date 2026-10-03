@@ -160,7 +160,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; }
 }
 .about-picture { position: relative; width: 92%; max-width: 400px; margin: auto; }
 .photo-frame { position: relative; z-index: 1; padding: 11px 11px 46px; background: #fff; box-shadow: 0 16px 52px #704f3514, 0 1px 5px #704f350e; transform: rotate(-3deg); }
-.photo-frame img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.photo-frame img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
 .photo-note { position: absolute; left: 0; right: 0; bottom: 10px; color: #af8f85; font-family: var(--hand); font-size: 14px; letter-spacing: .16em; text-align: center; line-height: 2; }
 .about-picture::before { content: ""; position: absolute; width: 88%; height: 90%; left: 6%; top: 6%; border-radius: 48% 52% 45% 55%; background: var(--pink-light); transform: rotate(7deg); }
 .about-flower { position: absolute; z-index: 2; bottom: -24px; right: -18px; color: #efbac5; font-size: 61px; line-height: 1; transform: rotate(10deg); }
