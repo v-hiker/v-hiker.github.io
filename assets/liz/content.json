@@ -1,0 +1,295 @@
+{
+  "film": {
+    "releaseDate": "2018.04.21",
+    "runtime": "90 分钟",
+    "copyright": "©武田綾乃・宝島社／『響け！』製作委員会"
+  },
+  "introduction": [
+    "铠塚霙负责双簧管，伞木希美负责长笛。升入高三，两人即将迎来高中最后一次吹奏乐比赛。自由曲选定为《利兹与青鸟》，其中有一段双簧管与长笛相互应答的独奏。一起上学、一起练习的日子仍在继续，但对霙来说，毕业也意味着必须面对与希美分开的可能。",
+    "这部电影取材于武田绫乃的《吹响！上低音号》，把视线集中在霙与希美的关系上。校园里的练习与童话中的相遇交替出现：独居湖畔的利兹遇见一位神秘少女，两人的生活由此改变。霙与希美把自己放进这个故事，也在演奏中尝试理解彼此。电影由京都动画制作，山田尚子执导，吉田玲子编剧。"
+  ],
+  "introNote": "故事发生在北宇治高中吹奏乐部，两位少女的高中三年级。",
+  "characters": [
+    {
+      "key": "mizore",
+      "name": "铠塚霙",
+      "jaName": "鎧塚みぞれ",
+      "instrument": "双簧管",
+      "description": "安静而不善表达，拥有出色的双簧管演奏能力。中学时，希美主动向独来独往的她搭话；从那以后，希美成为她生活中最重要的人。她很珍惜两人相处的日常，却也始终害怕它会结束。",
+      "enInstrument": "OBOE",
+      "cv": "种崎敦美",
+      "file": "still-mizore-oboe.jpg",
+      "alt": "霙在音乐教室里演奏双簧管"
+    },
+    {
+      "key": "nozomi",
+      "name": "伞木希美",
+      "jaName": "傘木希美",
+      "instrument": "长笛",
+      "description": "明朗、活跃，喜欢音乐，也有许多朋友。她与霙来自同一所初中，曾在高一退部，又在高二回到吹奏乐部。重返练习室后，两人重新一起演奏；但希美对这份友情的理解，与霙并不完全相同。",
+      "enInstrument": "FLUTE",
+      "cv": "东山奈央",
+      "file": "still-nozomi-flute.jpg",
+      "alt": "希美在音乐教室里演奏长笛"
+    }
+  ],
+  "worlds": [
+    {
+      "file": "still-fairytale-forest.jpg",
+      "alt": "利兹与青鸟少女在森林中相处",
+      "key": "fairytale",
+      "overline": "THE FAIRYTALE",
+      "title": "湖畔的利兹，与化作少女的青鸟。",
+      "description": "独自住在湖边的利兹，在暴风雨之后遇见一位神秘少女。她们一起生活，分享每天的小事。柔软的水彩、绿色的森林与蓝色的羽毛，让这段相遇拥有童话的质地。"
+    },
+    {
+      "file": "still-music-room.jpg",
+      "alt": "霙与希美并肩坐在明亮的音乐教室里",
+      "key": "school",
+      "overline": "THE SCHOOL",
+      "title": "练习室里的她们，试着理解彼此。",
+      "description": "霙与希美正在练习的自由曲，同样名为《利兹与青鸟》。童话里的牵挂，渐渐与校园里的心情重叠。双簧管与长笛轮流发声；面对同一个故事，两人也在寻找各自的答案。"
+    }
+  ],
+  "listening": [
+    {
+      "title": "脚步与停顿，也是一种对话",
+      "description": "两人并肩行走时的步速、视线与停顿，可以当作理解关系的线索：谁在追随，谁在等待，谁先转过身。对话没有说出的部分，常常留在这些细小动作里。观看时不妨暂时把注意力从台词移向身体之间的距离。"
+    },
+    {
+      "title": "乐器声接住了说不出口的话",
+      "description": "双簧管与长笛的独奏并非只有音准与技巧的问题。相互应答的乐句，也可以听成两人试图靠近对方的过程；呼吸、进入时机与音色，让情绪拥有了台词以外的出口。这里的演奏既是练习，也是人物之间的交流。"
+    },
+    {
+      "title": "学校里的物件也参与了音乐",
+      "description": "配乐把注意力延伸到人物周围的空间。山田尚子在官方访谈中提到，牛尾宪辅曾到学校采集墙壁、玻璃等物件的声音。把这些声音与走廊、教室的画面放在一起听，日常环境仿佛也在回应两人的情绪；校园与童话因而呈现出不同的听觉触感。"
+    }
+  ],
+  "music": [
+    {
+      "type": "主题歌",
+      "title": "Songbirds",
+      "artist": "Homecomings",
+      "url": "https://liz-bluebird.com/#music"
+    },
+    {
+      "type": "电影原声",
+      "title": "girls,dance,staircase",
+      "artist": "kensuke ushio／松田彬人",
+      "url": "https://lnk.to/LACA-9595"
+    },
+    {
+      "type": "剧中吹奏乐曲",
+      "title": "利兹与青鸟",
+      "artist": "松田彬人",
+      "url": "https://liz-bluebird.com/news/?id=58"
+    }
+  ],
+  "credits": [
+    {
+      "label": "原作",
+      "value": "武田绫乃"
+    },
+    {
+      "label": "监督",
+      "value": "山田尚子"
+    },
+    {
+      "label": "脚本",
+      "value": "吉田玲子"
+    },
+    {
+      "label": "角色设计",
+      "value": "西屋太志"
+    },
+    {
+      "label": "电影配乐",
+      "value": "牛尾宪辅"
+    },
+    {
+      "label": "童话音乐／吹奏乐曲",
+      "value": "松田彬人"
+    },
+    {
+      "label": "动画制作",
+      "value": "京都动画"
+    },
+    {
+      "label": "发行",
+      "value": "松竹"
+    }
+  ],
+  "gallery": [
+    {
+      "file": "still-mizore-oboe.jpg",
+      "alt": "音乐教室中，霙手持双簧管演奏",
+      "category": "school",
+      "title": "双簧管的声音",
+      "caption": "霙在音乐教室里演奏双簧管。",
+      "credit": "松竹 · 电影剧照",
+      "source": "https://www.shochiku.co.jp/cinema/lineup/liz-bluebird/",
+      "label": "FILM / 校园"
+    },
+    {
+      "file": "still-nozomi-flute.jpg",
+      "alt": "希美在窗边演奏长笛",
+      "category": "school",
+      "title": "长笛的回应",
+      "caption": "希美在音乐教室里演奏长笛。",
+      "credit": "松竹 · 电影剧照",
+      "source": "https://www.shochiku.co.jp/cinema/lineup/liz-bluebird/",
+      "label": "FILM / 校园"
+    },
+    {
+      "file": "still-music-room.jpg",
+      "alt": "从背后望向坐在音乐教室里的霙与希美",
+      "category": "school",
+      "title": "同一间练习室",
+      "caption": "明亮的教室里，两人并肩坐着。",
+      "credit": "松竹 · 电影剧照",
+      "source": "https://www.shochiku.co.jp/cinema/lineup/liz-bluebird/",
+      "label": "FILM / 校园"
+    },
+    {
+      "file": "still-blue-feather.jpg",
+      "alt": "希美背对镜头，将蓝色羽毛举向天空",
+      "category": "school",
+      "title": "一片蓝色的羽毛",
+      "caption": "希美抬起手，让羽毛停在天光之间。",
+      "credit": "松竹 · 电影剧照",
+      "source": "https://www.shochiku.co.jp/cinema/lineup/liz-bluebird/",
+      "label": "FILM / 校园"
+    },
+    {
+      "file": "still-school-sunset.jpg",
+      "alt": "晚霞下，一位少女坐在山坡远处的长椅上",
+      "category": "school",
+      "title": "天色慢慢变晚",
+      "caption": "校园之外，远处的长椅与晚霞。",
+      "credit": "松竹 · 电影剧照",
+      "source": "https://www.shochiku.co.jp/cinema/lineup/liz-bluebird/",
+      "label": "FILM / 校园"
+    },
+    {
+      "file": "still-fairytale-forest.jpg",
+      "alt": "童话中的利兹抚摸青鸟少女的头发",
+      "category": "fairytale",
+      "title": "森林里的相遇",
+      "caption": "利兹与少女，在水彩描绘的森林中靠近。",
+      "credit": "松竹 · 电影剧照",
+      "source": "https://www.shochiku.co.jp/cinema/lineup/liz-bluebird/",
+      "label": "FILM / 童话"
+    },
+    {
+      "file": "still-fairytale-hill.jpg",
+      "alt": "水彩绿色山坡上，利兹与少女的远景",
+      "category": "fairytale",
+      "title": "绿色山丘",
+      "caption": "两个人的身影，融在辽阔的绿色里。",
+      "credit": "松竹 · 电影剧照",
+      "source": "https://www.shochiku.co.jp/cinema/lineup/liz-bluebird/",
+      "label": "FILM / 童话"
+    },
+    {
+      "file": "still-bluebird.jpg",
+      "alt": "白色背景上，一只水彩绘制的蓝色鸟展开翅膀",
+      "category": "fairytale",
+      "title": "青鸟",
+      "caption": "纸白留住一只飞翔的青鸟。",
+      "credit": "松竹 · 电影剧照",
+      "source": "https://www.shochiku.co.jp/cinema/lineup/liz-bluebird/",
+      "label": "FILM / 童话"
+    },
+    {
+      "file": "hero-keyvisual.jpg",
+      "alt": "霙与希美合奏，窗外是童话森林的官方主视觉",
+      "category": "art",
+      "title": "合奏的主视觉",
+      "caption": "音乐教室与童话森林，在官方主视觉里交织。",
+      "credit": "作品官网 · 官方主视觉",
+      "source": "https://liz-bluebird.com/",
+      "label": "OFFICIAL ART / 官方绘图"
+    },
+    {
+      "file": "poster.jpg",
+      "alt": "利兹与青鸟的官方电影海报，霙与希美位于蓝绿色校园中",
+      "category": "art",
+      "title": "2018 年的电影海报",
+      "caption": "蓝绿色的校园、两位少女与一片羽毛。原始海报保留上映日期与制作信息。",
+      "credit": "松竹 · 官方海报",
+      "source": "https://www.shochiku.co.jp/cinema/lineup/liz-bluebird/",
+      "label": "OFFICIAL ART / 官方绘图"
+    }
+  ],
+  "sources": [
+    {
+      "title": "《利兹与青鸟》官方网站",
+      "url": "https://liz-bluebird.com/"
+    },
+    {
+      "title": "京都动画 · 作品信息",
+      "url": "https://www.kyotoanimation.co.jp/works/liz/"
+    },
+    {
+      "title": "松竹 · 作品信息",
+      "url": "https://www.shochiku.co.jp/cinema/lineup/liz-bluebird/"
+    },
+    {
+      "title": "JFDB · 利兹与青鸟",
+      "url": "https://jfdb.jp/title/8168"
+    },
+    {
+      "title": "官方人物档案 · 铠塚霙",
+      "url": "https://liz-bluebird.com/img/character/mizore.png"
+    },
+    {
+      "title": "官方人物档案 · 伞木希美",
+      "url": "https://liz-bluebird.com/img/character/nozomi.png"
+    },
+    {
+      "title": "官方校园剧情梗概",
+      "url": "https://liz-bluebird.com/img/story/story.png"
+    },
+    {
+      "title": "官方童话梗概",
+      "url": "https://liz-bluebird.com/img/story/lizStory.png"
+    },
+    {
+      "title": "山田尚子导演 · 官方访谈",
+      "url": "https://liz-bluebird.com/interview/"
+    },
+    {
+      "title": "Homecomings · 官方访谈",
+      "url": "https://liz-bluebird.com/news/?id=17"
+    },
+    {
+      "title": "《吹响！上低音号》官方网站 · 原声唱片资料",
+      "url": "https://anime-eupho.com/news/?id=398"
+    },
+    {
+      "title": "官方乐谱发行资料",
+      "url": "https://liz-bluebird.com/news/?id=58"
+    },
+    {
+      "title": "官方制作特辑",
+      "url": "https://liz-bluebird.com/news/?id=36"
+    }
+  ],
+  "trailerUrl": "https://www.youtube.com/watch?v=MBDaON4IPnc",
+  "images": {
+    "cover": {
+      "file": "hero-keyvisual.jpg",
+      "alt": "霙与希美在音乐教室合奏，窗外铺展开童话的水彩森林"
+    },
+    "intro": {
+      "file": "still-school-sunset.jpg",
+      "alt": "晚霞下，少女坐在山坡远处的长椅上",
+      "caption": "校园之外，天色慢慢变晚。"
+    },
+    "listening": {
+      "file": "still-blue-feather.jpg",
+      "alt": "希美把一片蓝色的羽毛举向天空",
+      "caption": "一片羽毛，一次抬手，片刻的停顿。"
+    }
+  }
+}
