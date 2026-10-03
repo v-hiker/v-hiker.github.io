@@ -1,0 +1,15 @@
+{
+  "source_commit": "ff4c4fa7052d01c3c3de0deaf4d09db72ff3f75a",
+  "base_path": "/blog/",
+  "copied_files": 110,
+  "html_pages": 47,
+  "article_pages": 11,
+  "search_entries": 11,
+  "local_references_checked": 1723,
+  "references_outside_blog": [],
+  "missing_local_references": [],
+  "text_utf8_without_bom": true,
+  "legacy_files_unchanged": true,
+  "legacy_text_comparison": "Git checkout line endings normalized to LF",
+  "legacy_article_urls_preserved": true
+}

@@ -1,0 +1,40 @@
+{
+  "verified_date": "2026-10-03",
+  "verification": "All three files returned HTTP 200, have JPEG magic bytes, and were opened for visual inspection. Original image contents were preserved without cropping or re-encoding.",
+  "copyright": "©京都アニメーション／うさぎ山商店街",
+  "images": [
+    {
+      "file": "market-street.jpg",
+      "title": "兔子山商店街入口",
+      "source_url": "https://tamakomarket.com/img/map/still/01.jpg",
+      "source_page": "https://tamakomarket.com/map/still/01/",
+      "http_status": 200,
+      "format": "JPEG",
+      "width": 600,
+      "height": 400,
+      "visual_note": "Official shopping street entrance still presented within a white photo frame."
+    },
+    {
+      "file": "tamako-winter.jpg",
+      "title": "冬日的玉子",
+      "source_url": "https://tamakomarket.com/img/story/1/still/01.jpg",
+      "source_page": "https://tamakomarket.com/story/1/still/01/",
+      "http_status": 200,
+      "format": "JPEG",
+      "width": 480,
+      "height": 270,
+      "visual_note": "Official episode 1 still of Tamako wearing a red scarf; copyright text is part of the original image."
+    },
+    {
+      "file": "love-story.jpg",
+      "title": "玉子爱情故事主视觉",
+      "source_url": "https://tamakolovestory.com/images/top/mainVisual.jpg",
+      "source_page": "https://tamakolovestory.com/",
+      "http_status": 200,
+      "format": "JPEG",
+      "width": 1818,
+      "height": 1920,
+      "visual_note": "Official text-free movie visual of Tamako and Mochizo on a sunlit tree-lined path."
+    }
+  ]
+}
